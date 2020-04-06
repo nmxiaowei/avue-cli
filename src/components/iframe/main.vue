@@ -36,10 +36,9 @@ export default {
   },
   computed: {
     ...mapGetters(["screen"]),
-    src () {
-      return this.$route.query.src
-        ? this.$route.query.src.replace("$", "&")
-        : this.urlPath;
+    src() {
+      const src = this.$route.query.src
+      return src ? src.replace(/\$/g, '&') : this.urlPath
     }
   },
   methods: {
