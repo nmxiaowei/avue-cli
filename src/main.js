@@ -18,7 +18,8 @@ import i18n from './lang' // Internationalization
 import './styles/common.scss';
 import basicBlock from './components/basic-block/main'
 import basicContainer from './components/basic-container/main'
-
+import crudCommon from '@/mixins/crud.js'
+window.$crudCommon = crudCommon
 Vue.use(router)
 Vue.use(VueAxios, axios)
 Vue.use(Element, {

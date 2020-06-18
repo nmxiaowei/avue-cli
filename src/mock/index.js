@@ -1,6 +1,6 @@
 import user from './user';
 import menu from './menu';
-
+import crud from './crud';
 /**
  * 模拟数据mock
  * 
@@ -10,3 +10,5 @@ import menu from './menu';
 user({ mock: true });
 
 menu({ mock: true });
+
+crud({ mock: true });

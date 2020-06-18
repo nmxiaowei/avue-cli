@@ -62,6 +62,7 @@ export default {
     api: 'api',
     logs: 'logs',
     table: 'table',
+    crud: 'crud',
     form: 'form',
     top: 'backtop',
     affix: 'affix',

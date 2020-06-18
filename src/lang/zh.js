@@ -61,6 +61,7 @@ export default {
     api: '全局函数',
     logs: '日志监控',
     table: '表格',
+    crud: '模板',
     form: '表单',
     data: '数据展示',
     permission: '权限',
