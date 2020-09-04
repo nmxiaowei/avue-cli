@@ -4,7 +4,7 @@ Vue.mixin({
   beforeRouteEnter: function (to, from, next) {
     next(() => {
       let avueView = document.getElementById('avue-view');
-      if (to.meta.savedPosition) {
+      if (avueView && to.meta.savedPosition) {
         avueView.scrollTop = to.meta.savedPosition
       }
     })
@@ -12,7 +12,9 @@ Vue.mixin({
   beforeRouteLeave: function (to, from, next) {
     let avueView = document.getElementById('avue-view');
     if (from && from.meta.keepAlive) {
-      from.meta.savedPosition = avueView.scrollTop
+      if (avueView) {
+        from.meta.savedPosition = avueView.scrollTop
+      }
       const result = this.$route.meta.keepAlive === true && store.state.tags.tagList.some(ele => {
         return ele.value === this.$route.fullPath;
       })
