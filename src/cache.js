@@ -1,12 +1,23 @@
 import Vue from 'vue'
 import store from './store';
 Vue.mixin({
+  beforeRouteEnter: function (to, from, next) {
+    next(() => {
+      let avueView = document.getElementById('avue-view');
+      if (to.meta.savedPosition) {
+        avueView.scrollTop = to.meta.savedPosition
+      }
+    })
+  },
   beforeRouteLeave: function (to, from, next) {
-    if (this.$route.meta.keepAlive === true) {
+    let avueView = document.getElementById('avue-view');
+    if (from && from.meta.keepAlive) {
+      from.meta.savedPosition = avueView.scrollTop
       const result = this.$route.meta.keepAlive === true && store.state.tags.tagList.some(ele => {
         return ele.value === this.$route.fullPath;
       })
       if (this.$vnode && !result) {
+        from.meta.savedPosition = 0
         if (this.$vnode.parent && this.$vnode.parent.componentInstance && this.$vnode.parent.componentInstance.cache) {
           if (this.$vnode.componentOptions) {
             var key = this.$vnode.key == null
@@ -27,7 +38,6 @@ Vue.mixin({
         }
       }
     }
-
     next();
   },
 });

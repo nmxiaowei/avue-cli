@@ -17,19 +17,6 @@ Vue.use(VueRouter)
 //创建路由
 export const createRouter = () => new VueRouter({
   mode: 'history',
-  scrollBehavior (to, from, savedPosition) {
-    if (savedPosition) {
-      return savedPosition
-    } else {
-      if (from.meta.keepAlive) {
-        from.meta.savedPosition = document.body.scrollTop
-      }
-      return {
-        x: 0,
-        y: to.meta.savedPosition || 0
-      }
-    }
-  },
   routes: [...PageRouter, ...ViewsRouter]
 })
 const Router = createRouter()
