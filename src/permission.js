@@ -34,7 +34,9 @@ router.beforeEach((to, from, next) => {
         const label = to.query.name || to.name;
         const meta = to.meta || router.$avueRouter.meta || {};
         const i18n = to.query.i18n;
-        if (meta.isTab !== false && !validatenull(value) && !validatenull(label)) {
+        if (to.query.target) {
+          window.open(value)
+        } else if (meta.isTab !== false && !validatenull(value) && !validatenull(label)) {
           store.commit('ADD_TAG', {
             label: label,
             value: value,
