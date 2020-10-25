@@ -33,5 +33,8 @@ module.exports = {
     entry
       .add('@/mock')
       .end()
+  },
+  css: {
+      extract: { ignoreOrder: true }
   }
 }
