@@ -42,7 +42,7 @@ const first = [{
   path: 'https://avuejs.com',
   icon: 'icon-caidan',
   meta: {
-    target: '_self',
+    target: '_blank',
     i18n: 'website',
   },
   children: []
