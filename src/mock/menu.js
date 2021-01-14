@@ -38,6 +38,15 @@ const top = [{
   parentId: 3
 }]
 const first = [{
+  label: "官网",
+  path: 'https://avuejs.com',
+  icon: 'icon-caidan',
+  meta: {
+    target: '_self',
+    i18n: 'website',
+  },
+  children: []
+}, {
   label: "缓冲",
   path: '/cache',
   component: 'views/util/cache',
