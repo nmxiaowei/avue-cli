@@ -8,7 +8,7 @@
 
 <script>
 export default {
-  data() {
+  data () {
     return {
       form: {},
       option: {
@@ -28,7 +28,7 @@ export default {
           {
             label: "再次输入密码",
             prop: "password",
-            type: "newpassword",
+            type: "password",
             row: true
           },
           {
