@@ -26,19 +26,17 @@
              v-show="!isSearch">
           <keep-alive>
             <router-view class="avue-view"
-                         v-if="$route.meta.keepAlive" />
+                         v-if="$route.meta.keepAlive && isRefresh" />
           </keep-alive>
           <router-view class="avue-view"
-                       v-if="!$route.meta.keepAlive" />
+                       v-if="!$route.meta.keepAlive && isRefresh" />
+        </div>
+        <div class="avue-footer">
+          <p class="copyright">© 2018-2021 Avue designed by smallwei</p>
         </div>
       </div>
     </div>
-    <!-- <el-footer class="avue-footer">
-      <img src="/svg/logo.svg"
-           alt=""
-           class="logo">
-      <p class="copyright">© 2018 Avue designed by smallwei</p>
-    </el-footer> -->
+
     <div class="avue-shade"
          @click="showCollapse"></div>
   </div>
@@ -51,12 +49,14 @@ import screenshot from './screenshot';
 import search from "./search";
 import top from "./top/";
 import sidebar from "./sidebar/";
+import logo from "./logo";
 import admin from "@/util/admin";
 import { validatenull } from "@/util/validate";
 import { calcDate } from "@/util/date.js";
 import { getStore } from "@/util/store.js";
 export default {
   components: {
+    logo,
     top,
     tags,
     search,
@@ -86,7 +86,7 @@ export default {
   mounted () {
     this.init();
   },
-  computed: mapGetters(["isMenu", "isLock", "isCollapse", "website", "menu"]),
+  computed: mapGetters(["isRefresh", "isMenu", "isLock", "isCollapse", "website", "menu"]),
   props: [],
   methods: {
     showCollapse () {

@@ -23,6 +23,13 @@
                      v-for="item in tagList"
                      :label="generateTitle(item)"
                      :name="item.value">
+          <span slot="label">
+            {{generateTitle(item)}}
+            <i class="el-icon-refresh"
+               :class="{'turn':refresh}"
+               @click="handleRefresh"
+               v-if="active==item.value"></i>
+          </span>
         </el-tab-pane>
 
       </el-tabs>
@@ -48,6 +55,7 @@ export default {
   name: "tags",
   data () {
     return {
+      refresh: false,
       active: "",
       contentmenuX: "",
       contentmenuY: "",
@@ -76,6 +84,16 @@ export default {
     }
   },
   methods: {
+    handleRefresh () {
+      this.refresh = true;
+      this.$store.commit('SET_IS_REFRESH', false);
+      setTimeout(() => {
+        this.$store.commit('SET_IS_REFRESH', true);
+      }, 100)
+      setTimeout(() => {
+        this.refresh = false;
+      }, 1000)
+    },
     generateTitle (item) {
       return this.$router.$avueRouter.generateTitle(
         item.label,

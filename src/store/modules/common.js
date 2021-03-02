@@ -10,6 +10,7 @@ const common = {
     isCollapse: false,
     isFullScren: false,
     isMenu: true,
+    isRefresh: true,
     isShade: false,
     screen: -1,
     isLock: getStore({ name: 'isLock' }) || false,
@@ -43,6 +44,9 @@ const common = {
     },
     SET_IS_MENU: (state, menu) => {
       state.isMenu = menu;
+    },
+    SET_IS_REFRESH: (state, refresh) => {
+      state.isRefresh = refresh;
     },
     SET_FULLSCREN: (state) => {
       state.isFullScren = !state.isFullScren;
