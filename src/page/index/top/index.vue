@@ -3,23 +3,23 @@
     <div class="top-bar__left">
       <div class="avue-breadcrumb"
            :class="[{ 'avue-breadcrumb--active': isCollapse }]"
-           v-if="showCollapse">
+           v-if="setting.collapse&&!isHorizontal">
         <i class="icon-navicon"
            @click="setCollapse"></i>
       </div>
     </div>
     <div class="top-bar__title">
       <div class="top-bar__item top-bar__item--show"
-           v-if="showMenu">
+           v-if="setting.menu">
         <top-menu ref="topMenu"></top-menu>
       </div>
       <span class="top-bar__item"
-            v-if="showSearch">
+            v-if="setting.search">
         <top-search></top-search>
       </span>
     </div>
     <div class="top-bar__right">
-      <el-tooltip v-if="showColor"
+      <el-tooltip v-if="setting.color"
                   effect="dark"
                   :content="$t('navbar.color')"
                   placement="bottom">
@@ -27,7 +27,7 @@
           <top-color></top-color>
         </div>
       </el-tooltip>
-      <el-tooltip v-if="showDebug"
+      <el-tooltip v-if="setting.debug"
                   effect="dark"
                   :content="logsFlag?$t('navbar.bug'):logsLen+$t('navbar.bugs')"
                   placement="bottom">
@@ -35,7 +35,7 @@
           <top-logs></top-logs>
         </div>
       </el-tooltip>
-      <el-tooltip v-if="showLock"
+      <el-tooltip v-if="setting.lock"
                   effect="dark"
                   :content="$t('navbar.lock')"
                   placement="bottom">
@@ -43,7 +43,7 @@
           <top-lock></top-lock>
         </div>
       </el-tooltip>
-      <el-tooltip v-if="showTheme"
+      <el-tooltip v-if="setting.theme"
                   effect="dark"
                   :content="$t('navbar.theme')"
                   placement="bottom">
@@ -65,7 +65,7 @@
           <top-lang></top-lang>
         </div>
       </el-tooltip>
-      <el-tooltip v-if="showFullScren"
+      <el-tooltip v-if="setting.fullscren"
                   effect="dark"
                   :content="isFullScren?$t('navbar.screenfullF'):$t('navbar.screenfull')"
                   placement="bottom">
@@ -100,7 +100,7 @@
 </template>
 <script>
 import { resetRouter } from '@/router/router'
-import { mapGetters, mapState } from "vuex";
+import { mapGetters } from "vuex";
 import { fullscreenToggel, listenfullscreen } from "@/util/util";
 import topLock from "./top-lock";
 import topMenu from "./top-menu";
@@ -131,17 +131,8 @@ export default {
     listenfullscreen(this.setScreen);
   },
   computed: {
-    ...mapState({
-      showDebug: state => state.common.showDebug,
-      showTheme: state => state.common.showTheme,
-      showLock: state => state.common.showLock,
-      showFullScren: state => state.common.showFullScren,
-      showCollapse: state => state.common.showCollapse,
-      showSearch: state => state.common.showSearch,
-      showMenu: state => state.common.showMenu,
-      showColor: state => state.common.showColor
-    }),
     ...mapGetters([
+      "setting",
       "userInfo",
       "isFullScren",
       "tagWel",
@@ -149,7 +140,8 @@ export default {
       "isCollapse",
       "tag",
       "logsLen",
-      "logsFlag"
+      "logsFlag",
+      "isHorizontal"
     ])
   },
   methods: {

@@ -4,8 +4,7 @@
       <el-menu-item v-if="validatenull(item[childrenKey]) && vaildRoles(item)"
                     :index="item[pathKey]"
                     @click="open(item)"
-                    :key="item[labelKey]"
-                    :class="{'is-active':vaildAvtive(item)}">
+                    :key="item[labelKey]">
         <i :class="item[iconKey]"></i>
         <span slot="title"
               :alt="item[pathKey]">{{generateTitle(item)}}</span>
@@ -19,9 +18,8 @@
                 :class="{'el-menu--display':collapse && first}">{{generateTitle(item)}}</span>
         </template>
         <template v-for="(child,cindex) in item[childrenKey]">
-          <el-menu-item :index="child[pathKey],cindex"
+          <el-menu-item :index="child[pathKey]+','+cindex"
                         @click="open(child)"
-                        :class="{'is-active':vaildAvtive(child)}"
                         v-if="validatenull(child[childrenKey])"
                         :key="child[labelKey]">
             <i :class="child[iconKey]"></i>

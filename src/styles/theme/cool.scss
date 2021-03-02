@@ -27,7 +27,7 @@
           }
       }
   }
-.avue-header{
+.avue-top{
   background: linear-gradient(120deg,#25aff3,#008ad3);
 }
 .avue-tags {
@@ -90,7 +90,6 @@
 .avue-sidebar{
   box-shadow: 2px 0 6px rgba(0, 21, 41, 0.15);
   background-color: #fff;
-  padding-top: 70px;
   .el-menu-item,.el-submenu__title{
     font-size: 13px;
     i,span{

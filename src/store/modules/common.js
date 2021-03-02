@@ -11,18 +11,8 @@ const common = {
     isFullScren: false,
     isMenu: true,
     isRefresh: true,
-    isShade: false,
     screen: -1,
-    isLock: getStore({ name: 'isLock' }) || false,
-    showTag: true,
-    showDebug: true,
-    showCollapse: true,
-    showSearch: true,
-    showLock: true,
-    showFullScren: true,
-    showTheme: true,
-    showMenu: true,
-    showColor: true,
+    isLock: getStore({ name: 'isLock' }),
     colorName: getStore({ name: 'colorName' }) || '#409EFF',
     themeName: getStore({ name: 'themeName' }) || 'default',
     lockPasswd: getStore({ name: 'lockPasswd' }) || '',
@@ -35,9 +25,6 @@ const common = {
         name: 'language',
         content: state.language
       })
-    },
-    SET_SHADE: (state, active) => {
-      state.isShade = active;
     },
     SET_COLLAPSE: (state) => {
       state.isCollapse = !state.isCollapse;

@@ -1,5 +1,4 @@
-.avue-left,
-.avue-header,
+.avue-sidebar,
 .avue-top,
 .avue-logo,
 .avue-layout
@@ -8,8 +7,36 @@
     transition: all .3s;
 }
 .avue-layout{
-  height: auto;
+  display: flex;
+  height: 100%;
   overflow: hidden;
+  &--horizontal{
+    flex-direction: column;
+    .avue-sidebar {
+      width: 100%;
+      height: 64px;
+      display: flex;
+      .el-menu-item.is-active:before,.el-submenu__title.is-active:before{
+        width: 100%;
+        height: 4px;
+        top:inherit;
+        bottom:0;
+      }
+    }
+    .avue-menu{
+      width: calc(100% - 240px);
+      height: 100%;
+    }
+    .el-menu--horizontal,.menu-wrapper,.el-menu-item{
+      height: 100%;
+    }
+    .menu-wrapper{
+      display: flex;
+    }
+    .avue-logo{
+      width: 240px;
+    }
+  }
 }
 .avue-contail {
     width: 100%;
@@ -18,53 +45,35 @@
     background-size: 100%;
     background-repeat: no-repeat;
 }
-
-
-.avue-left {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 240px;
-    height: 100%;
-    z-index: 1025;
+.avue-top{
+  background-color: #fff;
 }
 
+
+.avue-sidebar {
+    width: 240px;
+    height: 100%;
+}
+
+.avue-menu{
+  height: calc(100% - 64px);
+}
 .avue--collapse {
-    .avue-left,
+    .avue-sidebar,
     .avue-logo {
         width: 60px;
     }
-    .avue-header {
-        padding-left: 60px;
-    }
-    .avue-main {
-        width: calc(100% - 60px);
-        left: 60px;
-    }
-}
-
-.avue-header {
-    padding-left: 240px;
-    width: 100%;
-    background-color: #fff;
-    box-sizing: border-box;
 }
 
 .avue-main {
-    position: absolute;
-    left: 240px;
-    padding: 0;
-    padding-bottom: 20px;
-    width: calc(100% - 240px);
-    height: calc(100% - 64px);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    flex:auto;
     box-sizing: border-box;
     overflow: hidden;
     background: #f0f2f5;
-    z-index:1026;
-    &--fullscreen{
-      width: 100%;
-      left:0;
-    }
 }
 
 .avue-view {
@@ -73,34 +82,16 @@
 }
 
 .avue-footer {
-    position: absolute;
-    bottom:0;
-    width: 100%;
-    p{
-      width: 100%;
-      text-align: center;
-    }
-    .copyright {
-      color: #666;
-      font-size: 12px;
-    }
+  width: 100%;
+  position: absolute;
+  bottom:0;
+  text-align: center;
+  .copyright {
+    color: #666;
+    font-size: 12px;
+  }
 }
 
-.avue-shade {
-    position: fixed;
-    display: none;
-    width: 100%;
-    height: 100%;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, .3);
-    z-index: 1024;
-    &--show {
-        display: block;
-    }
-}
 
 .turn{
   animation:turn 1s linear infinite;     
@@ -151,37 +142,7 @@
     .avue-tags {
         display: none;
     }
-    .avue-left,
-    .avue-logo {
-        left: -$width;
-    }
-    .avue-main {
-        left: 0;
-        width: 100%;
-    }
-    .avue-header {
-        margin-bottom: 15px;
-        padding-left: 15px;
-    }
     .top-bar__item {
         display: none;
-    }
-    .avue--collapse {
-        .avue-left,
-        .avue-logo {
-            width: $width;
-            left: 0;
-        }
-        .avue-main {
-            left: $width;
-            width: 100%;
-        }
-        .avue-header {
-            padding: 0;
-            transform: translate3d(230px, 0, 0);
-        }
-        .avue-shade {
-            display: block;
-        }
     }
 }

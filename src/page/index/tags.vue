@@ -1,6 +1,6 @@
 <template>
   <div class="avue-tags"
-       v-if="showTag"
+       v-if="setting.tag"
        @click="contextmenuFlag=false">
     <!-- tag盒子 -->
     <div v-if="contextmenuFlag"
@@ -50,7 +50,7 @@
   </div>
 </template>
 <script>
-import { mapGetters, mapState } from "vuex";
+import { mapGetters } from "vuex";
 export default {
   name: "tags",
   data () {
@@ -75,10 +75,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(["tagWel", "tagList", "tag", "website"]),
-    ...mapState({
-      showTag: state => state.common.showTag
-    }),
+    ...mapGetters(["tagWel", "tagList", "tag", "website", "setting"]),
     tagLen () {
       return this.tagList.length || 0;
     }

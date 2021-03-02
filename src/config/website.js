@@ -13,6 +13,19 @@ export default {
   statusWhiteList: [400],
   //配置首页不可关闭
   isFirstPage: false,
+  setting: {
+    sidebar: 'vertical',
+    tag: true,
+    debug: true,
+    collapse: true,
+    search: true,
+    lock: true,
+    screenshot: true,
+    fullscren: true,
+    theme: true,
+    menu: true,
+    color: true,
+  },
   fistPage: {
     label: "首页",
     value: "/wel/index",

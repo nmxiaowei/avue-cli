@@ -1,19 +1,18 @@
 <template>
   <div class="avue-contail"
-       :class="{'avue--collapse':isCollapse}">
-    <screenshot></screenshot>
-    <div class="avue-header">
-      <!-- 顶部导航栏 -->
-      <top ref="top" />
-    </div>
-
-    <div class="avue-layout">
-      <div class="avue-left">
+       :class="{'avue--collapse':isCollapse,}">
+    <screenshot v-if="setting.screenshot"></screenshot>
+    <setting></setting>
+    <div class="avue-layout"
+         :class="{'avue-layout--horizontal':isHorizontal}">
+      <div class="avue-sidebar">
         <!-- 左侧导航栏 -->
+        <logo />
         <sidebar />
       </div>
-      <div class="avue-main"
-           :class="{'avue-main--fullscreen':!isMenu}">
+      <div class="avue-main">
+        <!-- 顶部导航栏 -->
+        <top ref="top" />
         <!-- 顶部标签卡 -->
         <tags />
         <transition name="fade-scale">
@@ -21,7 +20,7 @@
                   v-show="isSearch"></search>
         </transition>
         <!-- 主体视图层 -->
-        <div style="height:100%;overflow-y:auto;overflow-x:hidden;"
+        <div style="flex:auto;overflow-y:auto;overflow-x:hidden;"
              id="avue-view"
              v-show="!isSearch">
           <keep-alive>
@@ -37,8 +36,6 @@
       </div>
     </div>
 
-    <div class="avue-shade"
-         @click="showCollapse"></div>
   </div>
 </template>
 
@@ -46,21 +43,23 @@
 import { mapGetters } from "vuex";
 import tags from "./tags";
 import screenshot from './screenshot';
+import setting from './setting';
 import search from "./search";
+import logo from "./logo";
 import top from "./top/";
 import sidebar from "./sidebar/";
-import logo from "./logo";
 import admin from "@/util/admin";
 import { validatenull } from "@/util/validate";
 import { calcDate } from "@/util/date.js";
 import { getStore } from "@/util/store.js";
 export default {
   components: {
-    logo,
     top,
+    logo,
     tags,
     search,
     sidebar,
+    setting,
     screenshot
   },
   name: "index",
@@ -86,12 +85,9 @@ export default {
   mounted () {
     this.init();
   },
-  computed: mapGetters(["isRefresh", "isMenu", "isLock", "isCollapse", "website", "menu"]),
+  computed: mapGetters(["isHorizontal", "setting", "isRefresh", "isLock", "isCollapse", "website", "menu"]),
   props: [],
   methods: {
-    showCollapse () {
-      this.$store.commit("SET_COLLAPSE");
-    },
     // 屏幕检测
     init () {
       this.$store.commit("SET_SCREEN", admin.getScreen());
@@ -108,7 +104,7 @@ export default {
           this.$router.$avueRouter.formatRoutes(data, true);
         }
         //当点击顶部菜单做的事件
-        if (!this.validatenull(item)) {
+        if (!validatenull(item)) {
           let itemActive = {},
             childItemActive = 0;
           //vue-router路由
