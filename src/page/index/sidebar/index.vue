@@ -1,6 +1,6 @@
 <template>
-
-  <el-scrollbar class="avue-menu">
+  <el-scrollbar class="avue-menu"
+                v-if="reload">
     <div v-if="validatenull(menu)&&isHorizontal"
          class="avue-sidebar--tip">{{$t('menuTip')}}</div>
     <el-menu unique-opened
@@ -25,10 +25,20 @@ export default {
   components: { sidebarItem },
   inject: ["index"],
   data () {
-    return {};
+    return {
+      reload: true
+    };
   },
   created () {
     this.index.openMenu(this.menuId)
+  },
+  watch: {
+    isHorizontal () {
+      this.reload = false;
+      this.$nextTick(() => {
+        this.reload = true;
+      })
+    }
   },
   computed: {
     ...mapGetters(["isHorizontal", "setting", "website", "menu", "tag", "keyCollapse", "screen", "menuId"]),
