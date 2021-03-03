@@ -1,12 +1,11 @@
 <template>
   <el-scrollbar class="avue-menu"
                 v-if="reload">
-    <div v-if="validatenull(menu)&&isHorizontal"
+    <div v-if="validatenull(menu)&&!isHorizontal"
          class="avue-sidebar--tip">{{$t('menuTip')}}</div>
     <el-menu unique-opened
              :default-active="nowTagValue"
              :mode="setting.sidebar"
-             :show-timeout="200"
              :collapse="keyCollapse">
       <sidebar-item :menu="menu"
                     :screen="screen"
