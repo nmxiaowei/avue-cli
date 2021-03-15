@@ -2,7 +2,7 @@
   <div class="menu-wrapper">
     <template v-for="item in menu">
       <el-menu-item v-if="validatenull(item[childrenKey]) && vaildRoles(item)"
-                    :index="item[pathKey]"
+                    :index="item[pathKey]+''"
                     @click="open(item)"
                     :key="item[labelKey]">
         <i :class="item[iconKey]"></i>
@@ -10,7 +10,7 @@
               :alt="item[pathKey]">{{generateTitle(item)}}</span>
       </el-menu-item>
       <el-submenu v-else-if="!validatenull(item[childrenKey])&&vaildRoles(item)"
-                  :index="item[pathKey]"
+                  :index="item[pathKey]+''"
                   :key="item[labelKey]">
         <template slot="title">
           <i :class="item[iconKey]"></i>
@@ -18,7 +18,7 @@
                 :class="{'el-menu--display':collapse && first}">{{generateTitle(item)}}</span>
         </template>
         <template v-for="(child,cindex) in item[childrenKey]">
-          <el-menu-item :index="child[pathKey]+','+cindex"
+          <el-menu-item :index="child[pathKey]+''"
                         @click="open(child)"
                         v-if="validatenull(child[childrenKey])"
                         :key="child[labelKey]">
