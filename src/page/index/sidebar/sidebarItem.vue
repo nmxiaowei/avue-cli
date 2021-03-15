@@ -18,7 +18,7 @@
                 :class="{'el-menu--display':collapse && first}">{{generateTitle(item)}}</span>
         </template>
         <template v-for="(child,cindex) in item[childrenKey]">
-          <el-menu-item :index="child[pathKey]+','+cindex"
+          <el-menu-item :="child[pathKey]"
                         @click="open(child)"
                         v-if="validatenull(child[childrenKey])"
                         :key="child[labelKey]">
