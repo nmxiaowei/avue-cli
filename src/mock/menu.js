@@ -161,19 +161,19 @@ const first = [{
   },
   icon: 'icon-caidan',
   children: [{
-    label: "403",
+    label: "error403",
     path: 'error',
     component: 'components/error-page/403',
     icon: 'icon-caidan',
     children: []
   }, {
-    label: "404",
+    label: "error404",
     path: '404',
     component: 'components/error-page/404',
     icon: 'icon-caidan',
     children: []
   }, {
-    label: "500",
+    label: "error500",
     path: '500',
     component: 'components/error-page/500',
     icon: 'icon-caidan',
