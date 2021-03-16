@@ -29,7 +29,7 @@ export default {
     };
   },
   created () {
-    this.index.openMenu(this.menuId)
+    this.index.openMenu()
   },
   watch: {
     isHorizontal () {
@@ -45,7 +45,6 @@ export default {
       return this.$router.$avueRouter.getValue(this.$route);
     }
   },
-  mounted () { },
   methods: {}
 };
 </script>

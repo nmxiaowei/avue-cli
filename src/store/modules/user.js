@@ -5,7 +5,6 @@ import { encryption, deepClone } from '@/util/util'
 import webiste from '@/config/website'
 import { loginByUsername, getUserInfo, getMenu, getTopMenu, logout, refeshToken } from '@/api/user'
 
-
 function addPath (ele, first) {
   const menu = webiste.menu;
   const propsConfig = menu.props;
@@ -38,7 +37,7 @@ const user = {
     userInfo: {},
     permission: {},
     roles: [],
-    menuId: getStore({ name: 'menuId' }) || [],
+    menuId: {},
     menu: getStore({ name: 'menu' }) || [],
     menuAll: getStore({ name: 'menuAll' }) || [],
     token: getStore({ name: 'token' }) || '',
@@ -104,8 +103,7 @@ const user = {
       return new Promise((resolve, reject) => {
         logout().then(() => {
           commit('SET_TOKEN', '')
-          commit('SET_MENUID', {})
-          commit('SET_MENUALL', []);
+          commit('SET_MENUALL_NULL', []);
           commit('SET_MENU', [])
           commit('SET_TAG_LIST', [])
           commit('SET_ROLES', [])
@@ -122,8 +120,7 @@ const user = {
     FedLogOut ({ commit }) {
       return new Promise(resolve => {
         commit('SET_TOKEN', '')
-        commit('SET_MENUID', {})
-        commit('SET_MENUALL', []);
+        commit('SET_MENUALL_NULL', []);
         commit('SET_MENU', [])
         commit('SET_TAG_LIST', [])
         commit('SET_ROLES', [])
@@ -165,34 +162,27 @@ const user = {
     },
     SET_MENUID (state, menuId) {
       state.menuId = menuId;
-      setStore({ name: 'menuId', content: state.menuId, type: 'session' })
     },
     SET_USERIFNO: (state, userInfo) => {
       state.userInfo = userInfo;
     },
     SET_MENUALL: (state, menuAll) => {
-      state.menuAll = menuAll
+      let menu = state.menuAll;
+      menuAll.forEach(ele => {
+        if (!menu.find(item => item.label == ele.label && item.path == ele.path)) {
+          menu.push(ele);
+        }
+      })
+      state.menuAll = menu
+      setStore({ name: 'menuAll', content: state.menuAll })
+    },
+    SET_MENUALL_NULL: (state) => {
+      state.menuAll = []
       setStore({ name: 'menuAll', content: state.menuAll })
     },
     SET_MENU: (state, menu) => {
       state.menu = menu
       setStore({ name: 'menu', content: state.menu })
-      if (validatenull(menu)) return
-      //合并动态路由去重
-      let menuAll = state.menuAll;
-      menuAll = menuAll.concat(menu).reverse();
-      let newMenu = [];
-      for (let item1 of menuAll) {
-        let flag = true;
-        for (let item2 of newMenu) {
-          if (item1.label == item2.label || item1.path == item2.path) {
-            flag = false;
-          }
-        }
-        if (flag) newMenu.push(item1);
-      }
-      state.menuAll = newMenu
-      setStore({ name: 'menuAll', content: state.menuAll, type: 'session' })
     },
     SET_ROLES: (state, roles) => {
       state.roles = roles;
