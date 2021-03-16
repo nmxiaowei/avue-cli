@@ -57,6 +57,13 @@ const first = [{
   },
   children: []
 }, {
+  label: "参数",
+  path: '/params',
+  component: 'views/util/params',
+  meta: {
+    i18n: 'params',
+  },
+}, {
   label: "标签",
   path: '/tags',
   component: 'views/util/tags',

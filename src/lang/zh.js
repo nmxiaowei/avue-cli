@@ -62,6 +62,7 @@ export default {
     logs: '日志监控',
     table: '表格',
     crud: '模板',
+    params: '参数',
     form: '表单',
     data: '数据展示',
     permission: '权限',

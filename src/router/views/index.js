@@ -54,4 +54,16 @@ export default [{
     component: () =>
       import( /* webpackChunkName: "views" */ '@/views/user/setting')
   }]
+}, {
+  path: '/query',
+  name: '参数',
+  component: Layout,
+  meta: {
+    i18n: 'params'
+  },
+  children: [{
+    path: ':params',
+    component: () =>
+      import( /* webpackChunkName: "views" */ '@/views/util/params')
+  }]
 }]

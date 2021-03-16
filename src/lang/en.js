@@ -63,6 +63,7 @@ export default {
     logs: 'logs',
     table: 'table',
     crud: 'crud',
+    params: 'params',
     form: 'form',
     top: 'backtop',
     affix: 'affix',
