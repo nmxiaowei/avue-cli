@@ -22,7 +22,6 @@ RouterPlugin.install = function (vue, option = {}) {
   this.$router.$avueRouter = {
     //全局配置
     $website: this.$store.getters.website,
-    routerList: [],
     group: '',
     meta: {},
     safe: this,
@@ -94,7 +93,6 @@ RouterPlugin.install = function (vue, option = {}) {
       if (aMenu.length === 0) return;
       for (let i = 0; i < aMenu.length; i++) {
         const oMenu = aMenu[i];
-        if (this.routerList.includes(oMenu[propsDefault.path])) return;
         let path = (() => {
           if (first) {
             return oMenu[propsDefault.path].replace('/index', '')
@@ -159,10 +157,7 @@ RouterPlugin.install = function (vue, option = {}) {
         aRouter.push(oRouter)
       }
       if (first) {
-        if (!this.routerList.includes(aRouter[0][propsDefault.path])) {
-          this.safe.$router.addRoutes(aRouter)
-          this.routerList.push(aRouter[0][propsDefault.path])
-        }
+        this.safe.$router.addRoutes(aRouter)
       } else {
         return aRouter
       }
