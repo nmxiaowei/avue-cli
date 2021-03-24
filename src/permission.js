@@ -30,12 +30,12 @@ router.beforeEach((to, from, next) => {
           })
         })
       } else {
-        const value = to.query.src || to.fullPath;
+        const value = (to.query.src || to.fullPath) + to.hash;
         const label = to.query.name || to.name;
         const meta = to.meta || router.$avueRouter.meta || {};
         const i18n = to.query.i18n;
         if (to.query.target) {
-          window.open(value, to.query.target)
+          window.open(value, value)
           return
         } else if (meta.isTab !== false && !validatenull(value) && !validatenull(label)) {
           store.commit('ADD_TAG', {
