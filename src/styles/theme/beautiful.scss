@@ -1,0 +1,26 @@
+.theme-beautiful{
+  .avue-sidebar{
+    background: linear-gradient(90deg,#006cff,#399efd)!important;
+    .el-menu-item, .el-submenu__title{
+      background: linear-gradient(90deg,#006cff,#399efd)!important;
+    }
+    .el-menu-item,.el-submenu__title{
+      i,span{
+          color:#fff
+      }
+      .is-active{
+        background: #399efd!important;
+      }
+      &:hover,&.is-active{
+        background: #399efd!important;
+          i,span{
+            background: #399efd!important;
+          }
+      }
+    }
+  }
+  .avue-logo{
+    background: linear-gradient(90deg,#006cff,#399efd)!important;
+  }
+  
+}

@@ -76,6 +76,9 @@ export default {
         {
           name: "renren主题",
           value: "theme-renren"
+        }, {
+          name: "beautiful主题",
+          value: "theme-beautiful"
         }
       ]
     };
