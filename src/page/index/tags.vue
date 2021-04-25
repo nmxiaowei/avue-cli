@@ -127,12 +127,17 @@ export default {
     },
     menuTag (value, action) {
       if (action === "remove") {
+        let openTag; // 最终要打开的页面
         let { tag, key } = this.findTag(value);
-        this.$store.commit("DEL_TAG", tag);
+
         if (tag.value === this.tag.value) {
-          tag = this.tagList[key === 0 ? key : key - 1]; //如果关闭本标签让前推一个
+          openTag = this.tagList[key === 0 ? key : key - 1]; //如果关闭本标签让前推一个
+        } else {
+          openTag = this.tag;
           this.openTag(tag);
         }
+        this.$store.commit("DEL_TAG", tag);
+        this.openTag(openTag);
       }
     },
     openTag (item) {
@@ -150,10 +155,6 @@ export default {
         query: tag.query
       });
     },
-    closeOthersTags () {
-      this.contextmenuFlag = false;
-      this.$store.commit("DEL_TAG_OTHER");
-    },
     findTag (value) {
       let tag, key;
       this.tagList.map((item, index) => {
@@ -164,9 +165,25 @@ export default {
       });
       return { tag: tag, key: key };
     },
+    // 因需清除每个keep-alive页面的缓存，需一个一个的激活tag到前台做删除
+    activeTag (tagList) {
+      tagList.forEach(item => {
+        this.openTag(item);
+        this.$store.commit("DEL_TAG", item);
+      });
+    },
+    closeOthersTags () {
+      this.contextmenuFlag = false;
+      let openTag = this.tag;
+      let tagList = this.tagList.filter(item =>
+        item.value !== this.tag.value && !this.website.isFirstPage && item.value !== this.tagWel.value
+      );
+      this.activeTag(tagList)
+      this.openTag(openTag);
+    },
     closeAllTags () {
       this.contextmenuFlag = false;
-      this.$store.commit("DEL_ALL_TAG");
+      this.activeTag(this.tagList)
       this.$router.push({
         path: this.$router.$avueRouter.getPath({
           src: this.tagWel.value
