@@ -51,8 +51,13 @@
 
 
 .avue-sidebar {
-    width: 240px;
-    height: 100%;
+  width: 260px;
+  height: 100%;
+  .el-menu-item,.el-submenu{
+    i{
+      margin-left: 10px;
+    }
+  }
 }
 
 .avue-menu{
