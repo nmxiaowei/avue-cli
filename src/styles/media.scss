@@ -68,6 +68,11 @@
     .avue-logo {
         width: 60px;
     }
+    .el-menu-item,.el-submenu{
+      i{
+        margin-left:0
+      }
+    }
 }
 
 .avue-main {
