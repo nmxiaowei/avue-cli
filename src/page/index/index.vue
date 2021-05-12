@@ -111,19 +111,26 @@ export default {
           if (item.path) {
             itemActive = item;
           } else {
-            if (this.menu[childItemActive].length == 0) {
-              itemActive = this.menu[childItemActive];
-            } else {
-              itemActive = this.menu[childItemActive].children[childItemActive];
+            if (this.menu[childItemActive]) {
+              if (this.menu[childItemActive].length === 0) {
+                itemActive = this.menu[childItemActive];
+              } else {
+                if (this.menu[childItemActive].children) {
+                  itemActive = this.menu[childItemActive].children[childItemActive];
+                }
+              }
             }
           }
           this.$store.commit('SET_MENUID', item);
-          this.$router.push({
-            path: this.$router.$avueRouter.getPath({
-              name: itemActive.label,
-              src: itemActive.path
-            }, itemActive.meta)
-          });
+          // 如果path不为空才执行跳转页面
+          if (itemActive.path) {
+            this.$router.push({
+              path: this.$router.$avueRouter.getPath({
+                name: itemActive.label,
+                src: itemActive.path
+              }, itemActive.meta)
+            });
+          }
         }
 
       });
