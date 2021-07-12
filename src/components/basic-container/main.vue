@@ -2,7 +2,7 @@
   <div class="basic-container"
        :style="styleName"
        :class="{'basic-container--block':block}">
-    <el-card>
+    <el-card class="basic-container__card">
       <slot></slot>
     </el-card>
   </div>
@@ -41,11 +41,11 @@ export default {
   box-sizing: border-box;
   &--block {
     height: 100%;
-    .el-card {
+    .basic-container__card {
       height: 100%;
     }
   }
-  .el-card {
+  &__card {
     width: 100%;
   }
   &:first-child {

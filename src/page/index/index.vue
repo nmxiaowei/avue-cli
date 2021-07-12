@@ -5,7 +5,8 @@
     <setting></setting>
     <div class="avue-layout"
          :class="{'avue-layout--horizontal':isHorizontal}">
-      <div class="avue-sidebar">
+      <div class="avue-sidebar"
+           v-show="validSidebar">
         <!-- 左侧导航栏 -->
         <logo />
         <sidebar />
@@ -85,7 +86,13 @@ export default {
   mounted () {
     this.init();
   },
-  computed: mapGetters(["isHorizontal", "setting", "isRefresh", "isLock", "isCollapse", "website", "menu"]),
+  computed: {
+    ...mapGetters(["isHorizontal", "setting", "isRefresh", "isLock", "isCollapse", "website", "menu"]),
+    validSidebar () {
+      console.log(this.$route)
+      return !((this.$route.meta || {}).menu == false || (this.$route.query || {}).menu == 'false')
+    }
+  },
   props: [],
   methods: {
     // 屏幕检测
