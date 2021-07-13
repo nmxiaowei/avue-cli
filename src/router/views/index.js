@@ -66,4 +66,12 @@ export default [{
     component: () =>
       import( /* webpackChunkName: "views" */ '@/views/util/params')
   }]
+}, {
+  path: 'test/index',
+  name: '测试页面',
+  meta: {
+    i18n: 'test'
+  },
+  component: () =>
+    import( /* webpackChunkName: "views" */ '@/views/util/test')
 }]
