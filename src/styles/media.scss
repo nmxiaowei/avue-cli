@@ -1,0 +1,176 @@
+.avue-sidebar,
+.avue-top,
+.avue-logo,
+.avue-layout
+.login-logo,
+.avue-main {
+    transition: all .3s;
+}
+.avue-layout{
+  display: flex;
+  height: 100%;
+  overflow: hidden;
+  &--horizontal{
+    flex-direction: column;
+    .avue-sidebar {
+      width: 100%;
+      height: 64px;
+      display: flex;
+      .el-menu-item.is-active:before,.el-submenu__title.is-active:before{
+        width: 100%;
+        height: 4px;
+        top:inherit;
+        bottom:0;
+      }
+    }
+    .avue-menu{
+      width: calc(100% - 240px);
+      height: 100%;
+    }
+    .el-menu--horizontal,.menu-wrapper,.el-menu-item{
+      height: 100%;
+    }
+    .menu-wrapper{
+      display: flex;
+    }
+    .avue-logo{
+      width: 240px;
+    }
+  }
+}
+.avue-contail {
+    width: 100%;
+    height: 100%;
+    background: #f0f2f5;
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+.avue-top{
+  background-color: #fff;
+}
+
+
+.avue-sidebar {
+  width: 260px;
+  height: 100%;
+  .el-menu-item,.el-submenu{
+    i{
+      margin-left: 10px;
+    }
+  }
+}
+
+.avue-menu{
+  height: calc(100% - 64px);
+}
+.avue--collapse {
+    .avue-sidebar,
+    .avue-logo {
+        width: 60px;
+    }
+    .el-menu-item,.el-submenu{
+      i{
+        margin-left:0
+      }
+    }
+}
+
+.avue-main {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    flex:1;
+    box-sizing: border-box;
+    overflow: hidden;
+    background: #f0f2f5;
+}
+
+.avue-view {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.avue-footer {
+  width: 100%;
+  position: absolute;
+  bottom:0;
+  text-align: center;
+  .copyright {
+    color: #666;
+    font-size: 12px;
+  }
+}
+
+
+.turn{
+  animation:turn 1s linear infinite;     
+}
+/* 
+  turn : 定义的动画名称
+  1s : 动画时间
+  linear : 动画以何种运行轨迹完成一个周期
+  infinite :规定动画应该无限次播放
+ */
+@keyframes turn{
+  0%{-webkit-transform:rotate(0deg);}
+  25%{-webkit-transform:rotate(90deg);}
+  50%{-webkit-transform:rotate(180deg);}
+  75%{-webkit-transform:rotate(270deg);}
+  100%{-webkit-transform:rotate(360deg);}
+}
+@media screen and (max-width: 992px) {
+    $width: 240px;
+    .avue-sidebar{
+      position: fixed;
+      top:0;
+      left:-$width;
+      z-index:1024;
+    }
+    .avue--collapse{
+      .avue-sidebar{
+        left:0;
+        width: $width;
+      }   
+      .avue-logo{
+        width: $width;
+      }
+      .avue-main{
+        margin-left:$width;
+      }  
+    }
+    // ele的自适应
+    .el-dialog,
+    .el-message-box {
+        width: 98% !important;
+    }
+    //登录页面
+    .login-left {
+        display: none !important;
+    }
+    .login-logo {
+        padding-top: 30px !important;
+        margin-left: -30px;
+    }
+    .login-weaper{
+        margin: 0 auto;
+        width: 96% !important;
+    }
+    .login-border {
+        border-radius: 5px;
+        padding: 40px;
+        margin: 0 auto;
+        float: none !important;
+        width: 100% !important;
+    }
+    .login-main {
+        width: 100% !important;
+    }
+    //主框架
+    .avue-tags {
+        display: none;
+    }
+    .top-bar__item {
+        display: none;
+    }
+}
