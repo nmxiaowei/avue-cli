@@ -1,4 +1,4 @@
-$height:64px;
+$height:50px;
 .avue-top {
     padding: 0 20px;
     position: relative;
@@ -65,6 +65,7 @@ $height:64px;
 .top-bar__right {
     height: $height;
     position: absolute;
+    margin-top: 2px;
     top: 0;
     i{
         line-height: $height;
@@ -85,7 +86,7 @@ $height:64px;
     position: relative;
     display: inline-block;
     height: $height;
-    margin:0 10px;
+    margin:0 7px;
     font-size: 16px;
     &--show {
         display: inline-block !important;

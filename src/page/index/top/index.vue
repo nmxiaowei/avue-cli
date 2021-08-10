@@ -19,53 +19,29 @@
       </span>
     </div>
     <div class="top-bar__right">
-      <el-tooltip v-if="setting.debug"
-                  effect="dark"
-                  :content="logsFlag?$t('navbar.bug'):logsLen+$t('navbar.bugs')"
-                  placement="bottom">
-        <div class="top-bar__item">
-          <top-logs></top-logs>
-        </div>
-      </el-tooltip>
-      <el-tooltip v-if="setting.lock"
-                  effect="dark"
-                  :content="$t('navbar.lock')"
-                  placement="bottom">
-        <div class="top-bar__item">
-          <top-lock></top-lock>
-        </div>
-      </el-tooltip>
-      <el-tooltip v-if="setting.theme"
-                  effect="dark"
-                  :content="$t('navbar.theme')"
-                  placement="bottom">
-        <div class="top-bar__item top-bar__item--show">
-          <top-theme></top-theme>
-        </div>
-      </el-tooltip>
-      <el-tooltip effect="dark"
-                  :content="$t('navbar.notice')"
-                  placement="bottom">
-        <div class="top-bar__item top-bar__item--show">
-          <top-notice></top-notice>
-        </div>
-      </el-tooltip>
-      <el-tooltip effect="dark"
-                  :content="$t('navbar.language')"
-                  placement="bottom">
-        <div class="top-bar__item top-bar__item--show">
-          <top-lang></top-lang>
-        </div>
-      </el-tooltip>
-      <el-tooltip v-if="setting.fullscren"
-                  effect="dark"
-                  :content="isFullScren?$t('navbar.screenfullF'):$t('navbar.screenfull')"
-                  placement="bottom">
-        <div class="top-bar__item">
-          <i :class="isFullScren?'icon-tuichuquanping':'icon-quanping'"
-             @click="handleScreen"></i>
-        </div>
-      </el-tooltip>
+      <div v-if="setting.debug"
+           class="top-bar__item">
+        <top-logs></top-logs>
+      </div>
+      <div v-if="setting.lock"
+           class="top-bar__item">
+        <top-lock></top-lock>
+      </div>
+      <div v-if="setting.theme"
+           class="top-bar__item top-bar__item--show">
+        <top-theme></top-theme>
+      </div>
+      <div class="top-bar__item top-bar__item--show">
+        <top-notice></top-notice>
+      </div>
+      <div class="top-bar__item top-bar__item--show">
+        <top-lang></top-lang>
+      </div>
+      <div class="top-bar__item"
+           v-if="setting.fullscren">
+        <i :class="isFullScren?'icon-tuichuquanping':'icon-quanping'"
+           @click="handleScreen"></i>
+      </div>
       <img class="top-bar__img"
            :src="userInfo.avatar">
       <el-dropdown>
@@ -89,6 +65,9 @@
           </el-dropdown-menu>
         </template>
       </el-dropdown>
+      <div class="top-bar__item">
+        <top-setting></top-setting>
+      </div>
     </div>
   </div>
 </template>
@@ -102,6 +81,7 @@ import topTheme from "./top-theme.vue";
 import topLogs from "./top-logs.vue";
 import topNotice from './top-notice.vue'
 import topLang from "./top-lang.vue";
+import topSetting from "../setting.vue";
 export default {
   components: {
     topLock,
@@ -110,7 +90,8 @@ export default {
     topTheme,
     topLogs,
     topNotice,
-    topLang
+    topLang,
+    topSetting
   },
   name: "top",
   data () {

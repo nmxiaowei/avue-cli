@@ -1,7 +1,6 @@
 <template>
   <div class="avue-contail"
        :class="{'avue--collapse':isCollapse,}">
-    <setting></setting>
     <div class="avue-layout"
          :class="{'avue-layout--horizontal':isHorizontal}">
       <div class="avue-sidebar"
@@ -42,7 +41,6 @@
 <script>
 import { mapGetters } from "vuex";
 import tags from "./tags.vue";
-import setting from './setting.vue';
 import search from "./search.vue";
 import logo from "./logo.vue";
 import top from "./top/index.vue";
@@ -57,8 +55,7 @@ export default {
     logo,
     tags,
     search,
-    sidebar,
-    setting
+    sidebar
   },
   name: "index",
   provide () {
@@ -84,7 +81,7 @@ export default {
     this.init();
   },
   computed: {
-    ...mapGetters(["isHorizontal", "setting", "isRefresh", "isLock", "isCollapse", "menu"]),
+    ...mapGetters(["isHorizontal", "isRefresh", "isLock", "isCollapse", "menu"]),
     validSidebar () {
       return !((this.$route.meta || {}).menu == false || (this.$route.query || {}).menu == 'false')
     }

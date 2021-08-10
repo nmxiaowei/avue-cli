@@ -1,3 +1,5 @@
+
+$width: 210px;
 .avue-sidebar,
 .avue-top,
 .avue-logo,
@@ -24,7 +26,7 @@
       }
     }
     .avue-menu{
-      width: calc(100% - 240px);
+      width: calc(100% - $width);
       height: 100%;
     }
     .el-menu--horizontal,.menu-wrapper,.el-menu-item{
@@ -34,7 +36,7 @@
       display: flex;
     }
     .avue-logo{
-      width: 240px;
+      width:$width
     }
   }
 }
@@ -51,7 +53,7 @@
 
 
 .avue-sidebar {
-  width: 260px;
+  width: 210px;
   height: 100%;
   .el-menu-item,.el-submenu{
     i{
@@ -120,11 +122,10 @@
   100%{-webkit-transform:rotate(360deg);}
 }
 @media screen and (max-width: 992px) {
-    $width: 240px;
     .avue-sidebar{
       position: fixed;
       top:0;
-      left:-$width;
+      left: -265px;
       z-index:1024;
     }
     .avue--collapse{

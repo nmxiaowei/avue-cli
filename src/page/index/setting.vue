@@ -1,64 +1,59 @@
 <template>
-  <div class="setting">
-    <el-button class="setting"
-               type="primary"
-               :class="{'setting--show':show}"
-               @click="show=!show"
-               :icon="show?'el-icon-close':'el-icon-s-tools'"></el-button>
-    <el-drawer append-to-body
-               class="setting-panel"
-               :with-header="false"
-               v-model="show"
-               size="320px">
-      <h5>导航模式</h5>
-      <div class="setting-checkbox">
-        <el-tooltip class="item"
-                    effect="dark"
-                    content="侧边菜单布局"
-                    placement="top">
-          <div @click="setting.sidebar='vertical'"
-               class="setting-checkbox-item setting-checkbox-item--side">
-            <i v-if="!isHorizontal"
-               class="el-icon-check setting-checkbox--check">
-            </i>
-          </div>
-        </el-tooltip>
-        <el-tooltip class="item"
-                    effect="dark"
-                    content="顶部菜单布局"
-                    placement="top">
-          <div @click="setting.sidebar='horizontal'"
-               class="setting-checkbox-item setting-checkbox-item--top">
-            <i v-if="isHorizontal"
-               class="el-icon-check setting-checkbox--check">
-            </i>
-          </div>
-        </el-tooltip>
-      </div>
-      <h5>页面布局</h5>
-      <div class="setting-checkbox">
-        <div class="setting-item"
-             v-for="(item,index) in list1"
-             :key="index">
-          {{item.label}}:
-          <el-switch v-model="setting[item.value]"
-                     size="small">
-          </el-switch>
+  <i class="el-icon-s-tools"
+     @click="show=true"></i>
+  <el-drawer append-to-body
+             class="setting-panel"
+             :with-header="false"
+             v-model="show"
+             size="320px">
+    <h5>导航模式</h5>
+    <div class="setting-checkbox">
+      <el-tooltip class="item"
+                  effect="dark"
+                  content="侧边菜单布局"
+                  placement="top">
+        <div @click="setting.sidebar='vertical'"
+             class="setting-checkbox-item setting-checkbox-item--side">
+          <i v-if="!isHorizontal"
+             class="el-icon-check setting-checkbox--check">
+          </i>
         </div>
-      </div>
-      <h5>功能调试</h5>
-      <div class="setting-checkbox">
-        <div class="setting-item"
-             v-for="(item,index) in list2"
-             :key="index">
-          {{item.label}}:
-          <el-switch v-model="setting[item.value]"
-                     size="small">
-          </el-switch>
+      </el-tooltip>
+      <el-tooltip class="item"
+                  effect="dark"
+                  content="顶部菜单布局"
+                  placement="top">
+        <div @click="setting.sidebar='horizontal'"
+             class="setting-checkbox-item setting-checkbox-item--top">
+          <i v-if="isHorizontal"
+             class="el-icon-check setting-checkbox--check">
+          </i>
         </div>
+      </el-tooltip>
+    </div>
+    <h5>页面布局</h5>
+    <div class="setting-checkbox">
+      <div class="setting-item"
+           v-for="(item,index) in list1"
+           :key="index">
+        {{item.label}}:
+        <el-switch v-model="setting[item.value]"
+                   size="small">
+        </el-switch>
       </div>
-    </el-drawer>
-  </div>
+    </div>
+    <h5>功能调试</h5>
+    <div class="setting-checkbox">
+      <div class="setting-item"
+           v-for="(item,index) in list2"
+           :key="index">
+        {{item.label}}:
+        <el-switch v-model="setting[item.value]"
+                   size="small">
+        </el-switch>
+      </div>
+    </div>
+  </el-drawer>
 </template>
 
 <script>
@@ -112,9 +107,6 @@ export default {
   right: -2px;
   z-index: 2048;
   transition: right 0.3s;
-  &--show {
-    right: 320px;
-  }
   &-panel {
     .el-drawer__body {
       padding: 0 20px;
