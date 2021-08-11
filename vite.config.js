@@ -1,8 +1,7 @@
 import { viteMockServe } from "vite-plugin-mock";
-import { defineConfig } from 'vite'
+import { defineConfig, ConfigEnv } from 'vite'
 import vue from '@vitejs/plugin-vue'
 const { resolve } = require('path')
-
 // https://vitejs.dev/config/
 export default defineConfig({
   resolve: {
@@ -16,6 +15,12 @@ export default defineConfig({
   plugins: [
     vue(),
     viteMockServe({
-      supportTs: false
+      mockPath: 'mock',
+      localEnabled: ConfigEnv === 'serve',
+      prodEnabled: ConfigEnv !== 'serve',
+      injectCode: `
+        import { setupProdMockServer } from './mockProdServer';
+        setupProdMockServer();
+      `,
     })]
 })
