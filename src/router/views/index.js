@@ -54,16 +54,4 @@ export default [{
     component: () =>
       import( /* webpackChunkName: "views" */ '@/views/util/params.vue')
   }]
-}, {
-  path: '/test',
-  redirect: '/test',
-  component: Layout,
-  children: [{
-    meta: {
-      i18n: 'test'
-    },
-    path: '',
-    component: () =>
-      import( /* webpackChunkName: "views" */ '@/views/util/test.vue')
-  }]
 }]

@@ -14,7 +14,7 @@ const top = [{
   meta: {
     i18n: 'test',
   },
-  parentId: 2
+  parentId: 1
 },
 {
   label: "更多",
@@ -24,7 +24,7 @@ const top = [{
     menu: false,
     i18n: 'more',
   },
-  parentId: 3
+  parentId: 2
 }]
 const first = [{
   label: "缓冲",
@@ -90,6 +90,18 @@ const first = [{
   },
   children: []
 }, {
+  label: '多级菜单',
+  path: '/deep',
+  children: [{
+    label: '多级菜单1-1',
+    path: 'deep',
+    children: [{
+      label: '多级菜单2-1',
+      path: 'deep',
+      component: 'views/util/deep',
+    }]
+  }]
+}, {
   label: "外部页面",
   path: '/out',
   icon: 'icon-caidan',
@@ -141,18 +153,17 @@ const first = [{
     children: []
   }]
 }]
-const second = []
-const third = [{
+const second = [{
   label: "测试页面",
   path: '/test',
-  component: 'views/test',
+  component: 'views/util/test',
   icon: 'icon-caidan',
   meta: {
     i18n: 'test',
   },
   children: []
 }]
-let menu = [first, second, third];
+let menu = [first, second];
 export default [{
   url: "/user/getMenu",
   method: "get",
