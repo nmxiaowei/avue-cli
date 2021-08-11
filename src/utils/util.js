@@ -288,3 +288,12 @@ export const openWindow = (url, title, w, h) => {
     newWindow.focus()
   }
 }
+
+
+export const getScreen = (isCollapse) => {
+  if (document.body.clientWidth <= 768) {
+    return !isCollapse
+  } else {
+    return isCollapse
+  }
+}

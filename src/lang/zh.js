@@ -69,10 +69,11 @@ export default {
     top: '返回顶部',
     affix: '图钉',
     crudForm: '表格表单',
-    cache: '页面缓冲',
+    cache: '缓冲',
     error: '异常页面',
     test: '测试页面',
-    out: '外部页面'
+    out: '外部页面',
+    about: '关于'
   },
   login: {
     title: '登录 ',

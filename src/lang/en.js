@@ -72,7 +72,8 @@ export default {
     cache: 'cache',
     error: 'error',
     test: 'test',
-    out: 'out'
+    out: 'out',
+    about: 'about'
   },
   login: {
     title: 'Login ',

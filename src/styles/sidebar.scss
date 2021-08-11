@@ -33,11 +33,8 @@
         background-color: rgba(0,0,0,.4);
     }
     .el-menu-item,.el-submenu__title{
-        i{
-            margin-right: 10px;
-        }
         i,span{
-            color:hsla(0,0%,100%,.7);
+           color:hsla(0,0%,100%,.7);
         }
         &:hover{
             background: transparent;

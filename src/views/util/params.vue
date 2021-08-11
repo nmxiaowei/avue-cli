@@ -1,6 +1,6 @@
 <template>
   <basic-container>
-    <h2>{{index}}</h2>
+    <h3>{{index?index:'参数'}}</h3>
     <el-button type="primary"
                size="small"
                @click="handleGo(1)">参数1页面</el-button>

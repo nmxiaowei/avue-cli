@@ -31,9 +31,9 @@ router.beforeEach((to, from, next) => {
         })
       } else {
         const value = to.path;
-        const label = to.name;
-        const meta = to.meta
         const query = to.query
+        const label = query.name || to.name;
+        const meta = to.meta
         if (meta.target) {
           window.open(query.url.replace(/#/g, "&"))
           return

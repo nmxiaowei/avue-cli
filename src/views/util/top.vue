@@ -1,9 +1,7 @@
 <template>
   <basic-container>
     <div style="height:2000px;background-color:#fff;">
-      <div style="padding:15px 20px;font-size:18px;">
-        <h3>往下拉就会出现返回菜单</h3>
-      </div>
+      <h3>往下拉就会出现返回菜单</h3>
     </div>
     <el-backtop target="#avue-view"
                 :bottom="200"></el-backtop>

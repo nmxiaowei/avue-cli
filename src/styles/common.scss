@@ -1,29 +1,5 @@
 // 全局变量
 @import './variables.scss';
-// ele样式覆盖
-@import './element-ui.scss';
-// 顶部右侧显示
-@import './top.scss';
-// 导航标签
-@import './tags.scss';
-// 工具类函数
-@import './mixin.scss';
-// 侧面导航栏
-@import './sidebar.scss';
-// 动画
-@import './animate/vue-transition.scss';
-//主题
-@import './theme/index.scss';
-//通用配置
-@import './normalize.scss';
-//图标配置
-@import './iconfont.scss';
-//登录样式
-@import "./login.scss";
-//适配
-@import './media.scss';
-//滚动条样式
-@include scrollBar;
 a{
   text-decoration: none;
   color:#333;
@@ -56,12 +32,6 @@ a{
         top:inherit;
         bottom:0;
       }
-    }
-    .el-menu--horizontal,.menu-wrapper,.el-menu-item{
-      height: 100%;
-    }
-    .menu-wrapper{
-      display: flex;
     }
     .avue-logo{
       width:$sidebar_width
@@ -97,6 +67,7 @@ a{
   flex:auto;
   overflow-y:auto;
   overflow-x:hidden;
+  margin-bottom: 10px;
 }
 .avue-view {
     width: 100%;
@@ -113,3 +84,27 @@ a{
     font-size: 12px;
   }
 }
+// ele样式覆盖
+@import './element-ui.scss';
+// 顶部右侧显示
+@import './top.scss';
+// 导航标签
+@import './tags.scss';
+// 工具类函数
+@import './mixin.scss';
+// 侧面导航栏
+@import './sidebar.scss';
+// 动画
+@import './animate/vue-transition.scss';
+//主题
+@import './theme/index.scss';
+//通用配置
+@import './normalize.scss';
+//图标配置
+@import './iconfont.scss';
+//登录样式
+@import "./login.scss";
+//适配
+@import './media.scss';
+//滚动条样式
+@include scrollBar;

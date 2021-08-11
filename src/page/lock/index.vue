@@ -1,23 +1,38 @@
 <template>
-  <div class="lock-container">
-    <div class="lock-form animated bounceInDown">
-      <div class="animated"
-           :class="{'shake':passwdError,'bounceOut':pass}">
-        <h3 class="title">{{userInfo.username}}</h3>
-        <el-input placeholder="请输入登录密码"
-                  type="password"
-                  class="input-with-select animated"
-                  v-model="passwd"
-                  @keyup.enter="handleLogin">
-          <template #append>
-            <el-button icon="icon-bofangqi-suoping"
-                       @click="handleLogin"></el-button>
-            <el-button icon="icon-tuichu"
-                       @click="handleLogout"></el-button>
-          </template>
-        </el-input>
+  <div class="login-container"
+       @keyup.enter="handleLogin">
+    <div class="login-time">
+      {{time}}
+    </div>
+    <div class="login-weaper">
+      <div class="login-left animate__animated animate__fadeInLeft">
+        <img class="img"
+             src="/img/logo.png"
+             alt="">
+        <p class="title">{{ $t('login.info') }}</p>
       </div>
-
+      <div class="login-border animate__animated animate__fadeInRight">
+        <div class="login-main">
+          <div class="lock-form animate__animated animate__bounceInDown">
+            <div class="animate__animated"
+                 :class="{'shake':passwdError,'animate__bounceOut':pass}">
+              <h3 style="color:#333">{{userInfo.username}}</h3>
+              <el-input placeholder="请输入登录密码"
+                        type="password"
+                        class="input-with-select animated"
+                        v-model="passwd"
+                        @keyup.enter="handleLogin">
+                <template #append>
+                  <el-button icon="icon-bofangqi-suoping"
+                             @click="handleLogin"></el-button>
+                  <el-button icon="icon-tuichu"
+                             @click="handleLogout"></el-button>
+                </template>
+              </el-input>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -27,12 +42,18 @@ export default {
   name: "lock",
   data () {
     return {
+      time: "",
       passwd: "",
       passwdError: false,
       pass: false
     };
   },
-  created () { },
+  created () {
+    this.getTime();
+    setInterval(() => {
+      this.getTime();
+    }, 1000);
+  },
   mounted () { },
   computed: {
     ...mapState({
@@ -42,6 +63,9 @@ export default {
   },
   props: [],
   methods: {
+    getTime () {
+      this.time = this.$dayjs().format('YYYY年MM月DD日 HH:mm:ss')
+    },
     handleLogout () {
       this.$confirm("是否退出系统, 是否继续?", "提示", {
         confirmButtonText: "确定",
@@ -80,29 +104,4 @@ export default {
 </script>
 
 <style lang="scss">
-.lock-container {
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  .title {
-    margin-bottom: 8px;
-    color: #333;
-  }
-}
-.lock-container::before {
-  z-index: -999;
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url("/img/login.png");
-  background-size: cover;
-}
-.lock-form {
-  width: 300px;
-}
 </style>

@@ -43,12 +43,17 @@
       </div>
     </div>
   </div>
+  <dashboard></dashboard>
 </template>
 
 <script>
 import { mapGetters } from "vuex";
+import dashboard from './dashboard.vue'
 export default {
   name: "wel",
+  components: {
+    dashboard
+  },
   computed: {
     ...mapGetters(["userInfo"]),
   },

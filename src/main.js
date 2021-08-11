@@ -7,6 +7,7 @@ import i18n from './lang/';
 import ElementPlus from 'element-plus';
 import 'element-plus/lib/theme-chalk/index.css';
 import { validatenull } from './utils/validate'
+import { getScreen } from './utils/util'
 import './permission';
 import error from './error';
 import basicBlock from 'components/basic-block/main.vue'
@@ -23,6 +24,7 @@ app.config.globalProperties.$axios = axios
 app.config.globalProperties.$dayjs = dayjs
 app.config.globalProperties.website = website
 app.config.globalProperties.validatenull = validatenull;
+app.config.globalProperties.getScreen = getScreen
 app.use(error);
 app.use(i18n)
 app.use(animate)

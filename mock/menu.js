@@ -152,6 +152,15 @@ const first = [{
     icon: 'icon-caidan',
     children: []
   }]
+}, {
+  label: "关于",
+  path: '/about',
+  component: 'views/util/about',
+  icon: 'icon-caidan',
+  meta: {
+    i18n: 'about',
+  },
+  children: []
 }]
 const second = [{
   label: "测试页面",

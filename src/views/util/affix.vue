@@ -19,14 +19,8 @@
       <el-button type="primary">固定在距离顶部 150px 的位置</el-button>
     </el-affix>
     <div class="affix-line"></div>
-    <el-affix target=".affix"
-              :bottom="20">
-      <el-button type="primary">固定在距离底部 20px 的位置</el-button>
-    </el-affix>
     <div style="height:2000px;">
-      <div style="padding:15px 20px;font-size:18px;">
-        <h2>往下拉就会出现图钉</h2>
-      </div>
+      <h3>往下拉就会出现图钉</h3>
     </div>
   </basic-container>
 </template>
@@ -38,7 +32,6 @@ export default {};
 <style lang="scss">
 .affix {
   position: relative;
-  background-color: #fff;
   &-line {
     height: 100px;
   }
