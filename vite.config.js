@@ -16,7 +16,6 @@ export default defineConfig({
     vue(),
     viteMockServe({
       mockPath: 'mock',
-      localEnabled: ConfigEnv === 'serve',
       prodEnabled: ConfigEnv !== 'serve',
       injectCode: `
         import { setupProdMockServer } from './mockProdServer';

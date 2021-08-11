@@ -1,4 +1,5 @@
 import website from '@/config/website'
+const modules = import.meta.glob('../views/util/*.vue');
 function isURL (s) {
   return /^http[s]?:\/\/.*/.test(s)
 }
@@ -63,10 +64,6 @@ RouterPlugin.install = function (option = {}) {
             } else if (isChild && !first) {
               return import('../page/index/layout.vue')
               // 判断是否为最终的页面视图
-            } else {
-              let result = import(`../${component}.vue`)
-              result.then(res => res.default.name = path);
-              return result
             }
           },
           name,
@@ -81,10 +78,8 @@ RouterPlugin.install = function (option = {}) {
           children: !isChild ? (() => {
             if (first) {
               oMenu[propsDefault.path] = `${path}`;
-              let result = import(`../${component}.vue`);
-              result.then(res => res.default.name = path);
               return [{
-                component: result,
+                component: modules[`../${component}.vue`],
                 icon: icon,
                 name: name,
                 meta: meta,

@@ -117,8 +117,8 @@ export default {
           name: "token",
           debug: true
         }) || {};
-        let date1 = dayjs(token.datetime);
-        let date2 = dayjs()
+        let date1 = this.$dayjs(token.datetime);
+        let date2 = this.$dayjs()
         const date = date1.diff(date2, 'month')
         if (validatenull(date)) return;
         if (date >= this.website.tokenTime && !this.refreshLock) {
