@@ -1,5 +1,4 @@
 import website from '@/config/website'
-const modules = import.meta.glob('../views/**/*.vue');
 function isURL (s) {
   return /^http[s]?:\/\/.*/.test(s)
 }
@@ -10,7 +9,8 @@ let RouterPlugin = function () {
 RouterPlugin.install = function (option = {}) {
   this.$router = option.router;
   this.$store = option.store;
-  let i18n = option.i18n.global
+  let i18n = option.i18n.global;
+  let modules = option.modules;
   this.$router.$avueRouter = {
     safe: this,
     // 设置标题
@@ -64,6 +64,8 @@ RouterPlugin.install = function (option = {}) {
             } else if (isChild && !first) {
               return import('../page/index/layout.vue')
               // 判断是否为最终的页面视图
+            } else {
+              return modules[`../${component}.vue`]
             }
           },
           name,
@@ -79,7 +81,7 @@ RouterPlugin.install = function (option = {}) {
             if (first) {
               oMenu[propsDefault.path] = `${path}`;
               return [{
-                component: modules[`../${component}.vue`],
+                component: () => modules[`../${component}.vue`],
                 icon: icon,
                 name: name,
                 meta: meta,
