@@ -4,7 +4,6 @@ import ViewsRouter from './views/'
 import AvueRouter from './avue-router';
 import i18n from '@/lang'
 import Store from '@/store/'
-const modules = import.meta.globEager('../**/**/*.vue');
 //创建路由
 const Router = createRouter({
   history: createWebHistory(),
@@ -13,8 +12,7 @@ const Router = createRouter({
 AvueRouter.install({
   store: Store,
   router: Router,
-  i18n,
-  modules
+  i18n: i18n
 });
 
 Router.$avueRouter.formatRoutes(Store.getters.menuAll, true);
