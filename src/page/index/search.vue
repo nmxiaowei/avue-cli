@@ -7,8 +7,10 @@
         <el-input :placeholder="$t('search')"
                   v-model="value"
                   @keydown.esc="handleEsc">
-          <el-button slot="append"
-                     icon="el-icon-search"></el-button>
+          <template #append>
+            <el-button icon="el-icon-search"></el-button>
+          </template>
+
         </el-input>
         <p>
           <el-tag>你可以使用快捷键esc 关闭</el-tag>
@@ -86,7 +88,6 @@ export default {
         }
       };
       this.menuList = [];
-      findMenu(this.menu);
       this.menus = this.menuList;
     },
     querySearch () {

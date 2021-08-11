@@ -1,5 +1,5 @@
 import { setStore, getStore } from 'utils/store'
-import { dateFormat } from 'utils/date'
+import dayjs from 'dayjs'
 import { sendLogs } from '@/api/user'
 const logs = {
   state: {
@@ -22,7 +22,7 @@ const logs = {
     ADD_LOGS: (state, { type, message, stack, info }) => {
       state.logsList.push(Object.assign({
         url: window.location.href,
-        time: dateFormat(new Date())
+        time: dayjs().format('YYYY-MM-DD HH:mm:ss')
       }, {
         type,
         message,

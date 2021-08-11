@@ -53,12 +53,12 @@ export default {
     setting: '个人设置',
     detail: '详情页',
     info: '个人信息',
-    website: '官网',
+    website: '官方网站(内嵌页面)',
     dashboard: '首页',
     more: '更多',
     tags: '标签',
     store: '本地存储',
-    api: '全局函数',
+    api: '全局函数(外链页面)',
     logs: '日志监控',
     table: '表格',
     crud: '模板',
@@ -71,7 +71,8 @@ export default {
     crudForm: '表格表单',
     cache: '页面缓冲',
     error: '异常页面',
-    test: '测试页面'
+    test: '测试页面',
+    out: '外部页面'
   },
   login: {
     title: '登录 ',

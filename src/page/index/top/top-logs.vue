@@ -5,9 +5,8 @@
       <i class="icon-rizhi1"></i>
     </el-badge>
     <el-dialog title="日志"
-               fullscreen
                v-model="box"
-               width="100%"
+               width="60%"
                append-to-body>
       <el-button type="primary"
                  size="small"
@@ -22,13 +21,15 @@
 
         <el-table-column prop="type"
                          label="类型"
-                         width="180">
+                         width="50px">
         </el-table-column>
         <el-table-column prop="url"
                          label="地址"
+                         show-overflow-tooltip
                          width="180">
         </el-table-column>
         <el-table-column prop="message"
+                         show-overflow-tooltip
                          label="内容">
         </el-table-column>
         <el-table-column prop="stack"
@@ -70,7 +71,7 @@ export default {
       })
         .then(() => {
           this.$store.dispatch("SendLogs").then(() => {
-            this.$parent.$parent.box = false;
+            this.box = false;
             this.$message({
               type: "success",
               message: "发送成功!"
@@ -87,7 +88,7 @@ export default {
       })
         .then(() => {
           this.$store.commit("CLEAR_LOGS");
-          this.$parent.$parent.box = false;
+          this.box = false;
           this.$message({
             type: "success",
             message: "清空成功!"

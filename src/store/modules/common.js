@@ -11,7 +11,6 @@ const common = {
     isFullScren: false,
     isMenu: true,
     isRefresh: true,
-    screen: -1,
     isLock: getStore({ name: 'isLock' }),
     themeName: getStore({ name: 'themeName' }) || 'default',
     lockPasswd: getStore({ name: 'lockPasswd' }) || '',
@@ -44,9 +43,6 @@ const common = {
         content: state.isLock,
         type: 'session'
       })
-    },
-    SET_SCREEN: (state, screen) => {
-      state.screen = screen;
     },
     SET_THEME_NAME: (state, themeName) => {
       state.themeName = themeName;

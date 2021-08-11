@@ -1,5 +1,4 @@
 
-$width: 210px;
 .avue-sidebar,
 .avue-top,
 .avue-logo,
@@ -25,10 +24,6 @@ $width: 210px;
         bottom:0;
       }
     }
-    .avue-menu{
-      width: calc(100% - $width);
-      height: 100%;
-    }
     .el-menu--horizontal,.menu-wrapper,.el-menu-item{
       height: 100%;
     }
@@ -36,7 +31,7 @@ $width: 210px;
       display: flex;
     }
     .avue-logo{
-      width:$width
+      width:$sidebar_width
     }
   }
 }
@@ -52,8 +47,13 @@ $width: 210px;
 }
 
 
+.avue-menu{
+  width: 100%;
+  height: calc(100% - $top_height);
+}
+
 .avue-sidebar {
-  width: 210px;
+  width: $sidebar_width;
   height: 100%;
   .el-menu-item,.el-submenu{
     i{
@@ -62,9 +62,6 @@ $width: 210px;
   }
 }
 
-.avue-menu{
-  height: calc(100% - 64px);
-}
 .avue--collapse {
     .avue-sidebar,
     .avue-logo {
@@ -87,7 +84,11 @@ $width: 210px;
     overflow: hidden;
     background: #f0f2f5;
 }
-
+#avue-view{
+  flex:auto;
+  overflow-y:auto;
+  overflow-x:hidden;
+}
 .avue-view {
     width: 100%;
     box-sizing: border-box;
@@ -131,13 +132,13 @@ $width: 210px;
     .avue--collapse{
       .avue-sidebar{
         left:0;
-        width: $width;
+        width: $sidebar_width;
       }   
       .avue-logo{
-        width: $width;
+        width: $sidebar_width;
       }
       .avue-main{
-        margin-left:$width;
+        margin-left:$sidebar_width;
       }  
     }
     // ele的自适应

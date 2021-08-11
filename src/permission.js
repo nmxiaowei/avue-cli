@@ -33,8 +33,9 @@ router.beforeEach((to, from, next) => {
         const value = to.path;
         const label = to.name;
         const meta = to.meta
-        if (to.query.target) {
-          window.open(value, value)
+        const query = to.query
+        if (meta.target) {
+          window.open(query.url.replace(/#/g, "&"))
           return
         } else if (meta.isTab !== false && !validatenull(value) && !validatenull(label)) {
           store.commit('ADD_TAG', {

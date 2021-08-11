@@ -113,19 +113,26 @@ export const formatPath = (ele, first) => {
   const icon = ele[propsDefault.icon];
   ele[propsDefault.icon] = !icon ? propsDefault.iconDefault : icon;
   ele.meta = ele.meta || {}
+  const iframeComponent = 'components/iframe/main';
+  const iframeSrc = (href) => {
+    return href.replace(/&/g, "#")
+  }
   const isChild = ele[propsDefault.children] && ele[propsDefault.children].length !== 0;
   if (!isChild && first && !isURL(ele[propsDefault.path])) {
     ele[propsDefault.path] = ele[propsDefault.path]
     if (isURL(ele[propsDefault.href])) {
       let href = ele[propsDefault.href]
-      ele.component = 'components/iframe/main'
-      ele[propsDefault.query] = { url: href.replace(/&/g, "#") }
+      ele.component = iframeComponent
+      ele[propsDefault.query] = { url: iframeSrc(href) }
     }
   } else {
     ele[propsDefault.children] && ele[propsDefault.children].forEach(child => {
-      if (!isURL(child[propsDefault.path])) {
-        child[propsDefault.path] = `${ele[propsDefault.path]}/${child[propsDefault.path]}`
+      if (isURL(child[propsDefault.href])) {
+        let href = child[propsDefault.href]
+        child.component = iframeComponent
+        child[propsDefault.query] = { url: iframeSrc(href) }
       }
+      child[propsDefault.path] = `${ele[propsDefault.path]}/${child[propsDefault.path]}`
       formatPath(child);
     })
   }

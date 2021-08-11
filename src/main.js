@@ -13,15 +13,19 @@ import error from './error';
 import basicBlock from 'components/basic-block/main.vue'
 import basicContainer from 'components/basic-container/main.vue'
 import App from './App.vue'
+import animate from 'animate.css'
+import dayjs from 'dayjs'
 const app = createApp(App)
 //注册全局容器
 app.component('basicContainer', basicContainer)
 app.component('basicBlock', basicBlock)
 app.config.globalProperties.$axios = axios
+app.config.globalProperties.$dayjs = dayjs
 app.config.globalProperties.website = website
 app.config.globalProperties.validatenull = validatenull;
 app.use(error);
 app.use(i18n)
+app.use(animate)
 app.use(store)
 app.use(router)
 app.use(ElementPlus, {

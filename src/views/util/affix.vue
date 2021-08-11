@@ -1,5 +1,5 @@
 <template>
-  <div class="affix">
+  <basic-container class="affix">
     <el-affix target=".affix">
       <el-button type="primary">固定在最顶部</el-button>
     </el-affix>
@@ -28,7 +28,7 @@
         <h2>往下拉就会出现图钉</h2>
       </div>
     </div>
-  </div>
+  </basic-container>
 </template>
 
 <script>

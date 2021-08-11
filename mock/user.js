@@ -15,6 +15,14 @@ export default [{
     }
   }
 }, {
+  url: "/user/logout",
+  method: "post",
+  response: () => {
+    return {
+      data: new Date().getTime() + ''
+    }
+  }
+}, {
   url: "/user/refresh",
   method: "post",
   response: () => {

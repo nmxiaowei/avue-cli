@@ -22,18 +22,6 @@ export default [{
       import( /* webpackChunkName: "views" */ '@/views/wel/dashboard.vue')
   }]
 }, {
-  path: '/form-detail',
-  component: Layout,
-  children: [{
-    path: 'index',
-    name: '详情页',
-    meta: {
-      i18n: 'detail'
-    },
-    component: () =>
-      import( /* webpackChunkName: "views" */ '@/views/util/form-detail.vue')
-  }]
-}, {
   path: '/info',
   component: Layout,
   redirect: '/info/index',
@@ -68,16 +56,14 @@ export default [{
   }]
 }, {
   path: '/test',
-  redirect: '/test/index',
+  redirect: '/test',
   component: Layout,
   children: [{
-    name: '测试页面',
     meta: {
       i18n: 'test'
     },
-    path: 'index',
+    path: '',
     component: () =>
       import( /* webpackChunkName: "views" */ '@/views/util/test.vue')
   }]
-
 }]

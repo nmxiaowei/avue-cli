@@ -71,7 +71,8 @@ export default {
     data: 'data',
     cache: 'cache',
     error: 'error',
-    test: 'test'
+    test: 'test',
+    out: 'out'
   },
   login: {
     title: 'Login ',

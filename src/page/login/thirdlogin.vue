@@ -2,18 +2,18 @@
   <div class="social-container">
     <div class="box"
          @click="handleClick('wechat')">
-      <span class="container"
-            :style="{backgroundColor:'#6ba2d6'}">
+      <span class="container">
         <i icon-class="wechat"
+           :style="{color:'#6ba2d6'}"
            class="iconfont icon-weixin"></i>
       </span>
       <p class="title">{{$t('login.wechat')}}</p>
     </div>
     <div class="box"
          @click="handleClick('tencent')">
-      <span class="container"
-            :style="{backgroundColor:'#8dc349'}">
+      <span class="container">
         <i icon-class="qq"
+           :style="{color:'#8dc349'}"
            class="iconfont icon-qq"></i>
       </span>
       <p class="title">{{$t('login.qq')}}</p>
@@ -59,16 +59,17 @@ export default {
   margin: 20px 0;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
   .box {
+    margin: 0 50px;
     cursor: pointer;
   }
   .iconfont {
     color: #fff;
-    font-size: 30px;
+    font-size: 80px;
   }
   .container {
-    $height: 50px;
+    $height: 80px;
     display: inline-block;
     width: $height;
     height: $height;

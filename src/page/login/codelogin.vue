@@ -23,8 +23,7 @@
                 auto-complete="off"
                 :placeholder="$t('login.code')">
         <template #prefix>
-          <i class="icon-yanzhengma"
-             style="margin-top:6px;"></i>
+          <i class="icon-yanzhengma"></i>
         </template>
 
         <template #append>

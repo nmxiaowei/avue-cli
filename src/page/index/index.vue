@@ -19,8 +19,7 @@
                   v-show="isSearch"></search>
         </transition>
         <!-- 主体视图层 -->
-        <div style="flex:auto;overflow-y:auto;overflow-x:hidden;"
-             id="avue-view"
+        <div id="avue-view"
              v-show="!isSearch"
              v-if="isRefresh">
           <router-view #="{ Component }">
@@ -45,9 +44,7 @@ import search from "./search.vue";
 import logo from "./logo.vue";
 import top from "./top/index.vue";
 import sidebar from "./sidebar/index.vue";
-import admin from "@/utils/admin";
 import { validatenull } from "@/utils/validate";
-import { calcDate } from "@/utils/date.js";
 import { getStore } from "@/utils/store.js";
 export default {
   components: {
@@ -77,9 +74,6 @@ export default {
     //实时检测刷新token
     this.refreshToken();
   },
-  mounted () {
-    this.init();
-  },
   computed: {
     ...mapGetters(["isHorizontal", "isRefresh", "isLock", "isCollapse", "menu"]),
     validSidebar () {
@@ -88,15 +82,6 @@ export default {
   },
   props: [],
   methods: {
-    // 屏幕检测
-    init () {
-      this.$store.commit("SET_SCREEN", admin.getScreen());
-      window.onresize = () => {
-        setTimeout(() => {
-          this.$store.commit("SET_SCREEN", admin.getScreen());
-        }, 0);
-      };
-    },
     //打开菜单
     openMenu (item = {}) {
       this.$store.dispatch("GetMenu", item.parentId).then(data => {
@@ -132,9 +117,11 @@ export default {
           name: "token",
           debug: true
         }) || {};
-        const date = calcDate(token.datetime, new Date().getTime());
+        let date1 = dayjs(token.datetime);
+        let date2 = dayjs()
+        const date = date1.diff(date2, 'month')
         if (validatenull(date)) return;
-        if (date.seconds >= this.website.tokenTime && !this.refreshLock) {
+        if (date >= this.website.tokenTime && !this.refreshLock) {
           this.refreshLock = true;
           this.$store
             .dispatch("RefeshToken")

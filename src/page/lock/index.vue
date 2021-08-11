@@ -99,7 +99,7 @@ export default {
   top: 0;
   width: 100%;
   height: 100%;
-  background-image: url("/img/bg/login.png");
+  background-image: url("/img/login.png");
   background-size: cover;
 }
 .lock-form {

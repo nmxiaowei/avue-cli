@@ -7,7 +7,6 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
 import NProgress from "nprogress"; // progress bar
 import "nprogress/nprogress.css"; // progress bar style
 export default {
@@ -27,7 +26,6 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(["screen"]),
     src () {
       return this.$route.query.url.replace(/#/g, "&")
     }
@@ -58,8 +56,7 @@ export default {
     //iframe窗口初始化
     iframeInit () {
       const iframe = this.$refs.iframe;
-      const clientHeight =
-        document.documentElement.clientHeight - (screen > 1 ? 200 : 130);
+      const clientHeight = document.documentElement.clientHeight - 150;
       if (!iframe) return;
       iframe.style.height = `${clientHeight}px`;
       if (iframe.attachEvent) {

@@ -8,7 +8,6 @@
              :mode="setting.sidebar"
              :collapse="keyCollapse">
       <sidebar-item :menu="menu"
-                    :screen="screen"
                     first
                     :props="website.menu"
                     :collapse="keyCollapse"></sidebar-item>
@@ -40,7 +39,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(["isHorizontal", "setting", "menu", "tag", "keyCollapse", "screen", "menuId"]),
+    ...mapGetters(["isHorizontal", "setting", "menu", "tag", "keyCollapse", "menuId"]),
     nowTagValue () { return this.$route.path; }
   },
   methods: {}

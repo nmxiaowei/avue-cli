@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <basic-container>
     <div style="height:2000px;background-color:#fff;">
       <div style="padding:15px 20px;font-size:18px;">
         <h3>往下拉就会出现返回菜单</h3>
@@ -11,7 +11,7 @@
                 :bottom="100">
       <div class="top">返回顶端</div>
     </el-backtop>
-  </div>
+  </basic-container>
 </template>
 
 <script>

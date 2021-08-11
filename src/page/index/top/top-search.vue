@@ -6,7 +6,7 @@
                    :placeholder="$t('search')"
                    @select="handleSelect">
 
-    <template slot-scope="{ item }">
+    <template #="{ item }">
       <i :class="[item[iconKey],'icon']"></i>
       <div class="name">{{ item[labelKey] }}</div>
       <div class="addr">{{ item[pathKey] }}</div>
@@ -94,8 +94,8 @@ export default {
 <style lang="scss">
 .my-autocomplete {
   li {
-    line-height: normal;
-    padding: 7px;
+    line-height: normal !important;
+    padding: 7px !important;
     .icon {
       margin-right: 5px;
       display: inline-block;

@@ -8,20 +8,9 @@ const top = [{
   parentId: 0
 },
 {
-  label: "官网",
-  icon: 'el-icon-document',
-  meta: {
-    menu: false,
-    i18n: 'website',
-  },
-  path: '/website',
-  href: "https://avuejs.com",
-  parentId: 1
-},
-{
   label: "测试",
   icon: 'el-icon-document',
-  path: "/test/index",
+  path: "/test",
   meta: {
     i18n: 'test',
   },
@@ -38,16 +27,6 @@ const top = [{
   parentId: 3
 }]
 const first = [{
-  label: "官网",
-  path: '/website',
-  href: 'https://avuejs.com',
-  icon: 'icon-caidan',
-  meta: {
-    target: '_blank',
-    i18n: 'website',
-  },
-  children: []
-}, {
   label: "缓冲",
   path: '/cache',
   component: 'views/util/cache',
@@ -84,14 +63,6 @@ const first = [{
   },
   children: []
 }, {
-  label: "全局函数",
-  path: '/api',
-  href: 'https://avuejs.com/docs/api?test1=1&test2=2',
-  icon: 'icon-caidan',
-  meta: {
-    i18n: 'api',
-  }
-}, {
   label: "日志监控",
   path: '/logs',
   component: 'views/util/logs',
@@ -118,6 +89,31 @@ const first = [{
     i18n: 'affix',
   },
   children: []
+}, {
+  label: "外部页面",
+  path: '/out',
+  icon: 'icon-caidan',
+  meta: {
+    i18n: 'out',
+  },
+  children: [{
+    label: "官方网站(内嵌页面)",
+    path: 'website',
+    href: 'https://avuejs.com',
+    icon: 'icon-caidan',
+    meta: {
+      i18n: 'website',
+    }
+  }, {
+    label: "全局函数(外链页面)",
+    path: 'api',
+    href: 'https://avuejs.com/docs/api?test1=1&test2=2',
+    icon: 'icon-caidan',
+    meta: {
+      target: '_blank',
+      i18n: 'api',
+    }
+  }]
 }, {
   label: "异常页",
   path: '/error',

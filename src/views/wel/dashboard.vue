@@ -6,14 +6,14 @@
                    icon="el-icon-platform-eleme"
                    text="开始菜单1"
                    time="1"
-                   background="/img/bg/bg3.jpg"
+                   background="/img/bg3.jpg"
                    color="#d56259"></basic-block>
       <basic-block :width="width"
                    :height="height"
                    icon="el-icon-eleme"
                    text="开始菜单2"
                    time="2"
-                   background="/img/bg/bg2.jpg"
+                   background="/img/bg2.jpg"
                    color="#419ce7"></basic-block>
       <basic-block :width="width"
                    :height="height"
@@ -38,7 +38,7 @@
                    icon="el-icon-setting"
                    text="开始菜单6"
                    time="6"
-                   background="/img/bg/bg1.jpg"
+                   background="/img/bg1.jpg"
                    dept="这是一段很长的很长很长很长的描述这是一段很长的很长很长很长的描述"
                    color="#422829"></basic-block>
       <basic-block :width="width"
@@ -107,14 +107,14 @@
                    icon="el-icon-s-release"
                    text="开始菜单17"
                    time="17"
-                   background="/img/bg/bg2.jpg"
+                   background="/img/bg2.jpg"
                    color="#209bdf"></basic-block>
       <basic-block :width="width"
                    :height="height"
                    icon="el-icon-s-home"
                    text="开始菜单18"
                    time="18"
-                   background="/img/bg/bg3.jpg"
+                   background="/img/bg3.jpg"
                    color="#603bbc"></basic-block>
       <basic-block :width="515"
                    :height="height"
@@ -128,7 +128,7 @@
                    icon="el-icon-s-custom"
                    text="开始菜单20"
                    time="20"
-                   background="/img/bg/bg4.jpg"
+                   background="/img/bg4.jpg"
                    dept="这是一段很长的很长很长很长的描述这是一段很长的很长很长很长的描述"
                    color="#d74e2a"></basic-block>
     </div>

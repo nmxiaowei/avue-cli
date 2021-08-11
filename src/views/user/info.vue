@@ -30,10 +30,63 @@
       </el-col>
       <el-col :span="16">
         <basic-container>
-          <avue-tabs :option="option"
-                     v-model="form"
-                     @chang="handleChange"
-                     @submit="handleSubmit"></avue-tabs>
+          <el-tabs v-model="activeName">
+            <el-tab-pane label="个人信息"
+                         :name="0">
+              <el-form label-width="110px">
+                <el-form-item label="头像">
+                  <el-upload class="avatar-uploader"
+                             :show-file-list="false">
+                    <img v-if="form.img"
+                         :src="form.img"
+                         class="avatar">
+                    <i v-else
+                       class="el-icon-plus avatar-uploader-icon"></i>
+                  </el-upload>
+                </el-form-item>
+                <el-form-item label="姓名">
+                  <el-input v-model="form.name"></el-input>
+                </el-form-item>
+                <el-form-item label="用户名">
+                  <el-input v-model="form.username"></el-input>
+                </el-form-item>
+                <el-form-item label="邮箱">
+                  <el-input v-model="form.yx"></el-input>
+                </el-form-item>
+                <el-form-item>
+                  <el-button type="primary">确认</el-button>
+                  <el-button>取消</el-button>
+                </el-form-item>
+              </el-form>
+            </el-tab-pane>
+            <el-tab-pane label="修改密码"
+                         :name="1">
+              <el-form label-width="110px">
+                <el-form-item label="原密码"
+                              prop="oldpassword">
+                  <el-input type="password"
+                            v-model="form.password"
+                            autocomplete="off"></el-input>
+                </el-form-item>
+                <el-form-item label="新密码"
+                              prop="newpassword">
+                  <el-input type="password"
+                            v-model="form.newpassword"
+                            autocomplete="off"></el-input>
+                </el-form-item>
+                <el-form-item label="确认密码"
+                              prop="newpasswords">
+                  <el-input type="password"
+                            v-model="form.newpasswords"
+                            autocomplete="off"></el-input>
+                </el-form-item>
+                <el-form-item>
+                  <el-button type="primary">确认</el-button>
+                  <el-button>重置</el-button>
+                </el-form-item>
+              </el-form>
+            </el-tab-pane>
+          </el-tabs>
         </basic-container>
       </el-col>
     </el-row>
@@ -42,12 +95,10 @@
 </template>
 
 <script>
-import option from "@/const/user/info";
 export default {
   data () {
     return {
-      type: "info",
-      option: option,
+      activeName: 0,
       tags: [
         ' 善解人意',
         '开朗乐观',
@@ -68,7 +119,7 @@ export default {
       ],
       form: {
         img: 'https://avatar.gitee.com/uploads/61/632261_smallweigit.jpg!avatar100?1518660401',
-        username: "smallwei",
+        username: "avue",
         name: "smallwei",
         ms: "保护头发，人人有责",
         yx: "1634566606@qq.com",

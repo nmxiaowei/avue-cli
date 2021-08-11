@@ -32,7 +32,6 @@
                         :menu="[child]"
                         :key="cindex"
                         :props="props"
-                        :screen="screen"
                         :collapse="collapse"></sidebar-item>
         </template>
       </el-submenu>
@@ -47,9 +46,6 @@ export default {
   props: {
     menu: {
       type: Array
-    },
-    screen: {
-      type: Number
     },
     first: {
       type: Boolean,
@@ -107,7 +103,6 @@ export default {
       return validatenull(val);
     },
     open (item) {
-      if (this.screen <= 1) this.$store.commit("SET_COLLAPSE");
       this.$router.push({
         path: item[this.pathKey],
         query: item[this.queryKey]

@@ -4,14 +4,14 @@
     <div class="login-time">
       {{time}}
     </div>
-    <div class="login-weaper animated bounceInDown">
-      <div class="login-left">
+    <div class="login-weaper">
+      <div class="login-left animate__animated animate__fadeInLeft">
         <img class="img"
              src="/img/logo.png"
              alt="">
         <p class="title">{{ $t('login.info') }}</p>
       </div>
-      <div class="login-border">
+      <div class="login-border animate__animated animate__fadeInRight">
         <div class="login-main">
           <p class="login-title">
             {{ $t('login.title') }}{{website.title}}
@@ -42,7 +42,6 @@ import userLogin from "./userlogin.vue";
 import codeLogin from "./codelogin.vue";
 import thirdLogin from "./thirdlogin.vue";
 import faceLogin from "./facelogin.vue";
-import { dateFormat } from "@/utils/date";
 import { validatenull } from "@/utils/validate";
 import topLang from "@/page/index/top/top-lang.vue";
 export default {
@@ -87,7 +86,7 @@ export default {
   props: [],
   methods: {
     getTime () {
-      this.time = dateFormat(new Date());
+      this.time = this.$dayjs().format('YYYY年MM月DD日 HH:mm:ss')
     }
   }
 };

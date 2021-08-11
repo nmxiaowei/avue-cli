@@ -1,5 +1,5 @@
 <template>
-  <i class="el-icon-s-tools"
+  <i class="setting-icon el-icon-s-tools"
      @click="show=true"></i>
   <el-drawer append-to-body
              class="setting-panel"
@@ -111,6 +111,10 @@ export default {
     .el-drawer__body {
       padding: 0 20px;
     }
+  }
+  &-icon {
+    font-size: 18px;
+    color: #666;
   }
   &-item {
     display: flex;

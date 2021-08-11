@@ -1,17 +1,15 @@
 <template>
-  <div>
-    <basic-container>测试页</basic-container>
-  </div>
+  <basic-container>测试页</basic-container>
 </template>
 
 <script>
 export default {
   name: "wel",
-  data() {
+  data () {
     return {};
   },
   computed: {},
-  created() {},
+  created () { },
   methods: {}
 };
 </script>
