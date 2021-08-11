@@ -1,5 +1,5 @@
 import website from '@/config/website'
-const modules = import.meta.glob('../views/util/*.vue');
+const modules = import.meta.glob('../views/**/*.vue');
 function isURL (s) {
   return /^http[s]?:\/\/.*/.test(s)
 }
