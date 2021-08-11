@@ -73,7 +73,6 @@ import topMenu from "./top-menu.vue";
 import topSearch from "./top-search.vue";
 import topTheme from "./top-theme.vue";
 import topLogs from "./top-logs.vue";
-import topNotice from './top-notice.vue'
 import topLang from "./top-lang.vue";
 import topFull from "./top-full.vue";
 import topSetting from "../setting.vue";
@@ -84,7 +83,6 @@ export default {
     topSearch,
     topTheme,
     topLogs,
-    topNotice,
     topLang,
     topFull,
     topSetting

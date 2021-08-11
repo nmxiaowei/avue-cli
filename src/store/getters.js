@@ -3,11 +3,11 @@ import website from '@/config/website'
 const getters = {
   tag: state => state.tags.tag,
   language: state => state.common.language,
-  setting: () => website.setting,
+  setting: state => state.common.setting,
   userInfo: state => state.user.userInfo,
   themeName: state => state.common.themeName,
   isRefresh: state => state.common.isRefresh,
-  isHorizontal: (state, getters) => getters.setting.sidebar === 'horizontal',
+  isHorizontal: state => state.common.setting.sidebar === 'horizontal',
   isCollapse: state => state.common.isCollapse,
   isLock: state => state.common.isLock,
   isFullScren: state => state.common.isFullScren,

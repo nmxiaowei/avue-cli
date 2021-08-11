@@ -15,6 +15,7 @@ const common = {
     themeName: getStore({ name: 'themeName' }) || 'default',
     lockPasswd: getStore({ name: 'lockPasswd' }) || '',
     website: website,
+    setting: website.setting
   },
   mutations: {
     SET_LANGUAGE: (state, language) => {

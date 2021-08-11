@@ -24,13 +24,14 @@ a{
     flex-direction: column;
     .avue-sidebar {
       width: 100%;
-      height: 64px;
+      height: $top_height;
       display: flex;
-      .el-menu-item.is-active:before,.el-submenu__title.is-active:before{
-        width: 100%;
-        height: 4px;
-        top:inherit;
-        bottom:0;
+      .avue-menu,.el-menu-item,.el-submenu__title{
+        height: $top_height;
+        line-height: $top_height;
+      }
+      .is-active:before{
+        display: none;
       }
     }
     .avue-logo{

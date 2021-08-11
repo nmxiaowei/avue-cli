@@ -43,7 +43,9 @@
       </div>
     </div>
   </div>
-  <dashboard></dashboard>
+  <basic-container>
+    <dashboard></dashboard>
+  </basic-container>
 </template>
 
 <script>
