@@ -6,11 +6,11 @@
     <el-menu unique-opened
              :default-active="nowTagValue"
              :mode="setting.sidebar"
-             :collapse="keyCollapse">
+             :collapse="isCollapse">
       <sidebar-item :menu="menu"
                     first
                     :props="website.menu"
-                    :collapse="keyCollapse"></sidebar-item>
+                    :collapse="isCollapse"></sidebar-item>
     </el-menu>
   </el-scrollbar>
 </template>
@@ -39,7 +39,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(["isHorizontal", "setting", "menu", "tag", "keyCollapse", "menuId"]),
+    ...mapGetters(["isHorizontal", "setting", "menu", "tag", "isCollapse", "menuId"]),
     nowTagValue () { return this.$route.path; }
   },
   methods: {}

@@ -4,7 +4,6 @@ import axios from './axios';
 import router from './router/';
 import store from './store';
 import i18n from './lang/';
-import 'styles/common.scss';
 import ElementPlus from 'element-plus';
 import 'element-plus/lib/theme-chalk/index.css';
 import { validatenull } from './utils/validate'
@@ -15,6 +14,7 @@ import basicContainer from 'components/basic-container/main.vue'
 import App from './App.vue'
 import animate from 'animate.css'
 import dayjs from 'dayjs'
+import 'styles/common.scss';
 const app = createApp(App)
 //注册全局容器
 app.component('basicContainer', basicContainer)

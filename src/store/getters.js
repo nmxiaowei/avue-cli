@@ -9,7 +9,6 @@ const getters = {
   isRefresh: state => state.common.isRefresh,
   isHorizontal: (state, getters) => getters.setting.sidebar === 'horizontal',
   isCollapse: state => state.common.isCollapse,
-  keyCollapse: (state, getters) => getters.screen > 1 ? getters.isCollapse : false,
   isLock: state => state.common.isLock,
   isFullScren: state => state.common.isFullScren,
   isMenu: state => state.common.isMenu,

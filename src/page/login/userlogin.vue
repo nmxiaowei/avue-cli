@@ -33,21 +33,16 @@
       </el-input>
     </el-form-item>
     <el-form-item prop="code">
-      <el-row :span="24">
-        <el-col :span="16">
-          <el-input size="small"
-                    @keyup.enter="handleLogin"
-                    :maxlength="code.len"
-                    v-model="loginForm.code"
-                    auto-complete="off"
-                    :placeholder="$t('login.code')">
-            <template #prefix>
-              <i class="icon-yanzhengma"></i>
-            </template>
-
-          </el-input>
-        </el-col>
-        <el-col :span="8">
+      <el-input size="small"
+                @keyup.enter="handleLogin"
+                :maxlength="code.len"
+                v-model="loginForm.code"
+                auto-complete="off"
+                :placeholder="$t('login.code')">
+        <template #prefix>
+          <i class="icon-yanzhengma"></i>
+        </template>
+        <template #append>
           <div class="login-code">
             <span class="login-code-img"
                   @click="refreshCode"
@@ -58,9 +53,8 @@
                  v-else />
             <!-- <i class="icon-shuaxin login-code-icon" @click="refreshCode"></i> -->
           </div>
-        </el-col>
-      </el-row>
-
+        </template>
+      </el-input>
     </el-form-item>
 
     <el-form-item>

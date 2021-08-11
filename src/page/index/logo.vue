@@ -1,14 +1,14 @@
 <template>
   <div class="avue-logo">
     <transition name="fade">
-      <span v-if="keyCollapse"
+      <span v-if="isCollapse"
             class="avue-logo_subtitle"
             key="0">
         {{website.logo}}
       </span>
     </transition>
     <transition-group name="fade">
-      <template v-if="!keyCollapse">
+      <template v-if="!isCollapse">
         <span class="avue-logo_title"
               key="1">{{website.indexTitle}} </span>
       </template>
@@ -25,7 +25,7 @@ export default {
   },
   created () { },
   computed: {
-    ...mapGetters(["keyCollapse"])
+    ...mapGetters(["isCollapse"])
   },
   methods: {}
 };
