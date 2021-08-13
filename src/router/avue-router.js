@@ -66,7 +66,9 @@ RouterPlugin.install = function (option = {}) {
               return modules['../page/index/layout.vue']
               // 判断是否为最终的页面视图
             } else {
-              return modules[`../${component}.vue`];
+              let result = modules[`../${component}.vue`]
+              result().then(mod => mod.default.name = path)
+              return result
             }
           })(),
           name,
@@ -81,8 +83,10 @@ RouterPlugin.install = function (option = {}) {
           children: !isChild ? (() => {
             if (first) {
               oMenu[propsDefault.path] = `${path}`;
+              let result = modules[`../${component}.vue`]
+              result().then(mod => mod.default.name = path)
               return [{
-                component: modules[`../${component}.vue`],
+                component: result,
                 icon: icon,
                 name: name,
                 meta: meta,

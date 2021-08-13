@@ -12,7 +12,6 @@
 
 <script>
 export default {
-  name: '/cache',
   data () {
     return {
       value: ""
