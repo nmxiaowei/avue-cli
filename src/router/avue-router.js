@@ -1,6 +1,6 @@
 import website from '@/config/website'
 
-const components = import.meta.globEager('../**/**/*.vue')
+const modules = import.meta.glob('../**/**/*.vue')
 function isURL (s) {
   return /^http[s]?:\/\/.*/.test(s)
 }
@@ -57,18 +57,18 @@ RouterPlugin.install = function (option = {}) {
         const isChild = children && children.length !== 0;
         const oRouter = {
           path: path,
-          component: () => {
+          component: (() => {
             // 判断是否为首路由
             if (first) {
-              return import('../page/index/index.vue')
+              return modules['../page/index/index.vue']
               // 判断是否为多层路由
             } else if (isChild && !first) {
-              return import('../page/index/layout.vue')
+              return modules['../page/index/layout.vue']
               // 判断是否为最终的页面视图
             } else {
-              return components[`../${component}.vue`].default;
+              return modules[`../${component}.vue`];
             }
-          },
+          })(),
           name,
           icon,
           meta,
@@ -82,7 +82,7 @@ RouterPlugin.install = function (option = {}) {
             if (first) {
               oMenu[propsDefault.path] = `${path}`;
               return [{
-                component: components[`../${component}.vue`].default,
+                component: modules[`../${component}.vue`],
                 icon: icon,
                 name: name,
                 meta: meta,
