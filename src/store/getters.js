@@ -7,6 +7,7 @@ const getters = {
   userInfo: state => state.user.userInfo,
   themeName: state => state.common.themeName,
   isRefresh: state => state.common.isRefresh,
+  isSearch: state => state.common.isSearch,
   isHorizontal: state => state.common.setting.sidebar === 'horizontal',
   isCollapse: state => state.common.isCollapse,
   isLock: state => state.common.isLock,

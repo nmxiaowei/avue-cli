@@ -74,7 +74,7 @@ export default {
   },
   methods: {
     handleEsc () {
-      this.$parent.isSearch = false;
+      this.$store.commit('SET_IS_SEARCH', false)
     },
     getMenuList () {
       const findMenu = list => {
@@ -88,6 +88,7 @@ export default {
         }
       };
       this.menuList = [];
+      findMenu(this.menu);
       this.menus = this.menuList;
     },
     querySearch () {
@@ -106,7 +107,6 @@ export default {
       };
     },
     handleSelect (item) {
-      this.handleEsc();
       this.value = "";
       this.$router.push({
         path: item[this.pathKey],

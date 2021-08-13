@@ -10,6 +10,7 @@ const common = {
     isCollapse: false,
     isFullScren: false,
     isMenu: true,
+    isSearch: false,
     isRefresh: true,
     isLock: getStore({ name: 'isLock' }),
     themeName: getStore({ name: 'themeName' }) || 'default',
@@ -33,6 +34,9 @@ const common = {
     },
     SET_IS_REFRESH: (state, refresh) => {
       state.isRefresh = refresh;
+    },
+    SET_IS_SEARCH: (state, search) => {
+      state.isSearch = search;
     },
     SET_FULLSCREN: (state) => {
       state.isFullScren = !state.isFullScren;

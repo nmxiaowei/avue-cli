@@ -44,7 +44,7 @@
         </el-button>
         <template #dropdown>
           <el-dropdown-menu>
-            <el-dropdown-item @click="$parent.isSearch=true">{{$t('tagsView.search')}}</el-dropdown-item>
+            <el-dropdown-item @click="openSearch">{{$t('tagsView.search')}}</el-dropdown-item>
             <el-dropdown-item @click="closeOthersTags">{{$t('tagsView.closeOthers')}}</el-dropdown-item>
             <el-dropdown-item @click="closeAllTags">{{$t('tagsView.closeAll')}}</el-dropdown-item>
           </el-dropdown-menu>
@@ -85,6 +85,9 @@ export default {
     }
   },
   methods: {
+    openSearch () {
+      this.$store.commit('SET_IS_SEARCH', true)
+    },
     handleRefresh () {
       this.refresh = true;
       this.$store.commit('SET_IS_REFRESH', false);

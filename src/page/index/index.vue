@@ -62,8 +62,6 @@ export default {
   },
   data () {
     return {
-      //搜索控制
-      isSearch: false,
       //刷新token锁
       refreshLock: false,
       //刷新token的时间
@@ -75,7 +73,7 @@ export default {
     this.refreshToken();
   },
   computed: {
-    ...mapGetters(["isHorizontal", "isRefresh", "isLock", "isCollapse", "menu"]),
+    ...mapGetters(["isHorizontal", "isRefresh", "isLock", "isCollapse", "isSearch", "menu"]),
     validSidebar () {
       return !((this.$route.meta || {}).menu == false || (this.$route.query || {}).menu == 'false')
     }
