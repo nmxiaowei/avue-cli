@@ -12,15 +12,15 @@ const Mode = (function () {
       app: item
     }, opts)
     let userOnClose = options.onClose;
+    options.onClose = function () {
+      obj.close(id, userOnClose);
+    };
     const parent = document.createElement('div')
     let app = createApp(MessageConstructor)
     instance = app.mount(parent);
     Object.keys(options).forEach(ele => {
       instance[ele] = options[ele]
     })
-    options.onClose = function () {
-      obj.close(id, userOnClose);
-    };
     instance.id = id;
     if (isVNode(instance.message)) {
       instance.$slots.default = [instance.message];
@@ -39,6 +39,7 @@ const Mode = (function () {
           userOnClose(instances[i]);
         }
         instances.splice(i, 1);
+        document.getElementById(id).remove()
         break;
       }
     }

@@ -23,7 +23,7 @@ export default {
   created () {
     setTimeout(() => {
       this.handleLogin()
-    }, 4000)
+    }, 6000)
   },
   computed: {
     ...mapGetters(["tagWel"])

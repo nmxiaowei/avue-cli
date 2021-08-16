@@ -1,5 +1,6 @@
 <template>
   <div class="moveBg"
+       :id="id"
        v-show="isShow"
        @mousemove="mouseMove"
        @mouseup="mouseUp"
@@ -27,8 +28,8 @@
             <div class="controll">
               <div class="close"
                    @click.stop="close"></div>
-              <div class="min"
-                   @click.stop="hide"></div>
+              <!-- <div class="min"
+                   @click.stop="hide"></div> -->
               <div class="full"
                    :class="app.disableResize?'full-disabled':''"
                    @click.stop="switchFullScreen">
@@ -62,9 +63,9 @@ import { defineAsyncComponent } from 'vue'
 export default {
   data () {
     return {
-      app: {},
       onClose: null,
-      onHide: null,
+      isShow: false,
+      app: {},
       defaultIndex: 10,
       activeIndex: 20,
       isBoxMoving: false,
@@ -100,14 +101,11 @@ export default {
     close () {
       this.isShow = false
       if (typeof this.onClose === "function") {
-        this.onClose(this.app, this);
+        this.onClose(this);
       }
     },
     hide () {
       this.isShow = false
-      if (typeof this.onHide === "function") {
-        this.onHide(this.app, this);
-      }
     },
     switchFullScreen () {
       if (this.app.disableResize) {

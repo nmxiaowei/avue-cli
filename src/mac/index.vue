@@ -127,10 +127,6 @@ export default {
       $Mode({
         title: item[this.labelKey],
         path: item[this.hrefKey] ? item[this.hrefKey] : item[this.pathKey]
-      }, {
-        onClose: (app) => {
-          this.$router.$avueRouter.closeTag(app[this.pathKey])
-        }
       })
     }
   }
