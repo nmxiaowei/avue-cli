@@ -3,7 +3,7 @@ export default [{
   path: '/login',
   name: '登录页',
   component: () =>
-    Store.getters.isMacOs ? import( /* webpackChunkName: "page" */ '@/mac/login.vue') : import( /* webpackChunkName: "page" */ '@/page/login/index.vue'),
+    Store.getters.isMacOs ? import('@/mac/login.vue') : import('@/page/login/index.vue'),
   meta: {
     keepAlive: true,
     isTab: false,
