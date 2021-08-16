@@ -4,7 +4,6 @@ import { validatenull } from '@/utils/validate'
 import { getToken } from '@/utils/auth'
 import NProgress from 'nprogress' // progress bar
 import 'nprogress/nprogress.css' // progress bar style
-import { Store } from 'vuex'
 NProgress.configure({ showSpinner: false });
 const lockPage = '/lock'; //锁屏页
 router.beforeEach((to, from, next) => {

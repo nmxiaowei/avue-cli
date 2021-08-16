@@ -85,6 +85,15 @@ a{
     font-size: 12px;
   }
 }
+.mac_bg {
+  background-image: url("/img/bg.jpg");
+  background-color: #000;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
 // ele样式覆盖
 @import './element-ui.scss';
 // 顶部右侧显示

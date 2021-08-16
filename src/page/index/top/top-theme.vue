@@ -79,6 +79,9 @@ export default {
         }, {
           name: "beautiful主题",
           value: "theme-beautiful"
+        }, {
+          name: "Mac OS主题",
+          value: "mac-os"
         }
       ]
     };
@@ -87,6 +90,9 @@ export default {
     text: function (val) {
       this.$store.commit("SET_THEME_NAME", val);
       setTheme(val);
+      if (this.$store.getters.isMacOs) {
+        location.reload();
+      }
     }
   },
   computed: {

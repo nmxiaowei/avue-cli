@@ -1,7 +1,8 @@
 import Layout from '@/page/index/index.vue'
+import Store from '@/store/'
 export default [{
   path: '/wel',
-  component: Layout,
+  component: Store.getters.isMacOs ? import( /* webpackChunkName: "page" */ '@/mac/index.vue') : Layout,
   redirect: '/wel/index',
   children: [{
     path: 'index',

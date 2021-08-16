@@ -60,7 +60,7 @@ RouterPlugin.install = function (option = {}) {
           component: (() => {
             // 判断是否为首路由
             if (first) {
-              return modules['../page/index/index.vue']
+              return modules[option.store.getters.isMacOs ? '../page/index/layout.vue' : '../page/index/index.vue']
               // 判断是否为多层路由
             } else if (isChild && !first) {
               return modules['../page/index/layout.vue']

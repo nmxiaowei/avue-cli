@@ -75,7 +75,7 @@ export const setTheme = (name) => {
  */
 export const encryption = (params) => {
   let {
-    data,
+    data = {},
     type,
     param,
     key

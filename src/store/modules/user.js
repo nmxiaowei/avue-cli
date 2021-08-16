@@ -16,7 +16,7 @@ const user = {
   },
   actions: {
     //根据用户名登录
-    LoginByUsername ({ commit }, userInfo) {
+    LoginByUsername ({ commit }, userInfo = {}) {
       const user = encryption({
         data: userInfo,
         type: 'Aes',
@@ -28,7 +28,7 @@ const user = {
         loginByUsername(user.username, user.password, userInfo.code, userInfo.redomStr).then(res => {
           const data = res.data.data;
           commit('SET_TOKEN', data);
-          commit('DEL_ALL_TAG');
+          commit('DEL_ALL_TAG', []);
           commit('CLEAR_LOCK');
           resolve();
         })
@@ -40,7 +40,7 @@ const user = {
         loginByUsername(userInfo.phone, userInfo.code).then(res => {
           const data = res.data.data;
           commit('SET_TOKEN', data);
-          commit('DEL_ALL_TAG');
+          commit('DEL_ALL_TAG', []);
           commit('CLEAR_LOCK');
           resolve();
         })
@@ -80,7 +80,7 @@ const user = {
           commit('SET_MENU', [])
           commit('SET_TAG_LIST', [])
           commit('SET_ROLES', [])
-          commit('DEL_ALL_TAG');
+          commit('DEL_ALL_TAG', []);
           commit('CLEAR_LOCK');
           removeToken()
           resolve()
@@ -97,7 +97,7 @@ const user = {
         commit('SET_MENU', [])
         commit('SET_TAG_LIST', [])
         commit('SET_ROLES', [])
-        commit('DEL_ALL_TAG');
+        commit('DEL_ALL_TAG', []);
         commit('CLEAR_LOCK');
         removeToken()
         resolve()

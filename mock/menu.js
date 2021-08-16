@@ -1,3 +1,7 @@
+
+function randomColor () {
+  return '#' + Math.random().toString(16).substr(2, 6).toUpperCase();
+}
 const top = [{
   label: "首页",
   path: "/wel/index",
@@ -31,6 +35,7 @@ const first = [{
   path: '/cache',
   component: 'views/util/cache',
   icon: 'icon-caidan',
+  iconBgColor: randomColor(),
   meta: {
     i18n: 'cache',
     keepAlive: true
@@ -41,6 +46,7 @@ const first = [{
   path: '/params',
   component: 'views/util/params',
   icon: 'icon-caidan',
+  iconBgColor: randomColor(),
   meta: {
     i18n: 'params',
   },
@@ -49,6 +55,7 @@ const first = [{
   path: '/tags',
   component: 'views/util/tags',
   icon: 'icon-caidan',
+  iconBgColor: randomColor(),
   meta: {
     i18n: 'tags',
   },
@@ -58,6 +65,7 @@ const first = [{
   path: '/store',
   component: 'views/util/store',
   icon: 'icon-caidan',
+  iconBgColor: randomColor(),
   meta: {
     i18n: 'store',
   },
@@ -67,6 +75,7 @@ const first = [{
   path: '/logs',
   component: 'views/util/logs',
   icon: 'icon-caidan',
+  iconBgColor: randomColor(),
   meta: {
     i18n: 'logs',
   },
@@ -76,6 +85,7 @@ const first = [{
   path: '/top',
   component: 'views/util/top',
   icon: 'icon-caidan',
+  iconBgColor: randomColor(),
   meta: {
     i18n: 'top',
   },
@@ -85,6 +95,7 @@ const first = [{
   path: '/affix',
   component: 'views/util/affix',
   icon: 'icon-caidan',
+  iconBgColor: randomColor(),
   meta: {
     i18n: 'affix',
   },
@@ -92,12 +103,15 @@ const first = [{
 }, {
   label: '多级菜单',
   path: '/deep',
+  iconBgColor: randomColor(),
   children: [{
     label: '多级菜单1-1',
     path: 'deep',
+    iconBgColor: randomColor(),
     children: [{
       label: '多级菜单2-1',
       path: 'deep',
+      iconBgColor: randomColor(),
       component: 'views/util/deep',
     }]
   }]
@@ -105,6 +119,7 @@ const first = [{
   label: "外部页面",
   path: '/out',
   icon: 'icon-caidan',
+  iconBgColor: randomColor(),
   meta: {
     i18n: 'out',
   },
@@ -113,6 +128,7 @@ const first = [{
     path: 'website',
     href: 'https://avuejs.com',
     icon: 'icon-caidan',
+    iconBgColor: randomColor(),
     meta: {
       i18n: 'website',
     }
@@ -121,6 +137,7 @@ const first = [{
     path: 'api',
     href: 'https://avuejs.com/docs/api?test1=1&test2=2',
     icon: 'icon-caidan',
+    iconBgColor: randomColor(),
     meta: {
       target: '_blank',
       i18n: 'api',
@@ -133,23 +150,27 @@ const first = [{
     i18n: 'error',
   },
   icon: 'icon-caidan',
+  iconBgColor: randomColor(),
   children: [{
     label: "error403",
     path: 'error',
     component: 'components/error-page/403',
     icon: 'icon-caidan',
+    iconBgColor: randomColor(),
     children: []
   }, {
     label: "error404",
     path: '404',
     component: 'components/error-page/404',
     icon: 'icon-caidan',
+    iconBgColor: randomColor(),
     children: []
   }, {
     label: "error500",
     path: '500',
     component: 'components/error-page/500',
     icon: 'icon-caidan',
+    iconBgColor: randomColor(),
     children: []
   }]
 }, {
@@ -157,6 +178,7 @@ const first = [{
   path: '/about',
   component: 'views/util/about',
   icon: 'icon-caidan',
+  iconBgColor: randomColor(),
   meta: {
     i18n: 'about',
   },

@@ -1,9 +1,9 @@
-import Layout from '@/page/index/index.vue'
+import Store from '@/store/'
 export default [{
   path: '/login',
   name: '登录页',
   component: () =>
-    import( /* webpackChunkName: "page" */ '@/page/login/index.vue'),
+    Store.getters.isMacOs ? import( /* webpackChunkName: "page" */ '@/mac/login.vue') : import( /* webpackChunkName: "page" */ '@/page/login/index.vue'),
   meta: {
     keepAlive: true,
     isTab: false,

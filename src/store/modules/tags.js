@@ -51,8 +51,8 @@ const navs = {
       setFistTag(state.tagList);
       setStore({ name: 'tagList', content: state.tagList })
     },
-    DEL_ALL_TAG: (state) => {
-      state.tagList = [state.tagWel];
+    DEL_ALL_TAG: (state, tagList) => {
+      state.tagList = tagList || [state.tagWel];
       setStore({ name: 'tagList', content: state.tagList })
     },
     DEL_TAG_OTHER: (state) => {
