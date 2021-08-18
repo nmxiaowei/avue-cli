@@ -59,7 +59,9 @@
 <script>
 import { mapGetters } from "vuex";
 import { $Mode } from './mode/index'
+import index from '@/mixins/index'
 export default {
+  mixins: [index],
   data () {
     return {
       app: false,
