@@ -10,6 +10,7 @@
              append-to-body>
     <el-form :model="form"
              ref="form"
+             size="small"
              label-width="80px">
       <el-form-item label="锁屏密码"
                     prop="passwd"
