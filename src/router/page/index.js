@@ -14,7 +14,7 @@ export default [{
   path: '/lock',
   name: '锁屏页',
   component: () =>
-    import( /* webpackChunkName: "page" */ '@/page/lock/index.vue'),
+    Store.getters.isMacOs ? import('@/mac/lock.vue') : import('@/page/lock/index.vue'),
   meta: {
     keepAlive: true,
     isTab: false,

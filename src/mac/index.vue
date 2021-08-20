@@ -10,6 +10,9 @@
               <div>{{userInfo.username}}</div>
             </el-dropdown-item>
             <el-dropdown-item>
+              <top-lock text="锁定屏幕"></top-lock>
+            </el-dropdown-item>
+            <el-dropdown-item>
               <div @click="switchTheme">退出主题</div>
             </el-dropdown-item>
             <el-dropdown-item @click="logout">{{$t('navbar.logOut')}}</el-dropdown-item>
@@ -60,8 +63,12 @@
 import { mapGetters } from "vuex";
 import { $Mode } from './mode/index'
 import index from '@/mixins/index'
+import topLock from '@/page/index/top/top-lock.vue'
 export default {
   mixins: [index],
+  components: {
+    topLock
+  },
   data () {
     return {
       app: false,

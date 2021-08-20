@@ -1,24 +1,27 @@
 <template>
   <div class="mac_bg"></div>
-  <div class="login">
+  <div class="login animate__animated"
+       :class="{'animate__bounceOut':pass}">
     <div class="head">
       <img src="https://avatar.gitee.com/uploads/61/632261_smallweigit.jpg!avatar100?1518660401"
            alt="">
     </div>
     <div class="message">Login Please</div>
     <div class="form">
-      <div class="item">
+      <div class="item"
+           :class="isUserNameError?'error':''">
         <input class="account"
                placeholder="account here..."
                v-model="form.username"
-               type="email" /><i class="iconfont icon-principal"
-           @click="form.username=''"></i>
+               type="email" />
       </div>
-      <div class="item">
+      <div class="item"
+           :class="isUserPasswordError?'error':''">
         <input class="password"
                placeholder="password here..."
                v-model="form.password"
-               type="password" /><i class="iconfont icon-send"
+               type="password" />
+        <i class="iconfont icon-send"
            @click="handleLogin"></i>
       </div>
     </div>
@@ -29,9 +32,12 @@ import { mapGetters } from "vuex";
 export default {
   data () {
     return {
+      pass: false,
+      isUserNameError: false,
+      isUserPasswordError: false,
       form: {
-        username: "admin",
-        password: "123456"
+        username: "",
+        password: ""
       }
     }
   },
@@ -41,112 +47,29 @@ export default {
   methods: {
     handleLogin () {
       if (this.form.username == '') {
-        this.$message.error('please input account')
+        this.isUserNameError = true
+        setTimeout(() => {
+          this.isUserNameError = false
+        }, 1000)
+        return
         return
       } else if (this.form.password == '') {
-        this.$message.error('please input password')
+        this.isUserPasswordError = true
+        setTimeout(() => {
+          this.isUserPasswordError = false
+        }, 1000)
         return
       }
       this.$store.dispatch("LoginByUsername", this.loginForm).then(() => {
-        this.$router.push({ path: this.tagWel.value });
+        this.pass = true
+        setTimeout(() => {
+          this.$router.push({ path: this.tagWel.value });
+        }, 1000)
       });
     }
   }
 }
 </script>
 <style scoped>
-.login {
-  position: fixed;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  margin-top: -100px;
-  z-index: 99;
-  backdrop-filter: blur(20px);
-}
-
-.head {
-  padding: 3px;
-  background-size: 40% auto;
-  background-position: center center;
-  height: 150px;
-  width: 150px;
-  border-radius: 100%;
-  box-sizing: border-box;
-  box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.1);
-  margin-top: -50px;
-  overflow: hidden;
-}
-.head img {
-  border-radius: 100%;
-  width: 100%;
-  height: 100%;
-}
-.message {
-  margin-top: 20px;
-  font-size: 20px;
-  text-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.3);
-  color: #eee;
-  margin-bottom: 50px;
-}
-
-input {
-  color: white;
-  outline: none;
-  border: none;
-  margin: 5px;
-  font-size: 16px;
-  background-color: rgba(255, 255, 255, 0.3);
-  padding: 8px 24px;
-  border-radius: 20px;
-  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
-}
-
-::-webkit-input-placeholder {
-  color: #fff;
-}
-
-::-moz-placeholder {
-  color: #fff;
-}
-
-:-ms-input-placeholder {
-  color: #fff;
-}
-
-.form {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  vertical-align: middle;
-}
-
-.item {
-  vertical-align: middle;
-}
-
-.item .iconfont {
-  vertical-align: middle;
-  display: inline-block;
-  background-color: rgba(255, 255, 255, 0.3);
-  font-size: 18px;
-  border-radius: 100%;
-  width: 36px;
-  height: 36px;
-  text-align: center;
-  line-height: 36px;
-  cursor: pointer;
-  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
-}
-
-.item .iconfont:hover {
-  background-color: rgba(255, 255, 255, 0.5);
-}
+@import url("./login.css");
 </style>

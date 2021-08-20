@@ -1,30 +1,29 @@
 <template>
-  <span>
-    <i class="icon-suoping"
-       @click="handleLock"></i>
-    <el-dialog title="设置锁屏密码"
-               v-model="box"
-               width="30%"
-               append-to-body>
-      <el-form :model="form"
-               ref="form"
-               label-width="80px">
-        <el-form-item label="锁屏密码"
-                      prop="passwd"
-                      :rules="[{ required: true, message: '锁屏密码不能为空'}]">
-          <el-input v-model="form.passwd"
-                    placeholder="请输入锁屏密码"></el-input>
-        </el-form-item>
-      </el-form>
-      <template #footer>
-        <span class="dialog-footer">
-          <el-button type="primary"
-                     @click="handleSetLock">确 定</el-button>
-        </span>
-      </template>
-
-    </el-dialog>
-  </span>
+  <span v-if="text"
+        @click="handleLock">{{text }}</span>
+  <i v-else
+     class="icon-suoping"
+     @click="handleLock"></i>
+  <el-dialog title="设置锁屏密码"
+             v-model="box"
+             width="30%"
+             append-to-body>
+    <el-form :model="form"
+             ref="form"
+             label-width="80px">
+      <el-form-item label="锁屏密码"
+                    prop="passwd"
+                    :rules="[{ required: true, message: '锁屏密码不能为空'}]">
+        <el-input v-model="form.passwd"
+                  placeholder="请输入锁屏密码">
+          <template #append>
+            <el-button @click="handleSetLock"
+                       icon="el-icon-lock"></el-button>
+          </template>
+        </el-input>
+      </el-form-item>
+    </el-form>
+  </el-dialog>
 </template>
 
 <script>
@@ -43,9 +42,11 @@ export default {
   created () { },
   mounted () { },
   computed: {
-    ...mapGetters(["lockPasswd"])
+    ...mapGetters(["lockPasswd"]),
   },
-  props: [],
+  props: {
+    text: String
+  },
   methods: {
     handleSetLock () {
       this.$refs["form"].validate(valid => {

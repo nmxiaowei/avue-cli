@@ -56,10 +56,7 @@ export default {
   },
   mounted () { },
   computed: {
-    ...mapState({
-      userInfo: state => state.user.userInfo
-    }),
-    ...mapGetters(["tag", "lockPasswd"])
+    ...mapGetters(["userInfo", "tag", "lockPasswd"])
   },
   props: [],
   methods: {
