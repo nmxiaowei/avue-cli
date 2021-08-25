@@ -25,7 +25,7 @@ export default {
   },
   created () { },
   computed: {
-    ...mapGetters(["website", "keyCollapse"])
+    ...mapGetters(["keyCollapse"])
   },
   methods: {}
 };

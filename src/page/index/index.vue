@@ -51,8 +51,7 @@ import top from "./top/";
 import sidebar from "./sidebar/";
 import admin from "@/util/admin";
 import { validatenull } from "@/util/validate";
-import { calcDate } from "@/util/date.js";
-import { getStore } from "@/util/store.js";
+import index from '@/mixins/index'
 export default {
   components: {
     top,
@@ -64,6 +63,7 @@ export default {
     screenshot
   },
   name: "index",
+  mixins: [index],
   provide () {
     return {
       index: this
@@ -72,24 +72,15 @@ export default {
   data () {
     return {
       //搜索控制
-      isSearch: false,
-      //刷新token锁
-      refreshLock: false,
-      //刷新token的时间
-      refreshTime: ""
+      isSearch: false
     };
-  },
-  created () {
-    //实时检测刷新token
-    this.refreshToken();
   },
   mounted () {
     this.init();
   },
   computed: {
-    ...mapGetters(["isHorizontal", "setting", "isRefresh", "isLock", "isCollapse", "website", "menu"]),
+    ...mapGetters(["isHorizontal", "setting", "isRefresh", "isCollapse", "menu"]),
     validSidebar () {
-      console.log(this.$route)
       return !((this.$route.meta || {}).menu == false || (this.$route.query || {}).menu == 'false')
     }
   },
@@ -126,37 +117,12 @@ export default {
           }
           this.$store.commit('SET_MENUID', item);
           this.$router.push({
-            path: this.$router.$avueRouter.getPath({
-              name: itemActive.label,
-              src: itemActive.path
-            }, itemActive.meta)
+            path: itemActive.path
           });
         }
 
       });
     },
-    // 10分钟检测一次token
-    refreshToken () {
-      this.refreshTime = setInterval(() => {
-        const token = getStore({
-          name: "token",
-          debug: true
-        }) || {};
-        const date = calcDate(token.datetime, new Date().getTime());
-        if (validatenull(date)) return;
-        if (date.seconds >= this.website.tokenTime && !this.refreshLock) {
-          this.refreshLock = true;
-          this.$store
-            .dispatch("RefeshToken")
-            .then(() => {
-              this.refreshLock = false;
-            })
-            .catch(() => {
-              this.refreshLock = false;
-            });
-        }
-      }, 1000);
-    }
   }
 };
 </script>

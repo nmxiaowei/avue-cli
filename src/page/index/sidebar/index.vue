@@ -7,11 +7,7 @@
              :default-active="nowTagValue"
              :mode="setting.sidebar"
              :collapse="keyCollapse">
-      <sidebar-item :menu="menu"
-                    :screen="screen"
-                    first
-                    :props="website.menu.props"
-                    :collapse="keyCollapse"></sidebar-item>
+      <sidebar-item :menu="menu"></sidebar-item>
     </el-menu>
   </el-scrollbar>
 </template>
@@ -40,10 +36,8 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(["isHorizontal", "setting", "website", "menu", "tag", "keyCollapse", "screen", "menuId"]),
-    nowTagValue: function () {
-      return this.$router.$avueRouter.getValue(this.$route);
-    }
+    ...mapGetters(["isHorizontal", "setting", "menu", "tag", "keyCollapse", "menuId"]),
+    nowTagValue () { return this.$route.path; }
   },
   methods: {}
 };

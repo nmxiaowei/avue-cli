@@ -7,10 +7,6 @@
     border: none !important;
 }
 
-.el-scrollbar__view {
-    height: 100%;
-}
-
 .el-menu--horizontal {
     border-bottom: none !important;
 }
@@ -18,13 +14,6 @@
 .el-menu {
     border-right: none !important;
 }
-
-.el-menu--display,
-.el-menu--display+.el-submenu__icon-arrow {
-    display: none;
-}
-
-
 
 .el-message__icon,
 .el-message__content {

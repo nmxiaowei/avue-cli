@@ -1,6 +1,6 @@
 <template>
   <div class="login-container"
-       @keyup.enter.native="handleLogin">
+       @keyup.enter="handleLogin">
     <top-color v-show="false"></top-color>
     <div class="login-weaper animated bounceInDown">
       <div class="login-left">
@@ -8,7 +8,7 @@
           {{time}}
         </div>
         <img class="img"
-             src="https://avuejs.com/images/logo.png"
+             src="/img/logo.png"
              alt="">
         <p class="title">{{ $t('login.info') }}</p>
       </div>
@@ -43,8 +43,6 @@ import userLogin from "./userlogin";
 import codeLogin from "./codelogin";
 import thirdLogin from "./thirdlogin";
 import faceLogin from "./facelogin";
-import { mapGetters } from "vuex";
-import { dateFormat } from "@/util/date";
 import { validatenull } from "@/util/validate";
 import topLang from "@/page/index/top/top-lang";
 import topColor from "@/page/index/top/top-color";
@@ -72,8 +70,7 @@ export default {
       if (!validatenull(this.socialForm.state)) {
         const loading = this.$loading({
           lock: true,
-          text: `${
-            this.socialForm.state === "WX" ? "微信" : "QQ"
+          text: `${this.socialForm.state === "WX" ? "微信" : "QQ"
             }登录中,请稍后。。。`,
           spinner: "el-icon-loading"
         });
@@ -90,13 +87,10 @@ export default {
     }, 1000);
   },
   mounted () { },
-  computed: {
-    ...mapGetters(["website"])
-  },
   props: [],
   methods: {
     getTime () {
-      this.time = dateFormat(new Date());
+      this.time = this.$dayjs().format('YYYY年MM月DD日 HH:mm:ss')
     }
   }
 };

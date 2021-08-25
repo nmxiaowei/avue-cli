@@ -9,7 +9,6 @@ const tagObj = {
   params: '', //标题的路径参数
   query: '', //标题的参数
   meta: {},//额外参数
-  group: [], //分组
 }
 //处理首个标签
 function setFistTag (list) {
@@ -52,8 +51,8 @@ const navs = {
       setFistTag(state.tagList);
       setStore({ name: 'tagList', content: state.tagList })
     },
-    DEL_ALL_TAG: (state) => {
-      state.tagList = [state.tagWel];
+    DEL_ALL_TAG: (state, tagList) => {
+      state.tagList = tagList || [state.tagWel];
       setStore({ name: 'tagList', content: state.tagList })
     },
     DEL_TAG_OTHER: (state) => {

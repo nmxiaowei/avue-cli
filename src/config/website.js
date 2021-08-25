@@ -34,17 +34,17 @@ export default {
     meta: {
       i18n: 'dashboard'
     },
-    group: [],
     close: false
   },
   //配置菜单的属性
   menu: {
     iconDefault: 'icon-caidan',
-    props: {
-      label: 'label',
-      path: 'path',
-      icon: 'icon',
-      children: 'children'
-    }
+    label: 'label',
+    path: 'path',
+    icon: 'icon',
+    children: 'children',
+    query: 'query',
+    href: 'href',
+    meta: 'meta'
   }
 }

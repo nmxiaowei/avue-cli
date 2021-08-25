@@ -7,10 +7,10 @@
 <script>
 export default {
   name: "app",
-  data() {
+  data () {
     return {};
   },
-  created() {},
+  created () { },
   methods: {},
   computed: {}
 };

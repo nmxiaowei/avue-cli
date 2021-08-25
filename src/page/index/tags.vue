@@ -75,7 +75,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(["tagWel", "tagList", "tag", "website", "setting"]),
+    ...mapGetters(["tagWel", "tagList", "tag", "setting"]),
     tagLen () {
       return this.tagList.length || 0;
     }
@@ -92,10 +92,7 @@ export default {
       }, 1000)
     },
     generateTitle (item) {
-      return this.$router.$avueRouter.generateTitle(
-        item.label,
-        (item.meta || {}).i18n
-      );
+      return this.$router.$avueRouter.generateTitle(item.label, item.meta.i18n);
     },
     watchContextmenu (event) {
       if (!this.$el.contains(event.target) || event.button !== 0) {
@@ -129,7 +126,6 @@ export default {
       if (action === "remove") {
         let openTag; // 最终要打开的页面
         let { tag, key } = this.findTag(value);
-
         if (tag.value === this.tag.value) {
           openTag = this.tagList[key === 0 ? key : key - 1]; //如果关闭本标签让前推一个
         } else {
@@ -141,6 +137,7 @@ export default {
       }
     },
     openTag (item) {
+      if (item.props) item = item.props
       let tag;
       if (item.name) {
         tag = this.findTag(item.name).tag;
@@ -148,10 +145,7 @@ export default {
         tag = item;
       }
       this.$router.push({
-        path: this.$router.$avueRouter.getPath({
-          name: tag.label,
-          src: tag.value
-        }, tag.meta),
+        path: tag.value,
         query: tag.query
       });
     },
@@ -185,9 +179,7 @@ export default {
       this.contextmenuFlag = false;
       this.activeTag(this.tagList)
       this.$router.push({
-        path: this.$router.$avueRouter.getPath({
-          src: this.tagWel.value
-        }),
+        path: this.tagWel.value,
         query: this.tagWel.query
       });
     }

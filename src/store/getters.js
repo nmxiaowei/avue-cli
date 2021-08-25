@@ -1,12 +1,12 @@
-
+import website from '@/config/website'
 const getters = {
   tag: state => state.tags.tag,
   language: state => state.common.language,
-  website: state => state.common.website,
-  setting: state => state.common.website.setting,
+  setting: () => website.setting,
   userInfo: state => state.user.userInfo,
   colorName: state => state.common.colorName,
   themeName: state => state.common.themeName,
+  isMacOs: (state, getters) => getters.themeName == 'mac-os',
   isRefresh: state => state.common.isRefresh,
   isHorizontal: (state, getters) => getters.setting.sidebar === 'horizontal',
   isCollapse: state => state.common.isCollapse,

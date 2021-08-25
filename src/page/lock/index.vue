@@ -25,15 +25,15 @@
 import { mapGetters, mapState } from "vuex";
 export default {
   name: "lock",
-  data() {
+  data () {
     return {
       passwd: "",
       passwdError: false,
       pass: false
     };
   },
-  created() {},
-  mounted() {},
+  created () { },
+  mounted () { },
   computed: {
     ...mapState({
       userInfo: state => state.user.userInfo
@@ -42,7 +42,7 @@ export default {
   },
   props: [],
   methods: {
-    handleLogout() {
+    handleLogout () {
       this.$confirm("是否退出系统, 是否继续?", "提示", {
         confirmButtonText: "确定",
         cancelButtonText: "取消",
@@ -53,7 +53,7 @@ export default {
         });
       });
     },
-    handleLogin() {
+    handleLogin () {
       if (this.passwd != this.lockPasswd) {
         this.passwd = "";
         this.$message({
@@ -70,7 +70,7 @@ export default {
       setTimeout(() => {
         this.$store.commit("CLEAR_LOCK");
         this.$router.push({
-          path: this.$router.$avueRouter.getPath({ src: this.tag.value })
+          path: this.tag.value
         });
       }, 1000);
     }

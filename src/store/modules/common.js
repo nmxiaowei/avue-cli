@@ -3,10 +3,9 @@ import {
   getStore,
   removeStore
 } from '@/util/store'
-import website from '@/config/website'
 const common = {
   state: {
-    language: getStore({ name: 'language' }) || 'en',
+    language: getStore({ name: 'language' }) || 'zh',
     isCollapse: false,
     isFullScren: false,
     isMenu: true,
@@ -15,8 +14,7 @@ const common = {
     isLock: getStore({ name: 'isLock' }),
     colorName: getStore({ name: 'colorName' }) || '#409EFF',
     themeName: getStore({ name: 'themeName' }) || 'default',
-    lockPasswd: getStore({ name: 'lockPasswd' }) || '',
-    website: website,
+    lockPasswd: getStore({ name: 'lockPasswd' }) || ''
   },
   mutations: {
     SET_LANGUAGE: (state, language) => {

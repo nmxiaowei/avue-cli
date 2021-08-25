@@ -8,8 +8,9 @@ import { validatenull } from '@/util/validate'
 import { getToken } from '@/util/auth'
 import NProgress from 'nprogress' // progress bar
 import 'nprogress/nprogress.css' // progress bar style
+import website from '@/config/website'
 NProgress.configure({ showSpinner: false });
-const lockPage = store.getters.website.lockPage; //锁屏页
+const lockPage = website.lockPage; //锁屏页
 router.beforeEach((to, from, next) => {
   const meta = to.meta || {};
   const isMenu = meta.menu === undefined ? to.query.menu : meta.menu;
@@ -23,19 +24,19 @@ router.beforeEach((to, from, next) => {
       //如果用户信息为空则获取用户信息，获取用户信息失败，跳转到登录页
       if (store.getters.roles.length === 0) {
         store.dispatch('GetUserInfo').then(() => {
-          next({ ...to, replace: true })
+          next()
         }).catch(() => {
           store.dispatch('FedLogOut').then(() => {
             next({ path: '/login' })
           })
         })
       } else {
-        const value = (to.query.src || to.fullPath) + to.hash;
-        const label = to.query.name || to.name;
-        const meta = to.meta || router.$avueRouter.meta || {};
-        const i18n = to.query.i18n;
-        if (to.query.target) {
-          window.open(value, value)
+        const value = to.path;
+        const query = to.query
+        const label = query.name || to.name;
+        const meta = to.meta
+        if (meta.target) {
+          window.open(query.url.replace(/#/g, "&"))
           return
         } else if (meta.isTab !== false && !validatenull(value) && !validatenull(label)) {
           store.commit('ADD_TAG', {
@@ -43,15 +44,7 @@ router.beforeEach((to, from, next) => {
             value: value,
             params: to.params,
             query: to.query,
-            meta: (() => {
-              if (!i18n) {
-                return meta
-              }
-              return {
-                i18n: i18n
-              }
-            })(),
-            group: router.$avueRouter.group || []
+            meta: to.meta
           });
         }
         next()

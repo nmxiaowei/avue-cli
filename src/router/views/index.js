@@ -1,7 +1,8 @@
 import Layout from '@/page/index/'
+import Store from '@/store/'
 export default [{
   path: '/wel',
-  component: Layout,
+  component: () => Store.getters.isMacOs ? import('@/mac/index.vue') : import('@/page/index/index.vue'),
   redirect: '/wel/index',
   children: [{
     path: 'index',
@@ -12,14 +13,14 @@ export default [{
     component: () =>
       import( /* webpackChunkName: "views" */ '@/views/wel/index')
   }, {
-    path: 'dashboard',
+    path: 'more',
     name: '控制台',
     meta: {
-      i18n: 'dashboard',
+      i18n: 'more',
       menu: false,
     },
     component: () =>
-      import( /* webpackChunkName: "views" */ '@/views/wel/dashboard')
+      import( /* webpackChunkName: "views" */ '@/views/wel/dashboard.vue')
   }]
 }, {
   path: '/form-detail',

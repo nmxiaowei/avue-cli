@@ -1,6 +1,9 @@
 <template>
-  <span>
-    <i class="icon-suoping"
+  <div>
+    <span v-if="text"
+          @click="handleLock">{{text }}</span>
+    <i v-else
+       class="icon-suoping"
        @click="handleLock"></i>
     <el-dialog title="设置锁屏密码"
                :visible.sync="box"
@@ -13,16 +16,15 @@
                       prop="passwd"
                       :rules="[{ required: true, message: '锁屏密码不能为空'}]">
           <el-input v-model="form.passwd"
-                    placeholder="请输入锁屏密码"></el-input>
+                    placeholder="请输入锁屏密码">
+            <el-button slot="append"
+                       @click="handleSetLock"
+                       icon="el-icon-lock"></el-button>
+          </el-input>
         </el-form-item>
       </el-form>
-      <span slot="footer"
-            class="dialog-footer">
-        <el-button type="primary"
-                   @click="handleSetLock">确 定</el-button>
-      </span>
     </el-dialog>
-  </span>
+  </div>
 </template>
 
 <script>
@@ -30,7 +32,10 @@ import { validatenull } from "@/util/validate";
 import { mapGetters } from "vuex";
 export default {
   name: "top-lock",
-  data() {
+  props: {
+    text: String
+  },
+  data () {
     return {
       box: false,
       form: {
@@ -38,14 +43,13 @@ export default {
       }
     };
   },
-  created() {},
-  mounted() {},
+  created () { },
+  mounted () { },
   computed: {
     ...mapGetters(["lockPasswd"])
   },
-  props: [],
   methods: {
-    handleSetLock() {
+    handleSetLock () {
       this.$refs["form"].validate(valid => {
         if (valid) {
           this.$store.commit("SET_LOCK_PASSWD", this.form.passwd);
@@ -53,7 +57,7 @@ export default {
         }
       });
     },
-    handleLock() {
+    handleLock () {
       if (validatenull(this.lockPasswd)) {
         this.box = true;
         return;

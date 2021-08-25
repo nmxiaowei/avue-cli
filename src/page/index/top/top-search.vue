@@ -15,12 +15,10 @@
 </template>
 
 <script>
-import config from "../sidebar/config.js";
 import { mapGetters } from "vuex";
 export default {
   data () {
     return {
-      config: config,
       value: "",
       menuList: []
     };
@@ -36,20 +34,18 @@ export default {
   },
   computed: {
     labelKey () {
-      return this.website.menu.props.label || this.config.propsDefault.label;
+      return this.website.menu.label;
     },
     pathKey () {
-      return this.website.menu.props.path || this.config.propsDefault.path;
+      return this.website.menu.path;
     },
     iconKey () {
-      return this.website.menu.props.icon || this.config.propsDefault.icon;
+      return this.website.menu.icon;
     },
     childrenKey () {
-      return (
-        this.website.menu.props.children || this.config.propsDefault.children
-      );
+      return this.website.menu.children
     },
-    ...mapGetters(["menu", "website"])
+    ...mapGetters(["menu"])
   },
   methods: {
     getMenuList () {
@@ -85,10 +81,7 @@ export default {
     handleSelect (item) {
       this.value = "";
       this.$router.push({
-        path: this.$router.$avueRouter.getPath({
-          name: item[this.labelKey],
-          src: item[this.pathKey]
-        }, item.meta),
+        path: item[this.pathKey],
         query: item.query
       });
     }
