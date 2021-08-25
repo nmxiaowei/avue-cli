@@ -1,22 +1,21 @@
 <template>
-  <div class="social-container">
-    <div class="box"
-         @click="handleClick('wechat')">
-      <span class="container"
-            :style="{backgroundColor:'#6ba2d6'}">
-        <i icon-class="wechat"
-           class="iconfont icon-weixin"></i>
-      </span>
-      <p class="title">{{$t('login.wechat')}}</p>
-    </div>
-    <div class="box"
-         @click="handleClick('tencent')">
-      <span class="container"
-            :style="{backgroundColor:'#8dc349'}">
-        <i icon-class="qq"
-           class="iconfont icon-qq"></i>
-      </span>
-      <p class="title">{{$t('login.qq')}}</p>
+  <div class="third">
+    <div class="box">
+      <i class="iconfont icon-QQ"
+         @click="handleClick('qq')"
+         style="color:#53a4d8"></i>
+      <i class="iconfont icon-weixinicon2x"
+         @click="handleClick('wx')"
+         style="color:#71c252"></i>
+      <i class="iconfont icon-weibo"
+         @click="handleClick('wb')"
+         style="color:#c73420"></i>
+      <i class="iconfont icon-zhifubao"
+         @click="handleClick('zfb')"
+         style="color:#439fe2"></i>
+      <i class="iconfont  icon-huaban88"
+         @click="handleClick('github')"
+         style="color:#666"></i>
     </div>
   </div>
 </template>
@@ -27,12 +26,12 @@ import { openWindow } from "@/util/util";
 export default {
   name: "thirdLogin",
   methods: {
-    handleClick(thirdpart) {
+    handleClick (thirdpart) {
       let appid, client_id, redirect_uri, url;
       redirect_uri = encodeURIComponent(
         window.location.origin + "/#/authredirect"
       );
-      if (thirdpart === "wechat") {
+      if (thirdpart === "wx") {
         appid = "xxxx";
         url =
           "https://open.weixin.qq.com/connect/qrconnect?appid=" +
@@ -40,7 +39,7 @@ export default {
           "&redirect_uri=" +
           redirect_uri +
           "&state=WX&response_type=code&scope=snsapi_login#wechat_redirect";
-      } else if (thirdpart === "tencent") {
+      } else if (thirdpart === "qq") {
         client_id = "xxxx";
         url =
           "https://graph.qq.com/oauth2.0/authorize?response_type=code&state=QQ&client_id=" +
@@ -54,31 +53,17 @@ export default {
 };
 </script>
 
-<style rel="stylesheet/scss" lang="scss" scoped>
-.social-container {
-  margin: 20px 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
+<style lang="scss" scoped>
+.third {
+  padding: 10px 0;
   .box {
-    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
-  .iconfont {
-    color: #fff;
-    font-size: 30px;
-  }
-  .container {
-    $height: 50px;
-    display: inline-block;
-    width: $height;
-    height: $height;
-    line-height: $height;
-    text-align: center;
-    border-radius: 4px;
-    margin-bottom: 10px;
-  }
-  .title {
-    text-align: center;
+  i {
+    font-size: 36px;
+    margin: 0 10px;
   }
 }
 </style>

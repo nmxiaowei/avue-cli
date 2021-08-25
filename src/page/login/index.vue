@@ -20,8 +20,8 @@
           </h4>
           <userLogin v-if="activeName==='user'"></userLogin>
           <codeLogin v-else-if="activeName==='code'"></codeLogin>
-          <thirdLogin v-else-if="activeName==='third'"></thirdLogin>
           <faceLogin v-else-if="activeName==='face'"></faceLogin>
+          <thirdLogin></thirdLogin>
           <div class="login-menu">
             <a href="#"
                @click.stop="activeName='user'">{{ $t('login.userLogin') }}</a>
@@ -29,8 +29,6 @@
                @click.stop="activeName='code'">{{ $t('login.phoneLogin') }}</a>
             <a href="#"
                @click.stop="activeName='face'">{{ $t('login.faceLogin') }}</a>
-            <a href="#"
-               @click.stop="activeName='third'">{{ $t('login.thirdLogin') }}</a>
           </div>
         </div>
 
