@@ -39,6 +39,7 @@
 
 <script>
 import index from '@/mixins/index'
+import { validatenull } from 'utils/validate'
 import { mapGetters } from "vuex";
 import tags from "./tags.vue";
 import search from "./search.vue";
