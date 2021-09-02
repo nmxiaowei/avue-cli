@@ -8,7 +8,7 @@ avue-cli是一款基于avue和element-ui完全开源、免费的企业后端产�
 ## 文档
 
 [文档](https://www.kancloud.cn/smallwei/avue/579870)
-[文档说明](https://avuejs.com/doc/plugins/avue-cli)
+[文档说明](https://avuejs.com/plugins/avue-cli.html)
 
 ## 预览
 
@@ -65,34 +65,38 @@ npm run serve
 ## Page
 
 ### 登陆
-<img src='http://avuejs.com/images/module1.jpg' width="700">
+<img src='https://avuejs.com/images/module1.jpg' width="700">
 
 ### 主页
-<img src='http://avuejs.com/images/module2.jpg' width="700">
+<img src='https://avuejs.com/images/module2.jpg' width="700">
 
 ### 炫酷主题
-<img src='http://avuejs.com/images/module3.jpg' width="700">
+<img src='https://avuejs.com/images/module3.jpg' width="700">
+
+### MAC主题
+<img src='https://avuejs.com/images/module12.jpg' width="700">
+<img src='https://avuejs.com/images/module13.jpg' width="700">
 
 ### 日志监控
-<img src='http://avuejs.com/images/module4.jpg' width="700">
+<img src='https://avuejs.com/images/module4.jpg' width="700">
 
 ### 错误提示
-<img src='http://avuejs.com/images/module5.jpg' width="700">
+<img src='https://avuejs.com/images/module5.jpg' width="700">
 
 ### 数据展示
-<img src='http://avuejs.com/images/module6.jpg' width="700">
+<img src='https://avuejs.com/images/module6.jpg' width="700">
 
 ### 第三方网站
-<img src='http://avuejs.com/images/module7.jpg' width="700">
+<img src='https://avuejs.com/images/module7.jpg' width="700">
 
 ### 全局搜索
-<img src='http://avuejs.com/images/module9.jpg' width="700">
+<img src='https://avuejs.com/images/module9.jpg' width="700">
 
 ### 个人中心
-<img src='http://avuejs.com/images/module10.jpg' width="700">
+<img src='https://avuejs.com/images/module10.jpg' width="700">
 
 ### 个人设置
-<img src='http://avuejs.com/images/module11.jpg' width="700">
+<img src='https://avuejs.com/images/module11.jpg' width="700">
 
 ## License
 
