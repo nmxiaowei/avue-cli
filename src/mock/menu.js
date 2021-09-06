@@ -81,6 +81,56 @@ const first = [{
   },
   children: []
 }, {
+  label: "通用模板",
+  path: '/crud',
+  component: 'views/util/crud',
+  icon: 'icon-caidan',
+  iconBgColor: randomColor(),
+  meta: {
+    i18n: 'crud',
+  },
+  children: []
+}, {
+  label: "表格",
+  path: '/table',
+  component: 'views/util/table',
+  icon: 'icon-caidan',
+  iconBgColor: randomColor(),
+  meta: {
+    i18n: 'table',
+  },
+  children: []
+}, {
+  label: "表单",
+  path: '/form',
+  component: 'views/util/form',
+  icon: 'icon-caidan',
+  iconBgColor: randomColor(),
+  meta: {
+    i18n: 'form'
+  },
+  children: []
+}, {
+  label: "权限",
+  path: '/permission',
+  component: 'views/util/permission',
+  icon: 'icon-caidan',
+  iconBgColor: randomColor(),
+  meta: {
+    i18n: 'permission',
+  },
+  children: []
+}, {
+  label: "表格表单",
+  path: '/crud-form',
+  component: 'views/util/crud-form',
+  icon: 'icon-caidan',
+  iconBgColor: randomColor(),
+  meta: {
+    i18n: 'crudForm',
+  },
+  children: []
+}, {
   label: "返回顶部",
   path: '/top',
   component: 'views/util/top',

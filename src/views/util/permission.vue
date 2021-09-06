@@ -19,7 +19,7 @@
                  active-color="#13ce66"
                  inactive-color="#ff4949">
       </el-switch>
-      <p> 具体参考<a href="https://avuejs.com/doc/crud/crud-permission">https://avuejs.com/doc/crud/crud-permission</a></p>
+      <p> 具体参考<a href="https://avuejs.com/crud/crud-permission">https://avuejs.com/crud/crud-permission</a></p>
     </basic-container>
   </div>
 </template>
