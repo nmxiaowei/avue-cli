@@ -14,7 +14,8 @@
                   :key="item[labelKey]">
         <template slot="title">
           <i :class="item[iconKey]"></i>
-          <span slot="title">{{getTitle(item)}}</span>
+          <span slot="title"
+                :class="{'el-menu--display':keyCollapse}">{{getTitle(item)}}</span>
         </template>
         <template v-for="(child,cindex) in item[childrenKey]">
           <el-menu-item :index="getPath(child)"
@@ -50,7 +51,7 @@ export default {
   created () { },
   mounted () { },
   computed: {
-    ...mapGetters(["roles", "screen"]),
+    ...mapGetters(["roles", "screen", "keyCollapse"]),
     labelKey () {
       return this.props.label
     },
