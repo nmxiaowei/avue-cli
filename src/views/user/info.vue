@@ -30,10 +30,10 @@
       </el-col>
       <el-col :span="16">
         <basic-container>
-          <avue-tabs :option="option"
+          <avue-form :option="option"
                      v-model="form"
                      @chang="handleChange"
-                     @submit="handleSubmit"></avue-tabs>
+                     @submit="handleSubmit"></avue-form>
         </basic-container>
       </el-col>
     </el-row>
