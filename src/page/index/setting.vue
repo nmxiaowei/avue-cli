@@ -41,9 +41,9 @@
              v-for="(item,index) in list1"
              :key="index">
           {{item.label}}:
-          <el-switch v-model="setting[item.value]"
-                     size="small">
-          </el-switch>
+          <el-checkbox v-model="setting[item.value]"
+                       size="small">
+          </el-checkbox>
         </div>
       </div>
       <h5>功能调试</h5>
@@ -52,9 +52,9 @@
              v-for="(item,index) in list2"
              :key="index">
           {{item.label}}:
-          <el-switch v-model="setting[item.value]"
-                     size="small">
-          </el-switch>
+          <el-checkbox v-model="setting[item.value]"
+                       size="small">
+          </el-checkbox>
         </div>
       </div>
     </el-drawer>

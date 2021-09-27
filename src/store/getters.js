@@ -1,8 +1,7 @@
-import website from '@/config/website'
 const getters = {
   tag: state => state.tags.tag,
   language: state => state.common.language,
-  setting: () => website.setting,
+  setting: state => state.common.setting,
   userInfo: state => state.user.userInfo,
   colorName: state => state.common.colorName,
   themeName: state => state.common.themeName,
