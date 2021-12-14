@@ -3,7 +3,8 @@
 
 ## 介绍
 
-avue-cli是一款基于avue和element-ui完全开源、免费的企业后端产品前端集成解决方案，采用最新的前端技术栈，已经准备好了大部分的项目准备工作，你可以快速进行二次开发
+基于 vue3.x + vite + element plus + vue-router + vuex，适配手机、平板、pc 的后台开源免费模板，希望减少工作量，帮助大家实现快速开发。
+
 
 ## 文档
 
@@ -27,7 +28,7 @@ cd avue-cli
 npm install --registry=https://registry.npm.taobao.org
 
 # 启动服务
-npm run serve
+npm run dev
 
 ```
 ## 功能
@@ -37,7 +38,7 @@ npm run serve
   - 第三方登陆(QQ,微信)
   - 人脸识别登录
 - 错误的日志记录
-- 灵活的10+多款主题自由配置
+- 灵活的10+多款主题自由配置(mac 主题)
 - 路由权限、菜单权限、登录权限
 - 本地化持久存储api
 - 页面缓冲
@@ -58,41 +59,27 @@ npm run serve
 
 打开问题之前，请务必提供详细的问题过程和截图，不符合准则的问题将会被拒绝.
 
-## Changelog
-
-每个版本的详细更改记录在[发行说明](https://gitee.com/smallweigit/avue-cli/releases).
-
 ## Page
 
 ### 登陆
-<img src='http://avuejs.com/images/module1.jpg' width="700">
+<img src='https://avuejs.com/images/cli/1.png' width="700">
 
 ### 主页
-<img src='http://avuejs.com/images/module2.jpg' width="700">
+<img src='https://avuejs.com/images/cli/2.png' width="700">
 
 ### 炫酷主题
-<img src='http://avuejs.com/images/module3.jpg' width="700">
-
-### 日志监控
-<img src='http://avuejs.com/images/module4.jpg' width="700">
-
-### 错误提示
-<img src='http://avuejs.com/images/module5.jpg' width="700">
-
-### 数据展示
-<img src='http://avuejs.com/images/module6.jpg' width="700">
+<img src='https://avuejs.com/images/cli/3.png' width="700">
 
 ### 第三方网站
-<img src='http://avuejs.com/images/module7.jpg' width="700">
+<img src='http://avuejs.com/images/cli/4.png' width="700">
 
 ### 全局搜索
-<img src='http://avuejs.com/images/module9.jpg' width="700">
+<img src='ttp://avuejs.com/images/cli/5.png' width="700">
 
-### 个人中心
-<img src='http://avuejs.com/images/module10.jpg' width="700">
+### mac主题
+<img src='http://avuejs.com/images/cli/6.png' width="700">
 
-### 个人设置
-<img src='http://avuejs.com/images/module11.jpg' width="700">
+<img src='http://avuejs.com/images/cli/7.png' width="700">
 
 ## License
 
