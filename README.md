@@ -7,9 +7,9 @@
 
 ## 地址
 
-- [🎉 vue2.x + element-ui](https://gitee.com/smallweigit/avue-cli/tree/2.x/)
+[🎉 vue2.x + element-ui](https://gitee.com/smallweigit/avue-cli/tree/2.x/)
 
-- [⚡️ vue3.x + element-plus](https://gitee.com/smallweigit/avue-cli)
+[⚡️ vue3.x + element-plus](https://gitee.com/smallweigit/avue-cli)
 
 ## 文档
 
