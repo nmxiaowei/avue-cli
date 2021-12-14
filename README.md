@@ -74,7 +74,7 @@ npm run dev
 <img src='http://avuejs.com/images/cli/4.png' width="700">
 
 ### 全局搜索
-<img src='ttp://avuejs.com/images/cli/5.png' width="700">
+<img src='http://avuejs.com/images/cli/5.png' width="700">
 
 ### mac主题
 <img src='http://avuejs.com/images/cli/6.png' width="700">
