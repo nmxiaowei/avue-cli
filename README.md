@@ -5,6 +5,11 @@
 
 基于 vue3.x + vite + element plus + vue-router + vuex，适配手机、平板、pc 的后台开源免费模板，希望减少工作量，帮助大家实现快速开发。
 
+## 地址
+
+- [🎉 vue2.x + element-ui](https://gitee.com/smallweigit/avue-cli/tree/2.x/)
+
+- [⚡️ vue3.x + element-plus](https://gitee.com/smallweigit/avue-cli)
 
 ## 文档
 
