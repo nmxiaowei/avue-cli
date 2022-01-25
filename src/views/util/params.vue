@@ -2,10 +2,8 @@
   <basic-container>
     <h3>{{index?index:'参数'}}</h3>
     <el-button type="primary"
-               size="small"
                @click="handleGo(1)">参数1页面</el-button>
     <el-button type="primary"
-               size="small"
                @click="handleGo(2)">参数2页面</el-button>
   </basic-container>
 </template>

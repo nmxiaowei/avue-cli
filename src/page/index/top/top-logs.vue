@@ -9,16 +9,12 @@
                width="60%"
                append-to-body>
       <el-button type="primary"
-                 size="small"
                  icon="el-icon-upload"
                  @click="send">上传服务器</el-button>
       <el-button type="danger"
-                 size="small"
                  icon="el-icon-delete"
                  @click="clear">清空本地日志</el-button>
-      <el-table :data="logsList"
-                size="small">
-
+      <el-table :data="logsList">
         <el-table-column prop="type"
                          label="类型"
                          width="50px">

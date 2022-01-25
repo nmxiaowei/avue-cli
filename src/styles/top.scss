@@ -13,10 +13,6 @@
             font-size: 13px;
         }
     }
-    .el-menu--horizontal>.el-menu-item {
-      height: $top_height;
-      line-height: $top_height;
-    }
 }
 .avue-breadcrumb {
     height: 100%;
@@ -37,19 +33,19 @@
   }
 }
 .top-menu {
-    box-sizing: border-box;
-    .el-menu-item {
-        padding: 0 10px;
-        border:none !important;
-    }
+  box-sizing: border-box;
+  .el-menu-item {
+      padding: 0 10px;
+      border:none;
+  }
 }
 
 .top-search {
     line-height: $top_height;
     position: absolute !important;
-    left: 20px;
+    right: 200px;
     top:0;
-    width: 400px !important;
+    width: 300px;
     .el-input__inner {
         font-size: 13px;
         border: none;
@@ -95,9 +91,6 @@
     height: $top_height;
     margin:0 7px;
     font-size: 16px;
-    &--show {
-        display: inline-block !important;
-    }
     .el-badge__content.is-fixed{
         top:12px;
         right: 5px;
@@ -106,7 +99,7 @@
 
 .top-bar__title {
     height: 100%;
-    padding-left: 30px;
+    padding-left: 50px;
     box-sizing: border-box;
     overflow: hidden;
     text-overflow: ellipsis;

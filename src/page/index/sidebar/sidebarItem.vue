@@ -9,9 +9,9 @@
         <span :alt="item[pathKey]">{{getTitle(item)}}</span>
       </template>
     </el-menu-item>
-    <el-submenu v-else-if="!validatenull(item[childrenKey])&&validRoles(item)"
-                :index="getPath(item)"
-                :key="item[labelKey]">
+    <el-sub-menu v-else-if="!validatenull(item[childrenKey])&&validRoles(item)"
+                 :index="getPath(item)"
+                 :key="item[labelKey]">
       <template #title>
         <i :class="item[iconKey]"></i>
         <span>{{getTitle(item)}}</span>
@@ -30,7 +30,7 @@
                       :menu="[child]"
                       :key="cindex"></sidebar-item>
       </template>
-    </el-submenu>
+    </el-sub-menu>
   </template>
 </template>
 <script>

@@ -37,8 +37,7 @@
              v-for="(item,index) in list1"
              :key="index">
           {{item.label}}:
-          <el-switch v-model="setting[item.value]"
-                     size="small">
+          <el-switch v-model="setting[item.value]">
           </el-switch>
         </div>
       </div>
@@ -48,8 +47,7 @@
              v-for="(item,index) in list2"
              :key="index">
           {{item.label}}:
-          <el-switch v-model="setting[item.value]"
-                     size="small">
+          <el-switch v-model="setting[item.value]">
           </el-switch>
         </div>
       </div>

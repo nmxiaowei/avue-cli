@@ -1,10 +1,10 @@
 .theme-beautiful{
   .avue-sidebar{
     background: linear-gradient(90deg,#006cff,#399efd)!important;
-    .el-menu-item, .el-submenu__title{
+    .el-menu-item, .el-sub-menu__title{
       background: linear-gradient(90deg,#006cff,#399efd)!important;
     }
-    .el-menu-item,.el-submenu__title{
+    .el-menu-item,.el-sub-menu__title{
       i,span{
           color:#fff
       }

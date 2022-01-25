@@ -60,16 +60,18 @@
 
 <script>
 let dependencies = {
+  "@element-plus/icons-vue": "^0.2.4",
+  "@smallwei/avue": "^3.0.0-beta.8",
   "animate.css": "^4.1.1",
   "axios": "^0.21.1",
   "crypto-js": "^4.1.1",
   "dayjs": "^1.10.6",
-  "element-plus": "^1.0.2-beta.70",
+  "element-plus": "^1.3.0-beta.8",
   "js-cookie": "^3.0.0",
   "mockjs": "^1.1.0",
   "nprogress": "^0.2.0",
   "vite-plugin-mock": "^2.9.4",
-  "vue": "^3.0.5",
+  "vue": "^3.2.26",
   "vue-i18n": "^9.1.2",
   "vue-router": "4",
   "vuex": "^4.0.2"

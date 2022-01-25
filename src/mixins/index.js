@@ -1,4 +1,3 @@
-
 import { validatenull } from "@/utils/validate";
 import { getStore } from "@/utils/store.js";
 export default {

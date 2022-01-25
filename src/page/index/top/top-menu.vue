@@ -1,20 +1,19 @@
 <template>
-  <div class="top-menu">
-    <el-menu :default-active="activeIndex"
-             mode="horizontal"
-             text-color="#333">
-      <template v-for="(item,index) in items"
-                :key="index">
-        <el-menu-item :index="item.parentId+''"
-                      @click="openMenu(item)">
-          <template #title>
-            <i :class="item.icon"></i>
-            <span>{{generateTitle(item)}}</span>
-          </template>
-        </el-menu-item>
-      </template>
-    </el-menu>
-  </div>
+  <el-menu class="top-menu"
+           :default-active="activeIndex"
+           mode="horizontal"
+           text-color="#333">
+    <template v-for="(item,index) in items"
+              :key="index">
+      <el-menu-item :index="item.parentId+''"
+                    @click="openMenu(item)">
+        <template #title>
+          <i :class="item.icon"></i>
+          <span>{{generateTitle(item)}}</span>
+        </template>
+      </el-menu-item>
+    </template>
+  </el-menu>
 </template>
 
 <script>

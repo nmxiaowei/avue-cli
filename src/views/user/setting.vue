@@ -16,7 +16,7 @@
                 <p class="subtitle">更改当前账号密码</p>
               </div>
               <div class="user-setting__menu">
-                <el-button size="small">修改</el-button>
+                <el-button>修改</el-button>
               </div>
             </div>
             <div class="user-setting__item">
@@ -28,7 +28,7 @@
                 <p class="subtitle">设置您的绑定手机号码</p>
               </div>
               <div class="user-setting__menu">
-                <el-button size="small">修改</el-button>
+                <el-button>修改</el-button>
               </div>
             </div>
             <div class="user-setting__item">
@@ -40,7 +40,7 @@
                 <p class="subtitle">设置您的绑定邮箱</p>
               </div>
               <div class="user-setting__menu">
-                <el-button size="small">修改</el-button>
+                <el-button>修改</el-button>
               </div>
             </div>
           </div>

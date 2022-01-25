@@ -144,6 +144,26 @@ const first = [{
     }
   }]
 }, {
+  label: "表格",
+  path: '/table',
+  component: 'views/util/table',
+  icon: 'icon-caidan',
+  iconBgColor: randomColor(),
+  meta: {
+    i18n: 'table',
+  },
+  children: []
+}, {
+  label: "表单",
+  path: '/form',
+  component: 'views/util/form',
+  icon: 'icon-caidan',
+  iconBgColor: randomColor(),
+  meta: {
+    i18n: 'form'
+  },
+  children: []
+}, {
   label: "异常页",
   path: '/error',
   meta: {

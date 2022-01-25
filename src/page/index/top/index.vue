@@ -9,14 +9,8 @@
       </div>
     </div>
     <div class="top-bar__title">
-      <div class="top-bar__item top-bar__item--show"
-           v-if="setting.menu">
-        <top-menu ref="topMenu"></top-menu>
-      </div>
-      <span class="top-bar__item"
-            v-if="setting.search">
-        <top-search></top-search>
-      </span>
+      <top-menu ref="topMenu"></top-menu>
+      <top-search v-if="setting.search"></top-search>
     </div>
     <div class="top-bar__right">
       <div v-if="setting.lock"

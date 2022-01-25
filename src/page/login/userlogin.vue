@@ -6,8 +6,7 @@
            :model="loginForm"
            label-width="0">
     <el-form-item prop="username">
-      <el-input size="small"
-                @keyup.enter="handleLogin"
+      <el-input @keyup.enter="handleLogin"
                 v-model="loginForm.username"
                 auto-complete="off"
                 :placeholder="$t('login.username')">
@@ -17,8 +16,7 @@
       </el-input>
     </el-form-item>
     <el-form-item prop="password">
-      <el-input size="small"
-                @keyup.enter="handleLogin"
+      <el-input @keyup.enter="handleLogin"
                 :type="passwordType"
                 v-model="loginForm.password"
                 auto-complete="off"
@@ -33,8 +31,7 @@
       </el-input>
     </el-form-item>
     <el-form-item prop="code">
-      <el-input size="small"
-                @keyup.enter="handleLogin"
+      <el-input @keyup.enter="handleLogin"
                 :maxlength="code.len"
                 v-model="loginForm.code"
                 auto-complete="off"
@@ -59,7 +56,6 @@
 
     <el-form-item>
       <el-button type="primary"
-                 size="small"
                  @click.prevent="handleLogin"
                  class="login-submit">{{$t('login.submit')}}</el-button>
     </el-form-item>
