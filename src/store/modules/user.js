@@ -79,6 +79,7 @@ const user = {
       return new Promise((resolve, reject) => {
         logout().then(() => {
           commit('SET_TOKEN', '')
+          commit('SET_REFRESH_TOKEN', '');
           commit('SET_MENUALL_NULL', []);
           commit('SET_MENU', [])
           commit('SET_ROLES', [])
@@ -95,6 +96,7 @@ const user = {
     FedLogOut ({ commit }) {
       return new Promise(resolve => {
         commit('SET_TOKEN', '')
+        commit('SET_REFRESH_TOKEN', '');
         commit('SET_MENUALL_NULL', []);
         commit('SET_MENU', [])
         commit('SET_ROLES', [])
