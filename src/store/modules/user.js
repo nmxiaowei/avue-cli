@@ -1,7 +1,7 @@
 import { setToken, removeToken } from '@/util/auth'
 import { setStore, getStore } from '@/util/store'
 import { encryption, deepClone } from '@/util/util'
-import { loginByUsername, getUserInfo, getMenu, getTopMenu, logout, refeshToken } from '@/api/user'
+import { loginByUsername, getUserInfo, getMenu, getTopMenu, logout, refreshToken } from '@/api/user'
 import { formatPath } from '@/router/avue-router'
 const user = {
   state: {
@@ -12,6 +12,7 @@ const user = {
     menu: getStore({ name: 'menu' }) || [],
     menuAll: getStore({ name: 'menuAll' }) || [],
     token: getStore({ name: 'token' }) || '',
+    refreshToken: getStore({ name: 'refreshToken' }) || ''
   },
   actions: {
     //根据用户名登录
@@ -26,6 +27,7 @@ const user = {
         loginByUsername(user.username, user.password, userInfo.code, userInfo.redomStr).then(res => {
           const data = res.data.data;
           commit('SET_TOKEN', data);
+          commit('SET_REFRESH_TOKEN', data)
           commit('DEL_ALL_TAG');
           commit('CLEAR_LOCK');
           resolve();
@@ -58,11 +60,12 @@ const user = {
       })
     },
     //刷新token
-    RefeshToken ({ state, commit }) {
+    RefreshToken ({ state, commit }) {
       return new Promise((resolve, reject) => {
-        refeshToken(state.refeshToken).then(res => {
+        refreshToken(state.refreshToken).then(res => {
           const data = res.data.data;
           commit('SET_TOKEN', data);
+          commit('SET_REFRESH_TOKEN', data)
           resolve(data);
         }).catch(error => {
           reject(error)
@@ -74,6 +77,7 @@ const user = {
       return new Promise((resolve, reject) => {
         logout().then(() => {
           commit('SET_TOKEN', '')
+          commit('SET_REFRESH_TOKEN', '')
           commit('SET_MENUALL_NULL', []);
           commit('SET_MENU', [])
           commit('SET_ROLES', [])
@@ -90,6 +94,7 @@ const user = {
     FedLogOut ({ commit }) {
       return new Promise(resolve => {
         commit('SET_TOKEN', '')
+        commit('SET_REFRESH_TOKEN', '')
         commit('SET_MENUALL_NULL', []);
         commit('SET_MENU', [])
         commit('SET_ROLES', [])
@@ -126,6 +131,10 @@ const user = {
       setToken(token)
       state.token = token;
       setStore({ name: 'token', content: state.token })
+    },
+    SET_REFRESH_TOKEN: (state, token) => {
+      state.refreshToken = token;
+      setStore({ name: 'refreshToken', content: state.token })
     },
     SET_MENUID (state, menuId) {
       state.menuId = menuId;
