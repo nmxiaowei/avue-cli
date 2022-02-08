@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "@element-plus/icons-vue": "^0.2.4",
-    "@smallwei/avue": "^3.0.0-beta.9",
+    "@smallwei/avue": "^3.0.0",
     "animate.css": "^4.1.1",
     "axios": "^0.21.1",
     "crypto-js": "^4.1.1",

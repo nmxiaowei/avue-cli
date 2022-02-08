@@ -23,6 +23,16 @@ export default [{
       import( /* webpackChunkName: "views" */ '@/views/wel/dashboard.vue')
   }]
 }, {
+  path: '/iframe',
+  component: Layout,
+  redirect: '/iframe',
+  children: [{
+    path: '',
+    name: '',
+    component: () =>
+      import( /* webpackChunkName: "views" */ '@/components/iframe/main.vue')
+  }]
+}, {
   path: '/info',
   component: Layout,
   redirect: '/info/index',

@@ -125,16 +125,16 @@
     estree-walker "^1.0.1"
     picomatch "^2.2.2"
 
-"@smallwei/avue@^3.0.0-beta.9":
-  version "3.0.0-beta.9"
-  resolved "https://registry.npmjs.org/@smallwei/avue/-/avue-3.0.0-beta.9.tgz#cbc28aa1d2f6bfcb335230544229f9982aa0934e"
-  integrity sha512-tcnpNNfPxfO3lUi5H67/acyRQWT7kWqFFzCLWYsPC43xpS++GlI9OU7VsvmxWZDJBJernlia/AJz/TuiGlx6gw==
+"@smallwei/avue@^3.0.0":
+  version "3.0.0"
+  resolved "https://registry.npmjs.org/@smallwei/avue/-/avue-3.0.0.tgz#c5ac3e5bce582c95c076743eecbe8d02bce25d32"
+  integrity sha512-8G1dEtKH4yuHbNrDLHID3ZsrE0a5KW45CEvUfPbHsze1X4Rao5jVMxN9qHRpxSderPl+15HSVFEwAJQnpBgubQ==
   dependencies:
     "@element-plus/icons" "^0.0.11"
     axios "^0.21.1"
     countup.js "^1.9.3"
     dayjs "^1.10.4"
-    element-plus "^1.3.0-beta.8"
+    element-plus "^2.0.1"
     vue "^3.2.22"
 
 "@types/estree@0.0.39":
@@ -259,27 +259,12 @@
   resolved "https://registry.npmjs.org/@vue/shared/-/shared-3.2.29.tgz#07dac7051117236431d2f737d16932aa38bbb925"
   integrity sha512-BjNpU8OK6Z0LVzGUppEk0CMYm/hKDnZfYdjSmPOs0N+TR1cLKJAkDwW8ASZUvaaSLEi6d3hVM7jnWnX+6yWnHw==
 
-"@vueuse/core@^7.5.4":
-  version "7.5.4"
-  resolved "https://registry.npmjs.org/@vueuse/core/-/core-7.5.4.tgz#c515c6795f1b8ab9a50e62e2f1aa75aac5f1ca14"
-  integrity sha512-PKmyHN2lZuttGgKmsoMMqiSojSYYKraszilP0gpQIGcLt2YoLABaG3VFjdPs2tY6DM+HG3o70HuzOMEQCY8fqQ==
-  dependencies:
-    "@vueuse/shared" "7.5.4"
-    vue-demi "*"
-
 "@vueuse/core@^7.5.5":
   version "7.5.5"
   resolved "https://registry.npmjs.org/@vueuse/core/-/core-7.5.5.tgz#c2f2a8783de0884acfb0be25e71ec3c6d1f9c42e"
   integrity sha512-RBDqmIoGfak4h3xdXa/Av+ibkb8NY044wEy6+PG2FAWNaID8/FkqmSFjbxogrbmpSX1yZ1PBHrM8DUp/FrIpbg==
   dependencies:
     "@vueuse/shared" "7.5.5"
-    vue-demi "*"
-
-"@vueuse/shared@7.5.4":
-  version "7.5.4"
-  resolved "https://registry.npmjs.org/@vueuse/shared/-/shared-7.5.4.tgz#4285e5c47fe5f2d608f115bf2aa26154f474e881"
-  integrity sha512-750RnGUEgg1+K4jGVkv7M5UOStAa/IjAInV6BugyBOvRYL2l1lcIDUi4V/qIKTlhd2oUAByCEnlqIpFD2a3tfw==
-  dependencies:
     vue-demi "*"
 
 "@vueuse/shared@7.5.5":
@@ -431,21 +416,6 @@ ee-first@1.1.1:
   version "1.1.1"
   resolved "https://registry.npmjs.org/ee-first/-/ee-first-1.1.1.tgz#590c61156b0ae2f4f0255732a158b266bc56b21d"
   integrity sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0=
-
-element-plus@^1.3.0-beta.8:
-  version "1.3.0-beta.8"
-  resolved "https://registry.npmjs.org/element-plus/-/element-plus-1.3.0-beta.8.tgz#1305b1b9bd6ca7e029a85c9173c848f7ebe29260"
-  integrity sha512-PRYzCKKqHoQ5IWpNj0hxPyjjRhaKlQvN0WNPeVrIe4OK7SxsV2Q8lfwIwn0GDYg8uYANTytxkg0Bky8Y+SALOQ==
-  dependencies:
-    "@ctrl/tinycolor" "^3.4.0"
-    "@element-plus/icons-vue" "^0.2.6"
-    "@popperjs/core" "^2.11.2"
-    "@vueuse/core" "^7.5.4"
-    async-validator "^4.0.7"
-    dayjs "^1.10.7"
-    lodash "^4.17.21"
-    memoize-one "^6.0.0"
-    normalize-wheel-es "^1.1.1"
 
 element-plus@^2.0.1:
   version "2.0.1"
