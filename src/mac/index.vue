@@ -35,8 +35,8 @@
                v-if="!item.hideInDesktop">
             <div class="icon"
                  :style="{backgroundColor:item.iconBgColor,color:item.iconColor}"><i class="iconfont"
-                 :class="item.icon"></i></div>
-            <div class="title">{{item.label}}</div>
+                 :class="item[iconKey]"></i></div>
+            <div class="title">{{item[labelKey]}}</div>
           </div>
         </template>
       </div>
@@ -50,8 +50,8 @@
                @click="openApp(item)">
             <i :style="{backgroundColor:item.iconBgColor,color:item.iconColor}"
                class="iconfont"
-               :class="item.icon"></i>
-            <small style="margin-top:5px;font-size:10px">{{item.label}}</small>
+               :class="item[iconKey]"></i>
+            <small style="margin-top:5px;font-size:10px">{{item[labelKey]}}</small>
           </div>
         </template>
       </div>
@@ -91,6 +91,9 @@ export default {
     },
     queryKey () {
       return this.website.menu.query
+    },
+    iconKey () {
+      return this.website.menu.icon
     },
     menuList () {
       let result = []
