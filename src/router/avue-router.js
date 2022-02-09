@@ -54,7 +54,7 @@ RouterPlugin.install = function (option = {}) {
         if (option.keepAlive) {
           meta.keepAlive = option.keepAlive
         }
-        const isChild = children && children.length !== 0;
+        const isChild = !!(children && children.length !== 0);
         const oRouter = {
           path: path,
           component: (() => {
@@ -119,8 +119,8 @@ export const formatPath = (ele, first) => {
   const iframeSrc = (href) => {
     return href.replace(/&/g, "#")
   }
-  const isChild = ele[propsDefault.children] && ele[propsDefault.children].length !== 0;
-  if (!isChild && first && !isURL(ele[propsDefault.path])) {
+  const isChild = !!(ele[propsDefault.children] && ele[propsDefault.children].length !== 0);
+  if (!isChild && first) {
     ele[propsDefault.path] = ele[propsDefault.path]
     if (isURL(ele[propsDefault.href])) {
       let href = ele[propsDefault.href]
