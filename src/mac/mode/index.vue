@@ -279,6 +279,8 @@ export default {
 .box {
   position: absolute;
   pointer-events: auto;
+  display: flex;
+  flex-direction: column;
 }
 
 .box-top {
