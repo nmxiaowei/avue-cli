@@ -2,12 +2,13 @@
   <div class="moveBg"
        :id="id"
        v-show="isShow"
+       @click="handleFocus"
        @mousemove="mouseMove"
        @mouseup="mouseUp"
        @mouseleave.stop="mouseLeave"
        :style="{pointerEvents:isBoxResizing||isBoxMoving?'auto':'none'}">
     <div class="box"
-         :style="{left:nowRect.left+'px',top:nowRect.top+'px',bottom:nowRect.bottom+'px',right:nowRect.right+'px',zIndex:app.isTop?98:88}"
+         :style="{left:nowRect.left+'px',top:nowRect.top+'px',bottom:nowRect.bottom+'px',right:nowRect.right+'px'}"
          :class="getExtBoxClasses()">
       <div class="box-top">
         <div class="box-top-left"
@@ -98,6 +99,21 @@ export default {
     }
   },
   methods: {
+    handleFocus () {
+      let list = document.getElementsByClassName('moveBg');
+      if (list.length == 1) return
+      let max = 0;
+      for (let i = 0; i < list.length; i++) {
+        let ele = list[i]
+        let box = ele.getElementsByClassName('box')[0].style;
+        let zIndex = Number(box.zIndex)
+        if (max < zIndex) {
+          max = zIndex;
+        }
+      }
+      max = max + 1;
+      this.$el.getElementsByClassName('box')[0].style.zIndex = max;
+    },
     close () {
       this.isShow = false
       if (typeof this.onClose === "function") {
@@ -261,8 +277,6 @@ export default {
 }
 
 .box {
-  display: flex;
-  flex-direction: column;
   position: absolute;
   pointer-events: auto;
 }
@@ -331,8 +345,9 @@ export default {
 .isMaxShowing {
   left: -5px !important;
   right: -5px !important;
-  top: -5px !important;
+  top: 24px !important;
   bottom: 47px !important;
+  height: calc(100% - 24px);
 }
 
 .isFullScreen {
