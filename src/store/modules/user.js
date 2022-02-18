@@ -138,8 +138,11 @@ const user = {
     SET_MENUALL: (state, menuAll) => {
       let menu = state.menuAll;
       menuAll.forEach(ele => {
-        if (!menu.find(item => item.label == ele.label && item.path == ele.path)) {
+        let index = menu.findIndex(item => item.path == ele.path)
+        if (index == -1) {
           menu.push(ele);
+        } else {
+          menu[index] = ele;
         }
       })
       state.menuAll = menu
