@@ -161,21 +161,17 @@ export default {
       });
       return { tag: tag, key: key };
     },
-    // 因需清除每个keep-alive页面的缓存，需一个一个的激活tag到前台做删除
     activeTag (tagList) {
       tagList.forEach(item => {
-        this.openTag(item);
         this.$store.commit("DEL_TAG", item);
       });
     },
     closeOthersTags () {
       this.contextmenuFlag = false;
-      let openTag = this.tag;
       let tagList = this.tagList.filter(item =>
         item.value !== this.tag.value && !this.website.isFirstPage && item.value !== this.tagWel.value
       );
       this.activeTag(tagList)
-      this.openTag(openTag);
     },
     closeAllTags () {
       this.contextmenuFlag = false;
