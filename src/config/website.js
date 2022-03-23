@@ -11,7 +11,6 @@ export default {
   //http的status默认放行不才用统一处理的,
   statusWhiteList: [400],
   //配置首页不可关闭
-  isFirstPage: false,
   setting: {
     sidebar: 'vertical',
     tag: true,
@@ -27,6 +26,8 @@ export default {
   fistPage: {
     label: "首页",
     value: "/wel/index",
+    params: {},
+    query: {},
     meta: {
       i18n: 'dashboard'
     },

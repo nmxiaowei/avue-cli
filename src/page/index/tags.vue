@@ -11,8 +11,7 @@
       <div class="item"
            @click="closeAllTags">{{$t('tagsView.closeAll')}}</div>
     </div>
-    <div class="avue-tags__box"
-         :class="{'avue-tags__box--close':!website.isFirstPage}">
+    <div class="avue-tags__box">
       <el-tabs v-model="active"
                type="card"
                @contextmenu="handleContextmenu"
@@ -160,21 +159,13 @@ export default {
       });
       return { tag: tag, key: key };
     },
-    activeTag (tagList) {
-      tagList.forEach(item => {
-        this.$store.commit("DEL_TAG", item);
-      });
-    },
     closeOthersTags () {
       this.contextmenuFlag = false;
-      let tagList = this.tagList.filter(item =>
-        item.value !== this.tag.value && !this.website.isFirstPage && item.value !== this.tagWel.value
-      );
-      this.activeTag(tagList)
+      this.$store.commit('DEL_TAG_OTHER',)
     },
     closeAllTags () {
       this.contextmenuFlag = false;
-      this.activeTag(this.tagList)
+      this.$store.commit('DEL_ALL_TAG')
       this.$router.push({
         path: this.tagWel.value,
         query: this.tagWel.query
