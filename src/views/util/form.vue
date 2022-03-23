@@ -1,7 +1,6 @@
 <template>
   <basic-container>
     <h3>表单例子</h3>
-    <el-tag>数据:{{form}}</el-tag>
     <avue-form :option="option"
                v-model="form"></avue-form>
   </basic-container>

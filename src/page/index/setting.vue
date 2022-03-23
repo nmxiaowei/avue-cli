@@ -1,6 +1,9 @@
 <template>
-  <i class="setting-icon el-icon-s-tools"
-     @click="show=true"></i>
+  <el-button @click="show=true"
+             class="setting-icon"
+             type="primary"
+             icon="el-icon-setting"
+             circle></el-button>
   <el-drawer append-to-body
              :with-header="false"
              v-model="show"
@@ -14,9 +17,6 @@
                     placement="top">
           <div @click="setting.sidebar='vertical'"
                class="setting-checkbox-item setting-checkbox-item--side">
-            <i v-if="!isHorizontal"
-               class="el-icon-check setting-checkbox--check">
-            </i>
           </div>
         </el-tooltip>
         <el-tooltip class="item"
@@ -25,9 +25,6 @@
                     placement="top">
           <div @click="setting.sidebar='horizontal'"
                class="setting-checkbox-item setting-checkbox-item--top">
-            <i v-if="isHorizontal"
-               class="el-icon-check setting-checkbox--check">
-            </i>
           </div>
         </el-tooltip>
       </div>
@@ -98,10 +95,12 @@ export default {
 
 <style lang="scss" >
 .setting {
-  padding: 20px 10px;
   &-icon {
-    font-size: 18px;
     color: #666;
+    position: fixed;
+    bottom: 200px;
+    right: 20px;
+    z-index: 2048;
   }
   &-item {
     display: flex;

@@ -19,6 +19,7 @@ export default {
     collapse: true,
     search: true,
     lock: true,
+    screenshot: true,
     fullscren: true,
     theme: true,
     menu: true
@@ -26,8 +27,6 @@ export default {
   fistPage: {
     label: "首页",
     value: "/wel/index",
-    params: {},
-    query: {},
     meta: {
       i18n: 'dashboard'
     },

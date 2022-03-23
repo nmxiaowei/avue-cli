@@ -8,16 +8,17 @@ import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
 import Avue from '@smallwei/avue';
 import '@smallwei/avue/lib/index.css';
-import { validatenull } from './utils/validate'
+import crudCommon from '@/mixins/crud.js'
 import { getScreen } from './utils/util'
 import './permission';
 import error from './error';
 import basicBlock from 'components/basic-block/main.vue'
 import basicContainer from 'components/basic-container/main.vue'
 import App from './App.vue'
-import animate from 'animate.css'
+import 'animate.css'
 import dayjs from 'dayjs'
 import 'styles/common.scss';
+window.$crudCommon = crudCommon
 const app = createApp(App)
 //注册全局容器
 app.component('basicContainer', basicContainer)
@@ -27,7 +28,6 @@ app.config.globalProperties.website = website
 app.config.globalProperties.getScreen = getScreen
 app.use(error);
 app.use(i18n)
-app.use(animate)
 app.use(store)
 app.use(router)
 app.use(ElementPlus)

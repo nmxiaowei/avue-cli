@@ -3,7 +3,7 @@
     <div v-if="menu&&menu.length==0&&!isHorizontal"
          class="avue-sidebar--tip">{{$t('menuTip')}}</div>
     <el-menu unique-opened
-             :default-active="nowTagValue"
+             :default-active="activeMenu"
              :mode="setting.sidebar"
              :collapse="getScreen(isCollapse)">
       <sidebar-item :menu="menu"></sidebar-item>
@@ -23,7 +23,14 @@ export default {
   },
   computed: {
     ...mapGetters(["isHorizontal", "setting", "menu", "tag", "isCollapse", "menuId"]),
-    nowTagValue () { return this.$route.path; }
+    activeMenu () {
+      const route = this.$route;
+      const { meta, path } = route;
+      if (meta.activeMenu) {
+        return meta.activeMenu;
+      }
+      return path;
+    }
   }
 };
 </script>

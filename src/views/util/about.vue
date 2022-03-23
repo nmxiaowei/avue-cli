@@ -1,10 +1,8 @@
 <template>
   <basic-container>
-    <h4>项目介绍</h4>
+    <h2>项目介绍</h2>
     <p style="line-height:30px">
-      avue-cli是一款基于avue和element-ui完全开源、
-      免费的企业后端产品前端集成解决方案，采用最新的前端技术栈，已经准备好了大部分的项目准备工作，
-      你可以快速进行二次开发。
+      Avue-cli基于 vue3 + vite + element plus + avue3 + vue-router + vuex，适配手机、平板、pc 的后台开源免费模板，希望减少工作量，帮助大家实现快速开发。
     </p>
   </basic-container>
   <basic-container>
@@ -59,28 +57,21 @@
 </template>
 
 <script>
-let dependencies = {
-  "@element-plus/icons-vue": "^0.2.4",
-  "@smallwei/avue": "^3.0.0",
-  "animate.css": "^4.1.1",
-  "axios": "^0.21.1",
-  "crypto-js": "^4.1.1",
-  "dayjs": "^1.10.6",
-  "element-plus": "^2.0.1",
-  "js-cookie": "^3.0.0",
-  "mockjs": "^1.1.0",
-  "nprogress": "^0.2.0",
-  "vite-plugin-mock": "^2.9.4",
-  "vue": "^3.2.26",
-  "vue-i18n": "^9.1.2",
-  "vue-router": "4",
-  "vuex": "^4.0.2"
-}
 export default {
   data () {
     return {
-      dependencies: dependencies,
-      list: Object.keys(dependencies)
+      dependencies: {}
+    }
+  },
+  created () {
+    const modules = import.meta.glob('/**.json')
+    modules['/package.json']().then(mode => {
+      this.dependencies = mode.dependencies
+    })
+  },
+  computed: {
+    list () {
+      return Object.keys(this.dependencies)
     }
   }
 };

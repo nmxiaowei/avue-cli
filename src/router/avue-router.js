@@ -27,14 +27,13 @@ RouterPlugin.install = function (option = {}) {
       }
       this.$store.commit('DEL_TAG', tag)
     },
-    generateTitle: (title, key) => {
-      if (!key) return title;
+    generateTitle: (item, props = {}) => {
+      let query = item[props.query || 'query'] || {}
+      let title = query.name || item[props.label || 'label']
+      let meta = item[props.meta || 'meta'] || {}
+      let key = meta.i18n
       const hasKey = i18n.te('route.' + key)
-      if (hasKey) {
-        const translatedTitle = i18n.t('route.' + key)
-
-        return translatedTitle
-      }
+      if (hasKey) return i18n.t('route.' + key)
       return title
     },
     //动态路由

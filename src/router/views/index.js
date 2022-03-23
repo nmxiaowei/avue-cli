@@ -60,7 +60,7 @@ export default [{
     path: ':params',
     name: '参数传递',
     meta: {
-      i18n: 'params'
+      activeMenu: '/params'
     },
     component: () =>
       import( /* webpackChunkName: "views" */ '@/views/util/params.vue')

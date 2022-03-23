@@ -67,7 +67,6 @@ export default {
     form: 'form',
     top: 'backtop',
     affix: 'affix',
-    crudForm: 'crudForm',
     data: 'data',
     cache: 'cache',
     error: 'error',

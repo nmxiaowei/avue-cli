@@ -33,10 +33,7 @@ export default {
       this.$i18n.locale = lang;
       this.$store.commit("SET_LANGUAGE", lang);
       let tag = this.tag;
-      let title = this.$router.$avueRouter.generateTitle(
-        tag.label,
-        tag.meta.i18n
-      );
+      let title = this.$router.$avueRouter.generateTitle(tag);
       //根据当前的标签也获取label的值动态设置浏览器标题
       this.$router.$avueRouter.setTitle(title);
     }

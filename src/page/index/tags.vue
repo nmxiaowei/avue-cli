@@ -37,8 +37,7 @@
 
       </el-tabs>
       <el-dropdown class="avue-tags__menu">
-        <el-button type="primary"
-                   size="mini">
+        <el-button type="primary">
           {{$t('tagsView.menu')}}
           <i class="el-icon-arrow-down el-icon--right"></i>
         </el-button>
@@ -99,7 +98,7 @@ export default {
       }, 500)
     },
     generateTitle (item) {
-      return this.$router.$avueRouter.generateTitle(item.label, item.meta.i18n);
+      return this.$router.$avueRouter.generateTitle(item);
     },
     watchContextmenu (event) {
       if (!this.$el.contains(event.target) || event.button !== 0) {

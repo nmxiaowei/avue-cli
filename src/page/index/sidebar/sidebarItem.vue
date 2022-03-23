@@ -35,7 +35,7 @@
 </template>
 <script>
 import { mapGetters } from "vuex";
-import { isURL, validatenull } from 'utils/validate'
+import { validatenull } from 'utils/validate'
 import website from '@/config/website'
 export default {
   name: "sidebarItem",
@@ -45,12 +45,8 @@ export default {
     }
   },
   props: {
-    menu: {
-      type: Array
-    }
+    menu: Array
   },
-  created () { },
-  mounted () { },
   computed: {
     ...mapGetters(["roles"]),
     labelKey () {
@@ -67,28 +63,19 @@ export default {
     },
     childrenKey () {
       return this.props.children
-    },
-    metaKey () {
-      return this.props.meta
-    },
-    nowTagValue () { return this.$route.path }
+    }
   },
   methods: {
+    validatenull,
     getPath (item) {
-      return item[this.pathKey] + ''
+      return item[this.pathKey]
     },
     getTitle (item) {
-      return this.$router.$avueRouter.generateTitle(
-        item[this.labelKey],
-        item.meta.i18n
-      );
+      return this.$router.$avueRouter.generateTitle(item, this.props);
     },
     validRoles (item) {
       item.meta = item.meta || {};
       return item.meta.roles ? item.meta.roles.includes(this.roles) : true;
-    },
-    validatenull (val) {
-      return validatenull(val);
     },
     open (item) {
       this.$router.push({

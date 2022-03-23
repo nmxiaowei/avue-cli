@@ -8,7 +8,7 @@
       <el-menu-item :index="item.parentId+''"
                     @click="openMenu(item)">
         <template #title>
-          <i :class="item.icon"></i>
+          <i class="icon-caidan"></i>
           <span>{{generateTitle(item)}}</span>
         </template>
       </el-menu-item>
@@ -43,7 +43,7 @@ export default {
       });
     },
     generateTitle (item) {
-      return this.$router.$avueRouter.generateTitle(item.label, item.meta.i18n);
+      return this.$router.$avueRouter.generateTitle(item);
     }
   }
 };

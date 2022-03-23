@@ -2,7 +2,6 @@
   <basic-container>
     <h3>表格例子</h3>
     <avue-crud :option="option"
-               :page="page"
                :data="data"></avue-crud>
   </basic-container>
 </template>
@@ -11,9 +10,6 @@
 export default {
   data () {
     return {
-      page: {
-        total: 122
-      },
       data: [
         {
           username: "smallwei",

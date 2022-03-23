@@ -144,6 +144,16 @@ const first = [{
     }
   }]
 }, {
+  label: "通用模板",
+  path: '/crud',
+  component: 'views/util/crud',
+  icon: 'icon-caidan',
+  iconBgColor: randomColor(),
+  meta: {
+    i18n: 'crud',
+  },
+  children: []
+}, {
   label: "表格",
   path: '/table',
   component: 'views/util/table',

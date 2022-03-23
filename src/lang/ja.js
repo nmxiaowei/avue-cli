@@ -68,7 +68,6 @@ export default {
     permission: '権限',
     top: 'はトップに戻る',
     affix: '画鋲',
-    crudForm: '表のフォーム',
     cache: 'ページバッファ',
     error: '異常ページ',
     test: 'テストページ'

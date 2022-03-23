@@ -14,10 +14,8 @@
         <top ref="top" />
         <!-- 顶部标签卡 -->
         <tags />
-        <transition name="fade-scale">
-          <search class="avue-view"
-                  v-show="isSearch"></search>
-        </transition>
+        <search class="avue-view"
+                v-show="isSearch"></search>
         <!-- 主体视图层 -->
         <div id="avue-view"
              v-show="!isSearch"
@@ -62,7 +60,7 @@ export default {
     };
   },
   computed: {
-    ...mapGetters(["isHorizontal", "isRefresh", "isLock", "isCollapse", "isSearch", "menu"]),
+    ...mapGetters(["isHorizontal", "isRefresh", "isLock", "isCollapse", "isSearch", "menu", "setting",]),
     validSidebar () {
       return !((this.$route.meta || {}).menu == false || (this.$route.query || {}).menu == 'false')
     }
