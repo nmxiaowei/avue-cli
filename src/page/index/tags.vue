@@ -131,11 +131,13 @@ export default {
       if (action === "remove") {
         let { tag, key } = this.findTag(value);
         this.$store.commit("DEL_TAG", tag);
-        tag = this.tagList[key - 1]
-        this.$router.push({
-          path: tag.path,
-          query: tag.query
-        })
+        if (tag.fullPath === this.tag.fullPath) {
+          tag = this.tagList[key - 1]
+          this.$router.push({
+            path: tag.path,
+            query: tag.query
+          })
+        }
       }
     },
     openTag (item) {
