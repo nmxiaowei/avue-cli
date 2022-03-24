@@ -1,7 +1,7 @@
 <template>
   <div class="moveBg"
-       :id="id"
        v-show="isShow"
+       @click="handleFocus"
        @mousemove="mouseMove"
        @mouseup="mouseUp"
        @mouseleave.stop="mouseLeave"
@@ -96,6 +96,21 @@ export default {
     }
   },
   methods: {
+    handleFocus () {
+      let list = document.getElementsByClassName('moveBg');
+      if (list.length == 1) return
+      let max = 0;
+      for (let i = 0; i < list.length; i++) {
+        let ele = list[i]
+        let box = ele.getElementsByClassName('box')[0].style;
+        let zIndex = Number(box.zIndex)
+        if (max < zIndex) {
+          max = zIndex;
+        }
+      }
+      max = max + 1;
+      this.$el.getElementsByClassName('box')[0].style.zIndex = max;
+    },
     close () {
       this.isShow = false
       this.$destroy();
