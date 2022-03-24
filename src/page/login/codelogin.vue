@@ -45,7 +45,7 @@ import { isvalidatemobile } from "@/util/validate";
 import { mapGetters } from "vuex";
 export default {
   name: "codelogin",
-  data() {
+  data () {
     const validatePhone = (rule, value, callback) => {
       if (isvalidatemobile(value)[0]) {
         callback(new Error(isvalidatemobile(value)[1]));
@@ -74,14 +74,14 @@ export default {
       }
     };
   },
-  created() {
+  created () {
     this.msgText = this.config.MSGINIT;
     this.msgTime = this.config.MSGTIME;
   },
-  mounted() {},
+  mounted () { },
   computed: {
     ...mapGetters(["tagWel"]),
-    config() {
+    config () {
       return {
         MSGINIT: this.$t("login.msgText"),
         MSGSCUCCESS: this.$t("login.msgSuccess"),
@@ -91,7 +91,7 @@ export default {
   },
   props: [],
   methods: {
-    handleSend() {
+    handleSend () {
       if (this.msgKey) return;
       this.msgText = this.msgTime + this.config.MSGSCUCCESS;
       this.msgKey = true;
@@ -106,11 +106,11 @@ export default {
         }
       }, 1000);
     },
-    handleLogin() {
+    handleLogin () {
       this.$refs.loginForm.validate(valid => {
         if (valid) {
           this.$store.dispatch("LoginByPhone", this.loginForm).then(() => {
-            this.$router.push({ path: this.tagWel.value });
+            this.$router.push(this.tagWel);
           });
         }
       });

@@ -66,7 +66,7 @@
 </template>
 <script>
 import { mapGetters } from "vuex";
-import { $Mode } from './mode/index'
+import $Mode from './mode/index'
 import index from '@/mixins/index'
 import topLock from '@/page/index/top/top-lock.vue'
 export default {

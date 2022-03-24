@@ -70,21 +70,16 @@ export default {
     nowTagValue () { return this.$route.path }
   },
   methods: {
+    validatenull,
     getPath (item) {
-      return item[this.pathKey] + ''
+      return item[this.pathKey]
     },
     getTitle (item) {
-      return this.$router.$avueRouter.generateTitle(
-        item[this.labelKey],
-        item.meta.i18n
-      );
+      return this.$router.$avueRouter.generateTitle(item, this.props);
     },
     validRoles (item) {
       item.meta = item.meta || {};
       return item.meta.roles ? item.meta.roles.includes(this.roles) : true;
-    },
-    validatenull (val) {
-      return validatenull(val);
     },
     open (item) {
       if (this.screen <= 1) this.$store.commit("SET_COLLAPSE");

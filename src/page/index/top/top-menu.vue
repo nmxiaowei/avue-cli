@@ -44,7 +44,7 @@ export default {
       });
     },
     generateTitle (item) {
-      return this.$router.$avueRouter.generateTitle(item.label, item.meta.i18n);
+      return this.$router.$avueRouter.generateTitle(item);
     }
   }
 };

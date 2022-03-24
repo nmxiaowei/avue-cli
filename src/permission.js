@@ -4,7 +4,6 @@
  */
 import router from './router/router'
 import store from './store'
-import { validatenull } from '@/util/validate'
 import { getToken } from '@/util/auth'
 import NProgress from 'nprogress' // progress bar
 import 'nprogress/nprogress.css' // progress bar style
@@ -21,6 +20,21 @@ router.beforeEach((to, from, next) => {
     } else if (to.path === '/login') { //如果登录成功访问登录页跳转到主页
       next({ path: '/' })
     } else {
+      const meta = to.meta || {}
+      const query = to.query || {}
+      if (meta.target) {
+        window.open(query.url.replace(/#/g, "&"))
+        return
+      } else if (meta.isTabs !== false) {
+        store.commit('ADD_TAG', {
+          name: query.name || to.name,
+          path: to.path,
+          fullPath: to.fullPath,
+          params: to.params,
+          query: to.query,
+          meta: meta
+        });
+      }
       //如果用户信息为空则获取用户信息，获取用户信息失败，跳转到登录页
       if (store.getters.roles.length === 0) {
         store.dispatch('GetUserInfo').then(() => {
@@ -31,22 +45,6 @@ router.beforeEach((to, from, next) => {
           })
         })
       } else {
-        const value = to.path;
-        const query = to.query
-        const label = query.name || to.name;
-        const meta = to.meta
-        if (meta.target) {
-          window.open(query.url.replace(/#/g, "&"))
-          return
-        } else if (meta.isTab !== false && !validatenull(value) && !validatenull(label)) {
-          store.commit('ADD_TAG', {
-            label: label,
-            value: value,
-            params: to.params,
-            query: to.query,
-            meta: to.meta
-          });
-        }
         next()
       }
     }
@@ -60,11 +58,10 @@ router.beforeEach((to, from, next) => {
   }
 })
 
-router.afterEach(() => {
+router.afterEach(to => {
   NProgress.done();
-  let title = store.getters.tag.label;
-  let i18n = store.getters.tag.meta.i18n;
-  title = router.$avueRouter.generateTitle(title, i18n)
+  let title = router.$avueRouter.generateTitle(to)
+  router.$avueRouter.setTitle(title);
   //根据当前的标签也获取label的值动态设置浏览器标题
   router.$avueRouter.setTitle(title);
 });

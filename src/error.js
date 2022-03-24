@@ -11,7 +11,7 @@ Vue.config.errorHandler = function (err, vm, info) {
     })
     if (process.env.NODE_ENV === 'development') {
       console.group('>>>>>> 错误信息 >>>>>>')
-      console.error(info)
+      console.log(info)
       console.groupEnd();
       console.group('>>>>>> Vue 实例 >>>>>>')
       console.log(vm)

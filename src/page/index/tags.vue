@@ -11,24 +11,23 @@
       <div class="item"
            @click="closeAllTags">{{$t('tagsView.closeAll')}}</div>
     </div>
-    <div class="avue-tags__box"
-         :class="{'avue-tags__box--close':!website.isFirstPage}">
+    <div class="avue-tags__box">
       <el-tabs v-model="active"
                type="card"
                @contextmenu.native="handleContextmenu"
                :closable="tagLen!==1"
                @tab-click="openTag"
                @edit="menuTag">
-        <el-tab-pane :key="item.value"
-                     v-for="item in tagList"
+        <el-tab-pane v-for="item in tagList"
+                     :key="item.fullPath"
                      :label="generateTitle(item)"
-                     :name="item.value">
+                     :name="item.fullPath">
           <span slot="label">
             {{generateTitle(item)}}
             <i class="el-icon-refresh"
                :class="{'turn':refresh}"
                @click="handleRefresh"
-               v-if="active==item.value"></i>
+               v-if="active==item.fullPath"></i>
           </span>
         </el-tab-pane>
 
@@ -62,13 +61,12 @@ export default {
       contextmenuFlag: false
     };
   },
-  created () { },
-  mounted () {
-    this.setActive();
-  },
   watch: {
-    tag () {
-      this.setActive();
+    tag: {
+      handler (val) {
+        this.active = val.fullPath;
+      },
+      immediate: true,
     },
     contextmenuFlag () {
       window.addEventListener("mousedown", this.watchContextmenu);
@@ -89,10 +87,15 @@ export default {
       }, 100)
       setTimeout(() => {
         this.refresh = false;
-      }, 1000)
+      }, 500)
     },
     generateTitle (item) {
-      return this.$router.$avueRouter.generateTitle(item.label, item.meta.i18n);
+      return this.$router.$avueRouter.generateTitle({
+        ...item,
+        ...{
+          label: item.name
+        }
+      });
     },
     watchContextmenu (event) {
       if (!this.$el.contains(event.target) || event.button !== 0) {
@@ -102,7 +105,6 @@ export default {
     },
     handleContextmenu (event) {
       let target = event.target;
-      // 解决 https://github.com/d2-projects/d2-admin/issues/54
       let flag = false;
       if (target.className.indexOf("el-tabs__item") > -1) flag = true;
       else if (target.parentNode.className.indexOf("el-tabs__item") > -1) {
@@ -118,73 +120,42 @@ export default {
         this.contextmenuFlag = true;
       }
     },
-    //激活当前选项
-    setActive () {
-      this.active = this.tag.value;
-    },
     menuTag (value, action) {
       if (action === "remove") {
-        let openTag; // 最终要打开的页面
         let { tag, key } = this.findTag(value);
-        if (tag.value === this.tag.value) {
-          openTag = this.tagList[key === 0 ? key : key - 1]; //如果关闭本标签让前推一个
-        } else {
-          openTag = this.tag;
-          this.openTag(tag);
-        }
         this.$store.commit("DEL_TAG", tag);
-        this.openTag(openTag);
+        if (tag.fullPath === this.tag.fullPath) {
+          tag = this.tagList[key - 1]
+          this.$router.push({
+            path: tag.path,
+            query: tag.query
+          })
+        }
+
       }
     },
     openTag (item) {
-      if (item.props) item = item.props
-      let tag;
-      if (item.name) {
-        tag = this.findTag(item.name).tag;
-      } else {
-        tag = item;
-      }
+      let value = item['_props'].name
+      let { tag } = this.findTag(value)
       this.$router.push({
-        path: tag.value,
+        path: tag.path,
         query: tag.query
-      });
+      })
     },
-    findTag (value) {
-      let tag, key;
-      this.tagList.map((item, index) => {
-        if (item.value === value) {
-          tag = item;
-          key = index;
-        }
-      });
-      return { tag: tag, key: key };
-    },
-    // 因需清除每个keep-alive页面的缓存，需一个一个的激活tag到前台做删除
-    activeTag (tagList) {
-      tagList.forEach(item => {
-        this.openTag(item);
-        this.$store.commit("DEL_TAG", item);
-      });
+    findTag (fullPath) {
+      let tag = this.tagList.find(item => item.fullPath === fullPath);
+      let key = this.tagList.findIndex(item => item.fullPath === fullPath);
+      return { tag, key }
     },
     closeOthersTags () {
       this.contextmenuFlag = false;
-      let openTag = this.tag;
-      let tagList = this.tagList.filter(item =>
-        item.value !== this.tag.value && !this.website.isFirstPage && item.value !== this.tagWel.value
-      );
-      this.activeTag(tagList)
-      this.openTag(openTag);
+      this.$store.commit('DEL_TAG_OTHER')
     },
     closeAllTags () {
       this.contextmenuFlag = false;
-      this.activeTag(this.tagList)
-      this.$router.push({
-        path: this.tagWel.value,
-        query: this.tagWel.query
-      });
+      this.$store.commit('DEL_ALL_TAG')
+      this.$router.push(this.tagWel);
     }
   }
 };
 </script>
-
-

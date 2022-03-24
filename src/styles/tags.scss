@@ -44,16 +44,14 @@
         box-sizing: border-box;
         padding-right: 106px;
         width: 100%;
-        &--close {
-            .el-tabs__item {
-                &:first-child {
-                    padding: 0 20px !important;
-                    .el-icon-close {
-                        display: none;
-                    }
-                }
-            }
-        }
+        .el-tabs__item {
+          &:first-child {
+              padding: 0 20px !important;
+              .el-icon-close {
+                  display: none;
+              }
+          }
+      }
     }
     &__contentmenu{
         position: fixed;

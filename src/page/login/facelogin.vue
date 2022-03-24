@@ -28,7 +28,7 @@ export default {
   methods: {
     handleLogin () {
       this.$store.dispatch("LoginByUsername", this.loginForm).then(() => {
-        this.$router.push({ path: this.tagWel.value });
+        this.$router.push(this.tagWel);
       });
     }
   }

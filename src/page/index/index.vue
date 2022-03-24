@@ -26,10 +26,9 @@
              v-show="!isSearch">
           <keep-alive>
             <router-view class="avue-view"
-                         v-if="$route.meta.keepAlive && isRefresh" />
+                         :key="key"
+                         v-if="isRefresh" />
           </keep-alive>
-          <router-view class="avue-view"
-                       v-if="!$route.meta.keepAlive && isRefresh" />
         </div>
         <div class="avue-footer">
           <p class="copyright">© 2018-2021 Avue designed by smallwei</p>
@@ -80,6 +79,9 @@ export default {
   },
   computed: {
     ...mapGetters(["isHorizontal", "setting", "isRefresh", "isCollapse", "menu"]),
+    key () {
+      return this.$route.path
+    },
     validSidebar () {
       return !((this.$route.meta || {}).menu == false || (this.$route.query || {}).menu == 'false')
     }

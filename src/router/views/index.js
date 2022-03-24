@@ -59,11 +59,12 @@ export default [{
   path: '/query',
   name: '参数',
   component: Layout,
-  meta: {
-    i18n: 'params'
-  },
   children: [{
     path: ':params',
+    name: '参数传递',
+    meta: {
+      activeMenu: '/params'
+    },
     component: () =>
       import( /* webpackChunkName: "views" */ '@/views/util/params')
   }]

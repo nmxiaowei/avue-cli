@@ -1,10 +1,21 @@
 <template>
   <div>
     <keep-alive>
-      <router-view class="avue-view"
-                   v-if="$route.meta.keepAlive" />
+      <router-view :key="key"
+                   class="avue-view" />
     </keep-alive>
-    <router-view class="avue-view"
-                 v-if="!$route.meta.keepAlive" />
   </div>
 </template>
+
+<script>
+export default {
+  computed: {
+    key () {
+      return this.$route.path
+    }
+  }
+}
+</script>
+
+<style>
+</style>

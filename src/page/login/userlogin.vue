@@ -72,7 +72,7 @@ import { randomLenNum } from "@/util/util";
 import { mapGetters } from "vuex";
 export default {
   name: "userlogin",
-  data() {
+  data () {
     const validateCode = (rule, value, callback) => {
       if (this.code.value != value) {
         this.loginForm.code = "";
@@ -113,32 +113,32 @@ export default {
       passwordType: "password"
     };
   },
-  created() {
+  created () {
     this.refreshCode();
   },
-  mounted() {},
+  mounted () { },
   computed: {
     ...mapGetters(["tagWel"])
   },
   props: [],
   methods: {
-    refreshCode() {
+    refreshCode () {
       this.loginForm.redomStr = randomLenNum(this.code.len, true);
       this.code.type == "text"
         ? (this.code.value = randomLenNum(this.code.len))
         : (this.code.src = `${this.codeUrl}/${this.loginForm.redomStr}`);
       this.loginForm.code = this.code.value;
     },
-    showPassword() {
+    showPassword () {
       this.passwordType == ""
         ? (this.passwordType = "password")
         : (this.passwordType = "");
     },
-    handleLogin() {
+    handleLogin () {
       this.$refs.loginForm.validate(valid => {
         if (valid) {
           this.$store.dispatch("LoginByUsername", this.loginForm).then(() => {
-            this.$router.push({ path: this.tagWel.value });
+            this.$router.push(this.tagWel);
           });
         }
       });

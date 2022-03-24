@@ -62,7 +62,6 @@ import { isURL } from '@/util/validate'
 export default {
   data () {
     return {
-      onClose: null,
       isShow: false,
       app: {},
       defaultIndex: 10,
@@ -99,9 +98,8 @@ export default {
   methods: {
     close () {
       this.isShow = false
-      if (typeof this.onClose === "function") {
-        this.onClose(this);
-      }
+      this.$destroy();
+      this.$el.remove();
     },
     hide () {
       this.isShow = false

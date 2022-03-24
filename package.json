@@ -11,14 +11,14 @@
     "test:e2e": "vue-cli-service test:e2e"
   },
   "dependencies": {
-    "@smallwei/avue": "^2.8.19",
+    "@smallwei/avue": "^2.9.3",
     "avue-plugin-ueditor": "^0.0.9",
     "axios": "^0.21.1",
     "babel-polyfill": "^6.26.0",
     "classlist-polyfill": "^1.2.0",
     "crypto-js": "^4.1.1",
     "dayjs": "^1.10.6",
-    "element-ui": "^2.15.5",
+    "element-ui": "^2.15.6",
     "js-cookie": "^2.2.0",
     "mockjs": "^1.0.1-beta3",
     "nprogress": "^0.2.0",
