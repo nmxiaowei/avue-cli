@@ -26,20 +26,19 @@ router.beforeEach((to, from, next) => {
           })
         })
       } else {
-        const value = to.path;
-        const query = to.query
-        const label = query.name || to.name;
-        const meta = to.meta
+        const meta = to.meta || {}
+        const query = to.query || {}
         if (meta.target) {
           window.open(query.url.replace(/#/g, "&"))
           return
-        } else if (meta.isTab !== false && !validatenull(value) && !validatenull(label)) {
+        } else if (meta.tabs !== false) {
           store.commit('ADD_TAG', {
-            label: label,
-            value: value,
+            name: query.name || to.name,
+            path: to.path,
+            fullPath: to.fullPath,
             params: to.params,
             query: to.query,
-            meta: to.meta
+            meta: meta
           });
         }
         next()

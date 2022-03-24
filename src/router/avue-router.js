@@ -23,7 +23,7 @@ RouterPlugin.install = function (option = {}) {
     closeTag: (value) => {
       let tag = value || this.$store.getters.tag;
       if (typeof value === 'string') {
-        tag = this.$store.getters.tagList.filter(ele => ele.value === value)[0]
+        tag = this.$store.getters.tagList.find(ele => ele.fullPath === value)
       }
       this.$store.commit('DEL_TAG', tag)
     },
@@ -32,8 +32,10 @@ RouterPlugin.install = function (option = {}) {
       let title = query.name || item[props.label || 'label']
       let meta = item[props.meta || 'meta'] || {}
       let key = meta.i18n
-      const hasKey = i18n.te('route.' + key)
-      if (hasKey) return i18n.t('route.' + key)
+      if (key) {
+        const hasKey = i18n.te('route.' + key)
+        if (hasKey) return i18n.t('route.' + key)
+      }
       return title
     },
     //动态路由

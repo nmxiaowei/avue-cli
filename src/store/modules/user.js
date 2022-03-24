@@ -78,7 +78,6 @@ const user = {
           commit('SET_TOKEN', '')
           commit('SET_MENUALL_NULL', []);
           commit('SET_MENU', [])
-          commit('SET_TAG_LIST', [])
           commit('SET_ROLES', [])
           commit('DEL_ALL_TAG', []);
           commit('CLEAR_LOCK');
@@ -95,7 +94,6 @@ const user = {
         commit('SET_TOKEN', '')
         commit('SET_MENUALL_NULL', []);
         commit('SET_MENU', [])
-        commit('SET_TAG_LIST', [])
         commit('SET_ROLES', [])
         commit('DEL_ALL_TAG', []);
         commit('CLEAR_LOCK');

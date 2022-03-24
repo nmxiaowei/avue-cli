@@ -63,7 +63,7 @@ export default {
       this.$store.dispatch("LoginByUsername", this.loginForm).then(() => {
         this.pass = true
         setTimeout(() => {
-          this.$router.push({ path: this.tagWel.value });
+          this.$router.push(this.tagWel);
         }, 1000)
       });
     }

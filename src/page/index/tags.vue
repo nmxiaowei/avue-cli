@@ -18,17 +18,17 @@
                :closable="tagLen!==1"
                @tab-click="openTag"
                @edit="menuTag">
-        <el-tab-pane :key="item.value"
-                     v-for="item in tagList"
+        <el-tab-pane v-for="(item,index) in tagList"
+                     :key="index"
                      :label="generateTitle(item)"
-                     :name="item.value">
+                     :name="item.fullPath">
           <template #label>
             <span>
               {{generateTitle(item)}}
               <i class="el-icon-refresh"
                  :class="{'turn':refresh}"
                  @click="handleRefresh"
-                 v-if="active==item.value"></i>
+                 v-if="active==item.fullPath"></i>
             </span>
           </template>
 
@@ -68,7 +68,7 @@ export default {
   watch: {
     tag: {
       handler (val) {
-        this.active = val.value;
+        this.active = val.fullPath;
       },
       immediate: true,
     },
@@ -97,7 +97,12 @@ export default {
       }, 500)
     },
     generateTitle (item) {
-      return this.$router.$avueRouter.generateTitle(item);
+      return this.$router.$avueRouter.generateTitle({
+        ...item,
+        ...{
+          label: item.name
+        }
+      });
     },
     watchContextmenu (event) {
       if (!this.$el.contains(event.target) || event.button !== 0) {
@@ -124,52 +129,36 @@ export default {
     },
     menuTag (value, action) {
       if (action === "remove") {
-        let openTag; // 最终要打开的页面
         let { tag, key } = this.findTag(value);
-        if (tag.value === this.tag.value) {
-          openTag = this.tagList[key === 0 ? key : key - 1]; //如果关闭本标签让前推一个
-        } else {
-          openTag = this.tag;
-          this.openTag(tag);
-        }
         this.$store.commit("DEL_TAG", tag);
-        this.openTag(openTag);
+        tag = this.tagList[key - 1]
+        this.$router.push({
+          path: tag.path,
+          query: tag.query
+        })
       }
     },
     openTag (item) {
-      if (item.props) item = item.props
-      let tag;
-      if (item.name) {
-        tag = this.findTag(item.name).tag;
-      } else {
-        tag = item;
-      }
+      let value = item.props.name
+      let { tag } = this.findTag(value)
       this.$router.push({
-        path: tag.value,
+        path: tag.path,
         query: tag.query
-      });
+      })
     },
-    findTag (value) {
-      let tag, key;
-      this.tagList.map((item, index) => {
-        if (item.value === value) {
-          tag = item;
-          key = index;
-        }
-      });
-      return { tag: tag, key: key };
+    findTag (fullPath) {
+      let tag = this.tagList.find(item => item.fullPath === fullPath);
+      let key = this.tagList.findIndex(item => item.fullPath === fullPath);
+      return { tag, key }
     },
     closeOthersTags () {
       this.contextmenuFlag = false;
-      this.$store.commit('DEL_TAG_OTHER',)
+      this.$store.commit('DEL_TAG_OTHER')
     },
     closeAllTags () {
       this.contextmenuFlag = false;
       this.$store.commit('DEL_ALL_TAG')
-      this.$router.push({
-        path: this.tagWel.value,
-        query: this.tagWel.query
-      });
+      this.$router.push(this.tagWel);
     }
   }
 };

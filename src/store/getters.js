@@ -17,8 +17,8 @@ const getters = {
   tagList: state => state.tags.tagList,
   tagsKeep: (state, getters) => {
     return getters.tagList.filter(ele => {
-      return ele.meta.keepAlive
-    }).map(ele => ele.value)
+      return (ele.meta || {}).keepAlive
+    }).map(ele => ele.fullPath)
   },
   tagWel: state => state.tags.tagWel,
   token: state => state.user.token,

@@ -24,14 +24,8 @@ export default {
     menu: true
   },
   fistPage: {
-    label: "首页",
-    value: "/wel/index",
-    params: {},
-    query: {},
-    meta: {
-      i18n: 'dashboard'
-    },
-    close: false
+    name: "首页",
+    path: "/wel/index"
   },
   //配置菜单的属性
   menu: {
