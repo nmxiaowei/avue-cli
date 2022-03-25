@@ -51,6 +51,15 @@ const first = [{
     i18n: 'params',
   },
 }, {
+  label: "详情页",
+  path: '/detail',
+  component: 'views/util/detail',
+  icon: 'icon-caidan',
+  iconBgColor: randomColor(),
+  meta: {
+    i18n: 'detail',
+  },
+}, {
   label: "标签",
   path: '/tags',
   component: 'views/util/tags',

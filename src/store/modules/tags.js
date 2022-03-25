@@ -9,6 +9,7 @@ const navs = {
   },
   mutations: {
     ADD_TAG: (state, action) => {
+      if (typeof action.name == 'function') action.name = action.name(action.query)
       state.tag = action;
       setStore({ name: 'tag', content: state.tag })
       if (state.tagList.some(ele => ele.fullPath == action.fullPath)) return

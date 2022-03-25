@@ -65,4 +65,18 @@ export default [{
     component: () =>
       import( /* webpackChunkName: "views" */ '@/views/util/params.vue')
   }]
+}, {
+  path: '/detail/create',
+  component: Layout,
+  children: [{
+    path: '',
+    name: (query) => {
+      return query.id ? "编辑页面" : "新增页面";
+    },
+    meta: {
+      activeMenu: '/detail'
+    },
+    component: () =>
+      import( /* webpackChunkName: "views" */ '@/views/util/detail.vue'),
+  }]
 }]
