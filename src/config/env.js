@@ -1,2 +1,2 @@
-let baseUrl = import.meta.env.VITE_BASE_URL;
+let baseUrl = import.meta.env.VITE_API_URL;
 export { baseUrl }
