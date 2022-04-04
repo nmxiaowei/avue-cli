@@ -9,7 +9,9 @@
 </template>
 
 <script lang="ts">
-export default window.$crudCommon({}, {
+import crudCommon from '../../mixins/crud'
+
+export default crudCommon({}, {
   name: 'crud/index'
 })
 </script>
