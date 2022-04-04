@@ -1,7 +1,8 @@
 import { viteMockServe } from "vite-plugin-mock";
 import { defineConfig, loadEnv } from 'vite'
 import vue from '@vitejs/plugin-vue'
-const { resolve } = require('path')
+import { resolve } from 'path'
+
 // https://vitejs.dev/config/
 export default ({ mode }) => {
   const config = loadEnv(mode, './')
