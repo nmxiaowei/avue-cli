@@ -10,7 +10,7 @@ import Avue from '@smallwei/avue';
 import '@smallwei/avue/lib/index.css';
 import { getScreen } from './utils/util'
 import './utils/permission';
-import error from '@/error';
+import error from './utils/error';
 import basicBlock from '@/components/basic-block/main.vue'
 import basicContainer from '@/components/basic-container/main.vue'
 import App from './App.vue'
