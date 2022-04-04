@@ -1,6 +1,6 @@
 import { createApp } from 'vue'
 import website from './config/website'
-import axios from './axios';
+import axios from './utils/axios';
 import router from './router/';
 import store from './store';
 import i18n from './lang/';
@@ -9,7 +9,7 @@ import 'element-plus/dist/index.css'
 import Avue from '@smallwei/avue';
 import '@smallwei/avue/lib/index.css';
 import { getScreen } from './utils/util'
-import './permission';
+import './utils/permission';
 import error from '@/error';
 import basicBlock from '@/components/basic-block/main.vue'
 import basicContainer from '@/components/basic-container/main.vue'

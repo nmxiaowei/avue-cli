@@ -1,5 +1,5 @@
 
-import request from '@/axios';
+import request from '@/utils/axios';
 import { baseUrl } from '@/config/env';
 export const list = (data) => {
   return request({
