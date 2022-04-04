@@ -33,7 +33,7 @@
     </el-sub-menu>
   </template>
 </template>
-<script>
+<script lang="ts">
 import { mapGetters } from "vuex";
 import { validatenull } from 'utils/validate'
 import website from '@/config/website'

@@ -59,7 +59,7 @@
     </div>
   </div>
 </template>
-<script>
+<script lang="ts">
 import { mapGetters } from "vuex";
 import $Mode from './mode/index'
 import index from '@/mixins/index'

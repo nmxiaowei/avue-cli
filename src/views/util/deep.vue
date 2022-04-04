@@ -2,7 +2,7 @@
   <basic-container>多级菜单</basic-container>
 </template>
 
-<script>
+<script lang="ts">
 export default {
   data () {
     return {};

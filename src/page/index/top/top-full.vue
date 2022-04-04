@@ -2,7 +2,7 @@
   <i :class="isFullScren?'icon-tuichuquanping':'icon-quanping'"
      @click="handleScreen"></i>
 </template>
-<script>
+<script lang="ts">
 import { mapGetters } from "vuex";
 import { fullscreenToggel, listenfullscreen } from "utils/util";
 export default {

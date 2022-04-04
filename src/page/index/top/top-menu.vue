@@ -16,7 +16,7 @@
   </el-menu>
 </template>
 
-<script>
+<script lang="ts">
 import { mapGetters } from "vuex";
 export default {
   name: "top-menu",

@@ -36,7 +36,7 @@
     </div>
   </div>
 </template>
-<script>
+<script lang="ts">
 import { mapGetters, mapState } from "vuex";
 export default {
   name: "lock",

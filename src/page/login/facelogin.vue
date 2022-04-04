@@ -4,7 +4,7 @@
   </basic-video>
 </template>
 
-<script>
+<script lang="ts">
 import { mapGetters } from "vuex";
 import basicVideo from '@/components/basic-video/main.vue'
 export default {

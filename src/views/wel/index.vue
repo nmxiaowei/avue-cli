@@ -48,7 +48,7 @@
   </basic-container>
 </template>
 
-<script>
+<script lang="ts">
 import { mapGetters } from "vuex";
 import dashboard from './dashboard.vue'
 export default {

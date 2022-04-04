@@ -38,7 +38,7 @@
 
 </template>
 
-<script>
+<script lang="ts">
 import {
   setStore,
   getStore,

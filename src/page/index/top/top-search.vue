@@ -14,7 +14,7 @@
   </el-autocomplete>
 </template>
 
-<script>
+<script lang="ts">
 import { mapGetters } from "vuex";
 export default {
   data () {

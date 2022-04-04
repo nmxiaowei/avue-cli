@@ -2,7 +2,7 @@
   <basic-container>测试页</basic-container>
 </template>
 
-<script>
+<script lang="ts">
 export default {
   name: "wel",
   data () {

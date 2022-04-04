@@ -5,7 +5,7 @@
 
 </template>
 
-<script>
+<script lang="ts">
 import { messages } from '@/lang/';
 export default {
   computed: {

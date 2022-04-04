@@ -39,7 +39,7 @@
   </el-form>
 </template>
 
-<script>
+<script lang="ts">
 import { isvalidatemobile } from "utils/validate";
 import { mapGetters } from "vuex";
 export default {

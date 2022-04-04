@@ -11,7 +11,7 @@
   </el-scrollbar>
 </template>
 
-<script>
+<script lang="ts">
 import { mapGetters } from "vuex";
 import sidebarItem from "./sidebarItem.vue";
 export default {

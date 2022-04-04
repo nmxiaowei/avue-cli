@@ -55,7 +55,7 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import { isURL } from 'utils/validate'
 import { defineAsyncComponent } from 'vue'
 export default {

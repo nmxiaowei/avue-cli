@@ -8,7 +8,7 @@
   </basic-container>
 </template>
 
-<script>
+<script lang="ts">
 export default window.$crudCommon({}, {
   name: 'crud/index'
 })

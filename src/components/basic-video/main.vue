@@ -17,7 +17,7 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import RecordVideo from './plugin'
 export default {
   name: 'basic-video',
