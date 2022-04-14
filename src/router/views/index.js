@@ -70,18 +70,19 @@ export default [{
   }]
 }, {
   path: '/tabs',
-  name: '参数',
+  redirect: '/tabs/index',
   component: Layout,
   children: [{
-    path: ':params',
-    name: '参数传递',
+    name: '测试页面',
     meta: {
-      isTabs: false,
-      activeMenu: '/params'
+      i18n: 'test',
+      isTab: false
     },
+    path: 'index',
     component: () =>
-      import( /* webpackChunkName: "views" */ '@/views/util/params')
+      import( /* webpackChunkName: "views" */ '@/views/util/test')
   }]
+
 }, {
   path: '/test',
   redirect: '/test/index',
