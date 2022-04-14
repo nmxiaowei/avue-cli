@@ -69,6 +69,20 @@ export default [{
       import( /* webpackChunkName: "views" */ '@/views/util/params')
   }]
 }, {
+  path: '/tabs',
+  name: '参数',
+  component: Layout,
+  children: [{
+    path: ':params',
+    name: '参数传递',
+    meta: {
+      isTabs: false,
+      activeMenu: '/params'
+    },
+    component: () =>
+      import( /* webpackChunkName: "views" */ '@/views/util/params')
+  }]
+}, {
   path: '/test',
   redirect: '/test/index',
   component: Layout,
