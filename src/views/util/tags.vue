@@ -6,6 +6,8 @@
     <el-button type="primary"
                @click="$router.$avueRouter.closeTag('/query/1')">关闭打开的页面</el-button>
     <el-button type="primary"
+               @click="$router.push('/tabs/index')">打开一个页面(不在标签里)</el-button>
+    <el-button type="primary"
                @click="$router.$avueRouter.closeTag()">关闭本标签</el-button>
 
   </basic-container>

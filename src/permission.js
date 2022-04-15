@@ -31,7 +31,7 @@ router.beforeEach((to, from, next) => {
         if (meta.target) {
           window.open(query.url.replace(/#/g, "&"))
           return
-        } else if (meta.tabs !== false) {
+        } else if (meta.isTab !== false) {
           store.commit('ADD_TAG', {
             name: query.name || to.name,
             path: to.path,

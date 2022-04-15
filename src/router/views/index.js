@@ -66,6 +66,18 @@ export default [{
       import( /* webpackChunkName: "views" */ '@/views/util/params.vue')
   }]
 }, {
+  path: '/tabs',
+  component: Layout,
+  children: [{
+    path: 'index',
+    name: '参数传递',
+    meta: {
+      isTab: false
+    },
+    component: () =>
+      import( /* webpackChunkName: "views" */ '@/views/util/test.vue')
+  }]
+}, {
   path: '/detail/create',
   component: Layout,
   children: [{
