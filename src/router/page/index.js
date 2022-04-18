@@ -9,6 +9,16 @@ export default [{
     isTab: false,
     isAuth: false
   }
+},{
+  path: '/test',
+  name: '测试页',
+  component: () =>
+    import('@/page/test.vue'),
+  meta: {
+    keepAlive: true,
+    isTab: false,
+    isAuth: false
+  }
 },
 {
   path: '/lock',
