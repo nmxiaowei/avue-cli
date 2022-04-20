@@ -1,13 +1,13 @@
 import {
   validatenull
-} from 'utils/validate';
+} from '@/utils/validate';
 import website from '@/config/website'
 
 const keyName = website.key + '-';
 /**
  * 存储localStorage
  */
-export const setStore = (params = {}) => {
+export const setStore = (params: any = {}) => {
   let {
     name,
     content,
@@ -27,13 +27,13 @@ export const setStore = (params = {}) => {
  * 获取localStorage
  */
 
-export const getStore = (params = {}) => {
+export const getStore = (params: any = {}) => {
   let {
     name,
     debug
   } = params;
   name = keyName + name
-  let obj = {},
+  let obj: any = {},
     content;
   obj = window.sessionStorage.getItem(name);
   if (validatenull(obj)) obj = window.localStorage.getItem(name);
@@ -60,7 +60,7 @@ export const getStore = (params = {}) => {
 /**
  * 删除localStorage
  */
-export const removeStore = (params = {}) => {
+export const removeStore = (params: any = {}) => {
   let {
     name,
     type
@@ -77,7 +77,7 @@ export const removeStore = (params = {}) => {
 /**
  * 获取全部localStorage
  */
-export const getAllStore = (params = {}) => {
+export const getAllStore = (params: any = {}) => {
   let list = [];
   let {
     type
@@ -110,7 +110,7 @@ export const getAllStore = (params = {}) => {
 /**
  * 清空全部localStorage
  */
-export const clearStore = (params = {}) => {
+export const clearStore = (params: any = {}) => {
   let { type } = params;
   if (type) {
     window.sessionStorage.clear();

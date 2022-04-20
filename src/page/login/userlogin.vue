@@ -62,7 +62,7 @@
   </el-form>
 </template>
 
-<script>
+<script lang="ts">
 import { randomLenNum } from "utils/util";
 import { mapGetters } from "vuex";
 export default {

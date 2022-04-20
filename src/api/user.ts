@@ -1,4 +1,4 @@
-import request from '@/axios';
+import request from '@/utils/axios';
 import { baseUrl } from '@/config/env';
 export const loginByUsername = (username, password, code, redomStr) => request({
   url: baseUrl + '/user/login',

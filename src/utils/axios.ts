@@ -8,25 +8,30 @@
 import axios from 'axios'
 import store from '@/store/';
 import router from '@/router/'
-import { serialize } from 'utils/util'
-import { getToken } from 'utils/auth'
+import { serialize } from '@/utils/util'
+import { getToken } from '@/utils/auth'
 import { ElMessage } from 'element-plus'
 import website from '@/config/website';
 import NProgress from 'nprogress' // progress bar
 import 'nprogress/nprogress.css' // progress bar style
-axios.defaults.timeout = 10000;
-//返回其他状态吗
-axios.defaults.validateStatus = function (status) {
-  return status >= 200 && status <= 500; // 默认的
-};
-//跨域请求，允许保存cookie
-axios.defaults.withCredentials = true;
+
+const http = axios.create({
+  timeout: 10000,
+  //跨域请求，允许保存cookie
+  withCredentials: true,
+  validateStatus(status) {
+    //返回其他状态吗
+    return status >= 200 && status <= 500; // 默认的
+  }
+});
+
 // NProgress Configuration
 NProgress.configure({
   showSpinner: false
 });
+
 //HTTPrequest拦截
-axios.interceptors.request.use(config => {
+http.interceptors.request.use(config => {
   NProgress.start() // start progress bar
   const meta = (config.meta || {});
   const isToken = meta.isToken === false;
@@ -41,8 +46,9 @@ axios.interceptors.request.use(config => {
 }, error => {
   return Promise.reject(error)
 });
+
 //HTTPresponse拦截
-axios.interceptors.response.use(res => {
+http.interceptors.response.use(res => {
   NProgress.done();
   const status = Number(res.status) || 200;
   const statusWhiteList = website.statusWhiteList || [];
@@ -65,4 +71,4 @@ axios.interceptors.response.use(res => {
   return Promise.reject(new Error(error));
 })
 
-export default axios;
+export default http;

@@ -35,7 +35,7 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import index from '@/mixins/index'
 import { validatenull } from 'utils/validate'
 import { mapGetters } from "vuex";

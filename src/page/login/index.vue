@@ -34,7 +34,7 @@
     </div>
   </div>
 </template>
-<script>
+<script lang="ts">
 import userLogin from "./userlogin.vue";
 import codeLogin from "./codelogin.vue";
 import thirdLogin from "./thirdlogin.vue";

@@ -24,7 +24,7 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import { setTheme } from "utils/util";
 import { mapGetters } from "vuex";
 export default {

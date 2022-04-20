@@ -1,6 +1,6 @@
 import { createApp } from 'vue'
 import website from './config/website'
-import axios from './axios';
+import axios from './utils/axios';
 import router from './router/';
 import store from './store';
 import i18n from './lang/';
@@ -8,17 +8,15 @@ import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
 import Avue from '@smallwei/avue';
 import '@smallwei/avue/lib/index.css';
-import crudCommon from '@/mixins/crud.js'
 import { getScreen } from './utils/util'
-import './permission';
-import error from './error';
-import basicBlock from 'components/basic-block/main.vue'
-import basicContainer from 'components/basic-container/main.vue'
+import './utils/permission';
+import error from './utils/error';
+import basicBlock from '@/components/basic-block/main.vue'
+import basicContainer from '@/components/basic-container/main.vue'
 import App from './App.vue'
 import 'animate.css'
 import dayjs from 'dayjs'
 import 'styles/common.scss';
-window.$crudCommon = crudCommon
 const app = createApp(App)
 //注册全局容器
 app.component('basicContainer', basicContainer)

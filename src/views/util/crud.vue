@@ -8,8 +8,10 @@
   </basic-container>
 </template>
 
-<script>
-export default window.$crudCommon({}, {
+<script lang="ts">
+import crudCommon from '../../mixins/crud'
+
+export default crudCommon({}, {
   name: 'crud/index'
 })
 </script>

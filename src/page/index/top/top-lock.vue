@@ -26,7 +26,7 @@
   </el-dialog>
 </template>
 
-<script>
+<script lang="ts">
 import { validatenull } from "utils/validate";
 import { mapGetters } from "vuex";
 export default {

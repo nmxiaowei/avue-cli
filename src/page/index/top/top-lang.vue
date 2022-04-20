@@ -15,7 +15,7 @@
   </el-dropdown>
 </template>
 
-<script>
+<script lang="ts">
 import { mapGetters } from "vuex";
 export default {
   name: "top-lang",
