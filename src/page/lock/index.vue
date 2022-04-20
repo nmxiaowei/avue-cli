@@ -23,10 +23,11 @@
                         v-model="passwd"
                         @keyup.enter="handleLogin">
                 <template #append>
-                  <el-button icon="icon-bofangqi-suoping"
-                             @click="handleLogin"></el-button>
-                  <el-button icon="icon-tuichu"
-                             @click="handleLogout"></el-button>
+                  <i class="icon-bofangqi-suoping"
+                     @click="handleLogin"></i>
+                  &nbsp; &nbsp;
+                  <i class="icon-tuichu"
+                     @click="handleLogout"></i>
                 </template>
               </el-input>
             </div>
@@ -91,7 +92,7 @@ export default {
       setTimeout(() => {
         this.$store.commit("CLEAR_LOCK");
         this.$router.push({
-          path: this.tag.value
+          path: this.tag.path
         });
       }, 1000);
     }

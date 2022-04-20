@@ -31,6 +31,8 @@ export default (app, option = {}) => {
       },
       onEvent () {
         return {
+          'size-change': this.sizeChange,
+          'current-change': this.currentChange,
           'row-save': this.rowSave,
           'row-update': this.rowUpdate,
           'row-del': this.rowDel,
@@ -147,6 +149,15 @@ export default (app, option = {}) => {
       },
       refreshChange () {
         this.getList();
+      },
+      sizeChange (val) {
+        this.page.currentPage = 1
+        this.page.pageSize = val
+        this.getList()
+      },
+      currentChange (val) {
+        this.page.currentPage = val
+        this.getList()
       }
     }
   }

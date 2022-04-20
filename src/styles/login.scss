@@ -127,8 +127,10 @@
   }
   .el-input {
     input {
-      padding:20px 0 20px 40px;
       text-indent: 5px;
+    }
+    .el-input__wrapper{
+      padding:5px 0;
       border-radius: 0;
     }
     .el-input__suffix,.el-input__prefix{
