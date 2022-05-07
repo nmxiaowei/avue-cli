@@ -15,7 +15,7 @@ import i18n from '@/lang'// Internationalization
 import Store from '../store/';
 Vue.use(VueRouter)
 const Router = new VueRouter({
-  base: process.env.VUE_APP_PATH,
+  base: process.env.VUE_APP_BASE_URL,
   mode: 'history',
   routes: [...PageRouter, ...ViewsRouter]
 })

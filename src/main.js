@@ -7,13 +7,10 @@ import './permission'; // 权限
 import './error'; // 日志
 import './cache';//页面缓冲
 import store from './store';
-import { loadStyle } from './util/util'
-import * as urls from '@/config/env';
 import Element from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import AVUE from '@smallwei/avue'
 import '@smallwei/avue/lib/index.css'
-import { iconfontUrl, iconfontVersion } from '@/config/env';
 import i18n from './lang' // Internationalization
 import './styles/common.scss';
 import basicBlock from './components/basic-block/main'
@@ -35,14 +32,7 @@ Vue.use(AVUE, {
 //注册全局容器
 Vue.component('basicContainer', basicContainer)
 Vue.component('basicBlock', basicBlock)
-// 加载相关url地址
-Object.keys(urls).forEach(key => {
-  Vue.prototype[key] = urls[key];
-})
-// 动态加载阿里云字体库
-iconfontVersion.forEach(ele => {
-  loadStyle(iconfontUrl.replace('$key', ele));
-})
+
 new Vue({
   router,
   store,

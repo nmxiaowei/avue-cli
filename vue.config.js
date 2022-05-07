@@ -1,7 +1,7 @@
 // 基础路径 注意发布之前要先修改这里
 // const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 module.exports = {
-  publicPath: process.env.VUE_APP_PATH,
+  publicPath: process.env.VUE_APP_BASE_URL,
   lintOnSave: true,
   productionSourceMap: false,
   // configureWebpack: config => {
