@@ -70,7 +70,7 @@ export default [{
   component: Layout,
   children: [{
     path: 'index',
-    name: '参数传递',
+    name: '测试页面',
     meta: {
       isTab: false
     },
