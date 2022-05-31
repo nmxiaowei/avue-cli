@@ -6,13 +6,17 @@ import elementJaLocale from 'element-plus/es/locale/lang/ja'
 import enLocale from './en'
 import zhLocale from './zh'
 import jaLocale from './ja'
+import AvueEnLocale from '@smallwei/avue/lib/locale/lang/en'
+import AvueZhLocale from '@smallwei/avue/lib/locale/lang/zh'
 export const messages = {
   en: {
     ...enLocale,
+    ...AvueEnLocale,
     ...elementEnLocale
   },
   'zh-cn': {
     ...zhLocale,
+    ...AvueZhLocale,
     ...elementZhLocale,
   },
   ja: {

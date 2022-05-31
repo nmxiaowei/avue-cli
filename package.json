@@ -7,13 +7,13 @@
     "serve": "vite preview --host"
   },
   "dependencies": {
-    "@element-plus/icons-vue": "^1.1.4",
-    "@smallwei/avue": "^3.0.5",
+    "@element-plus/icons-vue": "^2.0.1",
+    "@smallwei/avue": "^3.0.15",
     "animate.css": "^4.1.1",
     "axios": "^0.21.1",
     "crypto-js": "^4.1.1",
     "dayjs": "^1.10.6",
-    "element-plus": "^2.1.10",
+    "element-plus": "^2.2.2",
     "js-cookie": "^3.0.0",
     "mockjs": "^1.1.0",
     "nprogress": "^0.2.0",

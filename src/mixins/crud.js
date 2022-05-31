@@ -1,4 +1,6 @@
 export default (app, option = {}) => {
+  let optionObj = import.meta.glob(`../option/**/**`)[`../option/${option.name}.js`]
+  let apiObj = import.meta.glob(`../api/**/**`)[`../api/${option.name}.js`]
   let mixins = {
     data () {
       return {
@@ -12,8 +14,6 @@ export default (app, option = {}) => {
       }
     },
     created () {
-      let optionObj = import.meta.glob(`../option/**/**`)[`../option/${option.name}.js`]
-      let apiObj = import.meta.glob(`../api/**/**`)[`../api/${option.name}.js`]
       optionObj().then(mode => this.option = mode.default(this))
       apiObj().then(mode => {
         this.api = mode
