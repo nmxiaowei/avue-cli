@@ -8,18 +8,19 @@ import enLocale from './en'
 import zhLocale from './zh'
 import jaLocale from './ja'
 import AvueJaLocale from './avue/ja'
-import Avue from '@smallwei/avue'
+import avueZhLocale from '@smallwei/avue/lib/locale/lang/zh'
+import avueEnLocale from '@smallwei/avue/lib/locale/lang/en'
 Vue.use(VueI18n)
 const messages = {
   en: {
     ...enLocale,
     ...elementEnLocale,
-    ...Avue.locale.en,
+    ...avueEnLocale
   },
   zh: {
     ...zhLocale,
     ...elementZhLocale,
-    ...Avue.locale.zh,
+    ...avueZhLocale
   },
   ja: {
     ...jaLocale,
