@@ -24,7 +24,8 @@ export const messages = {
     ...elementJaLocale
   }
 }
+export const language = Store.getters.language
 export default createI18n({
-  locale: Store.getters.language,
+  locale: language,
   messages,
 });

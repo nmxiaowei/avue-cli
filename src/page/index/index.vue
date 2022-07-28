@@ -31,12 +31,13 @@
         </div>
       </div>
     </div>
-
+    <wechat></wechat>
   </div>
 </template>
 
 <script>
 import index from '@/mixins/index'
+import wechat from './wechat.vue'
 import { validatenull } from 'utils/validate'
 import { mapGetters } from "vuex";
 import tags from "./tags.vue";
@@ -51,7 +52,8 @@ export default {
     logo,
     tags,
     search,
-    sidebar
+    sidebar,
+    wechat
   },
   name: "index",
   provide () {

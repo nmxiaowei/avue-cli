@@ -4,6 +4,7 @@ import axios from './axios';
 import router from './router/';
 import store from './store';
 import i18n from './lang/';
+import { language, messages } from './lang/';
 import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
 import Avue from '@smallwei/avue';
@@ -30,6 +31,11 @@ app.use(error);
 app.use(i18n)
 app.use(store)
 app.use(router)
-app.use(ElementPlus)
-app.use(Avue, { axios })
+app.use(ElementPlus, {
+  locale: messages[language]
+})
+app.use(Avue, {
+  axios,
+  locale: messages[language]
+})
 app.mount('#app')

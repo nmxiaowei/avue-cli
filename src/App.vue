@@ -1,19 +1,10 @@
 <template>
-  <el-config-provider :locale="locale">
-    <router-view />
-  </el-config-provider>
+  <router-view />
 
 </template>
 
 <script>
-import { messages } from '@/lang/';
 export default {
-  computed: {
-    locale () {
-      let languageType = this.$store.getters.language
-      return messages[languageType]
-    }
-  }
 } 
 </script>
 
