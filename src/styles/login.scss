@@ -119,18 +119,12 @@
   i {
     color: #333;
   }
-  .el-form-item__content {
-    width: 100%;
-  }
-  .el-form-item {
-    margin-bottom: 12px;
-  }
   .el-input {
     input {
       text-indent: 5px;
     }
     .el-input__wrapper{
-      padding:5px 0;
+      padding:5px 10px;
       border-radius: 0;
     }
     .el-input__suffix,.el-input__prefix{

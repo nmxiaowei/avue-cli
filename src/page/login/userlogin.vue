@@ -17,14 +17,11 @@
     </el-form-item>
     <el-form-item prop="password">
       <el-input @keyup.enter="handleLogin"
-                :type="passwordType"
+                type="password"
+                show-password
                 v-model="loginForm.password"
                 auto-complete="off"
                 :placeholder="$t('login.password')">
-        <template #suffix>
-          <i class="el-icon-view el-input__icon"
-             @click="showPassword"></i>
-        </template>
         <template #prefix>
           <i class="icon-mima"></i>
         </template>
@@ -104,8 +101,7 @@ export default {
           { min: 4, max: 4, message: "验证码长度为4位", trigger: "blur" },
           { required: true, trigger: "blur", validator: validateCode }
         ]
-      },
-      passwordType: "password"
+      }
     };
   },
   created () {
@@ -123,11 +119,6 @@ export default {
         ? (this.code.value = randomLenNum(this.code.len))
         : (this.code.src = `/${this.loginForm.redomStr}`);
       this.loginForm.code = this.code.value;
-    },
-    showPassword () {
-      this.passwordType == ""
-        ? (this.passwordType = "password")
-        : (this.passwordType = "");
     },
     handleLogin () {
       this.$refs.loginForm.validate(valid => {
