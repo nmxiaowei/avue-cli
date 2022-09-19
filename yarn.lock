@@ -149,10 +149,10 @@
     estree-walker "^1.0.1"
     picomatch "^2.2.2"
 
-"@smallwei/avue@^3.1.3":
-  version "3.1.3"
-  resolved "https://registry.npmjs.org/@smallwei/avue/-/avue-3.1.3.tgz#f1ebc0e4a73c699085f98517e578609a83ba6c10"
-  integrity sha512-RviY5fP1ih0dtojnDmPSqi/dNz15tSC4SeJBd7kYmkPGdpiIoaMLXHI6SPVUny5aLVNTQ6OaxShfN9OfL0PtfQ==
+"@smallwei/avue@^3.1.4":
+  version "3.1.4"
+  resolved "https://registry.npmjs.org/@smallwei/avue/-/avue-3.1.4.tgz#d9d5fb049706e718ceee74a49bae1af7fd1d8f25"
+  integrity sha512-+KVr9ssdh0RWK5cCy8v9403KFgkInMQuGCOoumm+kGZDj8BJPDSIQe5CjJU6H9ukL30J/wiL4OYHu7V3giNB+Q==
   dependencies:
     "@element-plus/icons-vue" "^2.0.6"
     axios "^0.21.1"
