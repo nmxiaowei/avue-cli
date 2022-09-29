@@ -1,29 +1,21 @@
-import { viteMockServe } from "vite-plugin-mock";
 import { defineConfig, loadEnv } from 'vite'
-import vue from '@vitejs/plugin-vue'
 const { resolve } = require('path')
+import createVitePlugins from './vite/plugins'
 // https://vitejs.dev/config/
-export default ({ mode }) => {
-  const config = loadEnv(mode, './')
+export default ({ mode, command }) => {
+  const env = loadEnv(mode, process.cwd())
+  const { VITE_APP_BASE } = env
   return defineConfig({
-    base: config.VITE_BASE_URL,
+    base: VITE_APP_BASE,
     resolve: {
       alias: {
+        '~': resolve(__dirname, './'),
         "@": resolve(__dirname, "./src"),
         "components": resolve(__dirname, "./src/components"),
         "styles": resolve(__dirname, "./src/styles"),
         "utils": resolve(__dirname, "./src/utils"),
       }
     },
-    plugins: [
-      vue(),
-      viteMockServe({
-        mockPath: 'mock',
-        prodEnabled: true,
-        injectCode: `
-        import { setupProdMockServer } from './mockProdServer';
-        setupProdMockServer();
-      `,
-      })]
+    plugins: createVitePlugins(env, command === 'build'),
   })
 }

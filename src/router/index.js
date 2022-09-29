@@ -6,7 +6,7 @@ import i18n from '@/lang'
 import Store from '@/store/'
 //创建路由
 const Router = createRouter({
-  base: import.meta.env.VITE_BASE_URL,
+  base: import.meta.env.VITE_APP_BASE,
   history: createWebHistory(),
   routes: [...PageRouter, ...ViewsRouter]
 })

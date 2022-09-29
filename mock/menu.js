@@ -153,6 +153,13 @@ const first = [{
     }
   }]
 }, {
+  label: "组合API方式",
+  path: '/setup',
+  component: 'views/util/setup',
+  icon: 'icon-caidan',
+  iconBgColor: randomColor(),
+  children: []
+}, {
   label: "通用模板",
   path: '/crud',
   component: 'views/util/crud',
