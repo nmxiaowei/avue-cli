@@ -1,6 +1,7 @@
 <template>
   <basic-container>
     <h3>表单例子</h3>
+    {{form}}
     <avue-form :option="option"
                v-model="form"></avue-form>
   </basic-container>
