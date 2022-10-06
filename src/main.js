@@ -21,6 +21,7 @@ import 'animate.css'
 import dayjs from 'dayjs'
 import 'styles/common.scss';
 window.$crudCommon = crudCommon
+window.axios = axios;
 const app = createApp(App)
 for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
   app.component(key, component)
