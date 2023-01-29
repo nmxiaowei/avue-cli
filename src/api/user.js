@@ -19,7 +19,7 @@ export const getUserInfo = () => request({
   method: 'get'
 });
 
-export const refeshToken = () => request({
+export const refreshToken = () => request({
   url: baseUrl + '/user/refresh',
   method: 'post'
 })
