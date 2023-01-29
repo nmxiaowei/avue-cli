@@ -13,6 +13,7 @@ const user = {
     menu: getStore({ name: 'menu' }) || [],
     menuAll: getStore({ name: 'menuAll' }) || [],
     token: getStore({ name: 'token' }) || '',
+    refreshToken: getStore({ name: 'token' }) || ''
   },
   actions: {
     //根据用户名登录
@@ -28,6 +29,7 @@ const user = {
         loginByUsername(user.username, user.password, userInfo.code, userInfo.redomStr).then(res => {
           const data = res.data.data;
           commit('SET_TOKEN', data);
+          commit('SET_REFRESH_TOKEN', data);
           commit('DEL_ALL_TAG', []);
           commit('CLEAR_LOCK');
           resolve();
@@ -65,6 +67,7 @@ const user = {
         refeshToken(state.refeshToken).then(res => {
           const data = res.data.data;
           commit('SET_TOKEN', data);
+          commit('SET_REFRESH_TOKEN', data);
           resolve(data);
         }).catch(error => {
           reject(error)
@@ -128,6 +131,10 @@ const user = {
       setToken(token)
       state.token = token;
       setStore({ name: 'token', content: state.token })
+    },
+    SET_REFRESH_TOKEN: (state, token) => {
+      state.refreshToken = token;
+      setStore({ name: 'refreshToken', content: state.token })
     },
     SET_MENUID (state, menuId) {
       state.menuId = menuId;
