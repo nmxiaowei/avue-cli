@@ -76,7 +76,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(["menu", "tagList", "tag", "userInfo", "isMacOs"]),
+    ...mapGetters(["menu", "tagList", "tagWel", "tag", "userInfo", "isMacOs"]),
     labelKey () {
       return this.website.menu.label
     },
@@ -123,11 +123,13 @@ export default {
   methods: {
     switchTheme () {
       this.$store.commit('SET_THEME_NAME', '')
-      location.reload();
+      this.$router.push(this.tagWel);
+      setTimeout(() => location.reload())
     },
     logout () {
       this.$store.dispatch("LogOut").then(() => {
         this.$router.push({ path: "/login" });
+        setTimeout(() => location.reload())
       });
     },
     startTimer () {

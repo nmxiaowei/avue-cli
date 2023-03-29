@@ -91,12 +91,13 @@ export default {
       this.$store.commit("SET_THEME_NAME", val);
       setTheme(val);
       if (this.$store.getters.isMacOs) {
-        location.reload();
+        this.$router.push(this.tagWel);
+        setTimeout(() => location.reload())
       }
     }
   },
   computed: {
-    ...mapGetters(["themeName"])
+    ...mapGetters(["themeName", "tagWel"])
   },
   mounted () {
     this.text = this.themeName;
