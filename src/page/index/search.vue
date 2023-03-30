@@ -101,7 +101,7 @@ export default {
     createFilter (queryString) {
       return restaurant => {
         return (
-          restaurant.label.toLowerCase().indexOf(queryString.toLowerCase()) ===
+          restaurant[this.labelKey].toLowerCase().indexOf(queryString.toLowerCase()) ===
           0
         );
       };
