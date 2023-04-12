@@ -59,4 +59,8 @@ export default [{
   path: '/',
   name: '主页',
   redirect: '/wel'
+},
+{
+  path: "/:pathMatch(.*)*",
+  redirect: '/404'
 }]
