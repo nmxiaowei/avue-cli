@@ -16,9 +16,19 @@ const common = {
     themeName: getStore({ name: 'themeName' }) || 'default',
     lockPasswd: getStore({ name: 'lockPasswd' }) || '',
     website: website,
-    setting: website.setting
+    setting: website.setting,
+    axiosCancelArr: [],
   },
   mutations: {
+    PUSH_CANCEL (state, cancel) {
+      state.axiosCancelArr.push(cancel.cancelToken);
+    },
+    CLEAR_CANCEL (state) {
+      state.axiosCancelArr.forEach(e => {
+        e && e()
+      });
+      state.axiosCancelArr = []
+    },
     SET_LANGUAGE: (state, language) => {
       state.language = language
       setStore({
@@ -76,6 +86,14 @@ const common = {
         type: 'session'
       });
     },
+  },
+  actions: {
+    pushCancel ({ commit }, cancel) {
+      commit('PUSH_CANCEL', cancel)
+    },
+    clearCancel ({ commit }) {
+      commit('CLEAR_CANCEL');
+    }
   }
 }
 export default common

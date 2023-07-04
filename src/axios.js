@@ -37,6 +37,9 @@ axios.interceptors.request.use(config => {
   if (config.method === 'post' && meta.isSerialize === true) {
     config.data = serialize(config.data);
   }
+  config.cancelToken = new axios.CancelToken((cancel) => {
+    store.dispatch('pushCancel', { cancelToken: cancel })
+  });
   return config
 }, error => {
   return Promise.reject(error)
@@ -50,7 +53,16 @@ axios.interceptors.response.use(res => {
   //如果在白名单里则自行catch逻辑处理
   if (statusWhiteList.includes(status)) return Promise.reject(res);
   //如果是401则跳转到登录页面
-  if (status === 401) store.dispatch('FedLogOut').then(() => router.push({ path: '/login' }));
+  if (status === 401) {
+    store.dispatch('clearCancel');
+    Message({
+      message: '登录信息已过期，请重新登录！',
+      type: 'error'
+    });
+    store.dispatch('FedLogOut')
+    location.href = '/#/login';
+    return false
+  }
   // 如果请求为非200否者默认统一处理
   if (status !== 200) {
     ElMessage({
