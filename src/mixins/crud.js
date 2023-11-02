@@ -4,6 +4,7 @@ export default (app, option = {}) => {
   let mixins = {
     data () {
       return {
+        key: Math.random(),
         data: [],
         form: {},
         params: {},
@@ -14,7 +15,10 @@ export default (app, option = {}) => {
       }
     },
     created () {
-      optionObj().then(mode => this.option = mode.default(this))
+      optionObj().then(mode => {
+        this.option = mode.default(this)
+        this.key = Math.random()
+      })
       apiObj().then(mode => {
         this.api = mode
         this.getList()
@@ -24,6 +28,7 @@ export default (app, option = {}) => {
       bindVal () {
         return {
           ref: 'crud',
+          key: this.key,
           option: this.option,
           data: this.data,
           tableLoading: this.loading
@@ -48,23 +53,23 @@ export default (app, option = {}) => {
     methods: {
       getList () {
         const callback = () => {
-          this.loading = true;
+          this.loading = true
           let pageParams = {}
           pageParams[option.pageNumber || 'pageNumber'] = this.page.currentPage
           pageParams[option.pageSize || 'pageSize'] = this.page.pageSize
           const data = Object.assign(pageParams, this.params)
-          this.data = [];
+          this.data = []
           this.api[option.list || 'list'](data).then(res => {
-            this.loading = false;
-            let data;
+            this.loading = false
+            let data
             if (option.res) {
-              data = option.res(res.data);
+              data = option.res(res.data)
             } else {
               data = res.data.data
             }
-            this.page.total = data[option.total || 'total'];
-            const result = data[option.data || 'data'];
-            this.data = result;
+            this.page.total = data[option.total || 'total']
+            const result = data[option.data || 'data']
+            this.data = result
             if (this.listAfter) {
               this.listAfter(data)
             } else {
@@ -79,15 +84,15 @@ export default (app, option = {}) => {
       },
       rowSave (row, done, loading) {
         const callback = () => {
-          delete this.form.params;
+          delete this.form.params
           this.api[option.add || 'add'](this.form).then((data) => {
-            this.getList();
+            this.getList()
             if (this.addAfter) {
               this.addAfter(data)
             } else {
               this.$message.success('新增成功')
             }
-            done();
+            done()
           }).catch(() => {
             loading()
           })
@@ -99,9 +104,9 @@ export default (app, option = {}) => {
       },
       rowUpdate (row, index, done, loading) {
         const callback = () => {
-          delete this.form.params;
+          delete this.form.params
           this.api[option.update || 'update'](row[this.rowKey], this.form, index).then((data) => {
-            this.getList();
+            this.getList()
             if (this.updateAfter) {
               this.updateAfter(data)
             } else {
@@ -120,7 +125,7 @@ export default (app, option = {}) => {
       rowDel (row, index) {
         const callback = () => {
           this.api[option.del || 'del'](row[this.rowKey], row).then((data) => {
-            this.getList();
+            this.getList()
             if (this.delAfter) {
               this.delAfter(data, row, index)
             } else {
@@ -142,13 +147,13 @@ export default (app, option = {}) => {
         }
       },
       searchChange (params, done) {
-        if (done) done();
-        this.params = params;
-        this.page.currentPage = 1;
-        this.getList();
+        if (done) done()
+        this.params = params
+        this.page.currentPage = 1
+        this.getList()
       },
       refreshChange () {
-        this.getList();
+        this.getList()
       },
       sizeChange (val) {
         this.page.currentPage = 1
@@ -161,7 +166,7 @@ export default (app, option = {}) => {
       }
     }
   }
-  app.mixins = app.mixins || [];
+  app.mixins = app.mixins || []
   app.mixins.push(mixins)
-  return app;
+  return app
 }
