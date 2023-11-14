@@ -66,7 +66,6 @@ export default {
     params: 'params',
     form: 'form',
     top: 'backtop',
-    affix: 'affix',
     data: 'data',
     cache: 'cache',
     error: 'error',

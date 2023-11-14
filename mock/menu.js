@@ -100,16 +100,6 @@ const first = [{
   },
   children: []
 }, {
-  label: "图钉",
-  path: '/affix',
-  component: 'views/util/affix',
-  icon: 'icon-caidan',
-  iconBgColor: randomColor(),
-  meta: {
-    i18n: 'affix',
-  },
-  children: []
-}, {
   label: '多级菜单',
   path: '/deep',
   iconBgColor: randomColor(),
