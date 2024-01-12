@@ -51,7 +51,8 @@ RouterPlugin.install = function (option = {}) {
           icon = oMenu[propsDefault.icon],
           children = oMenu[propsDefault.children],
           query = oMenu[propsDefault.query],
-          meta = oMenu[propsDefault.meta];
+          meta = oMenu[propsDefault.meta],
+          is_component = true;
         if (option.keepAlive) {
           meta.keepAlive = option.keepAlive
         }
@@ -69,7 +70,10 @@ RouterPlugin.install = function (option = {}) {
             } else {
               let result = modules[`../${component}.vue`]
               if (result) result().then(mod => mod.default.name = path)
-              else { console.log(component + '不存在') }
+              else {
+                is_component = false;
+                console.log(component + '不存在')
+              }
               return result
             }
           })(),
@@ -87,7 +91,10 @@ RouterPlugin.install = function (option = {}) {
               oMenu[propsDefault.path] = `${path}`;
               let result = modules[`../${component}.vue`]
               if (result) result().then(mod => mod.default.name = path)
-              else { console.log(component + '不存在') }
+              else {
+                is_component = false
+                console.log(component + '不存在')
+              }
               return [{
                 component: result,
                 icon: icon,
@@ -102,7 +109,7 @@ RouterPlugin.install = function (option = {}) {
             return this.formatRoutes(children, false)
           })()
         }
-        if (!isURL(path)) aRouter.push(oRouter)
+        if (!isURL(path) && is_component) aRouter.push(oRouter)
       }
       if (first) {
         aRouter.forEach((ele) => this.safe.$router.addRoute(ele))
